@@ -1,0 +1,30 @@
+.Footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: #443777;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Footer-logo {
+    width: 140px;
+    height: 80px;
+}
+
+.Footer-p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+}
+
+@media (max-width: 800px) {
+    .Footer-p{
+font-size: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .Footer-p{
+font-size: 1rem;
+    }
+}
