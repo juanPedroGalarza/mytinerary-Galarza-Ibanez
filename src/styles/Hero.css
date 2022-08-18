@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Hero-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 80vh;
+    
+}
+.Hero-background{
+    background: url("https://www.xtrafondos.com/wallpapers/hong-kong-1579.jpg");
+    background-position: 50%;
+    background-size: cover;
+    filter: blur(1.5px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.Hero-title{
+    font-family: serif;
+    font-size: 2.5rem;
+    color: aliceblue;
+    text-shadow: 0 0 5px black;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+    z-index: 10;
+}
+.Hero-description{
+    display: flex;
+    color: aliceblue;
+    justify-content: center;
+    align-content: center;
+    gap: 2vw;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 90%;
+    z-index: 10;
+}
+.Hero-subtitle-container{
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+.Hero-subtitle-1{
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+}
+.Hero-subtitle-2{
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+.Hero-button {
+    position: relative;
+    background-color: rgb(38, 0, 255);
+    border-radius: 4em;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: black;
+    padding: 0.8em 1.8em;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.Hero-button:hover {
+    transition-duration: 0.1s;
+    background-color: rgb(74, 42, 255);
+}
+
+.Hero-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px white;
+}
+
+.Hero-button:active:after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+.Hero-button:active {
+    top: 1px;
+}
+@media (min-width:768px) {
+    .Hero-title{
+        font-size: 2.8rem;
+    }
+    .Hero-subtitle-1{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .Hero-subtitle-2{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .Hero-button{
+        padding: 0.4rem;
+        font-size: 1.1rem;
+    }
+}
+@media (min-width:1024px) {
+    .Hero-title{
+        font-size: 3rem;
+    }
+    .Hero-subtitle-1{
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .Hero-subtitle-2{
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .Hero-button{
+        padding: 0.6rem;
+        font-size: 1.3rem;
+    }
+}
+@media (min-width:1440px) {
+    .Hero-title{
+        font-size: 3.5rem;
+    }
+    .Hero-description{
+        gap: 2.5vw;
+    }
+    .Hero-subtitle-1{
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    .Hero-subtitle-2{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .Hero-button{
+        padding: 0.9rem;
+        font-size: 1.6rem;
+    }
+}
+@media (min-width:1880px){
+    .Hero-title{
+        font-size: 4.5rem;
+    }
+    .Hero-subtitle-1{
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    .Hero-subtitle-2{
+        font-size: 2rem;
+        text-align: center;
+    }
+    .Hero-button{
+        padding: 1.3rem;
+        font-size: 2rem;
+    }
+}
