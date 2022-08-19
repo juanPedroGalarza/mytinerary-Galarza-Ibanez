@@ -1,11 +1,11 @@
-import WebsiteLayout from "../layouts/WebsiteLayout";
+import ConstructionLayout from "../layouts/ConstructionLayout"
 
-function CitiesPage(){
+function CitiesPage() {
 
     return (
-        <WebsiteLayout>
+        <ConstructionLayout>
             <h1> Hello</h1>
-        </WebsiteLayout>
+        </ConstructionLayout>
     )
 }
 

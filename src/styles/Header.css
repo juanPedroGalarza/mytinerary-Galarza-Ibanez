@@ -5,14 +5,22 @@
 }
 
 .Header-nav-div{
-min-height: 15vh;
+min-height: 5vh;
+top: 0%;
+width: 100%;
+position: fixed;
 display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: space-between;
-background-color: #050209;
-color: #D1A27B;
+background-color: #1E212D;
+color: #FAF3E0;
+z-index: 80;
 }
+.Header-user{
+    margin: 1rem;
+}
+
 .Header-nav{
     display: flex;
     flex-wrap: wrap;
@@ -27,12 +35,13 @@ color: #D1A27B;
 
 .Header-p{
     font-family: sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-style: oblique;
 } 
 
 .Header-a{
-    color: #744E67;
+    color: #FAF3E0;
     font-family: sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
@@ -41,11 +50,11 @@ color: #D1A27B;
 }
 
 .Header-a:hover{
-    color: #D1A27B; 
+    color: #B68973; 
 }
 .Header-logo {
-    width: 140px;
-    height: 80px
+    width: 160px;
+    height: 100px
 }
 
 
