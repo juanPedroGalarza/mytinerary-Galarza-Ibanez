@@ -9,9 +9,9 @@ function Header() {
                 <p className='Header-p'>MyTinerary</p>
             </div>
             <nav className='Header-nav'>
-                <a href="#" className='Header-a'>Home</a>
-                <a href="#" className='Header-a'>Cities</a>
-                <a href="#" className='Header-a'>Sign Up</a>
+                <a href="/#" className='Header-a'>Home</a>
+                <a href="/#" className='Header-a'>Cities</a>
+                <a href="/#" className='Header-a'>Sign Up</a>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#D1A27B" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <circle cx="12" cy="12" r="9" />

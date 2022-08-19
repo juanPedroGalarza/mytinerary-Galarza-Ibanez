@@ -1,18 +1,22 @@
 import React from 'react';
 import "../styles/Hero.css";
+import WebsiteLayout from '../layouts/WebsiteLayout';
+
 const Hero = () => {
   return (
+    <WebsiteLayout>
       <div className="Hero-main">
         <div className='Hero-background'></div>
-          <h1 className='Hero-title'>MyTinerary</h1>
-          <div className='Hero-description'>
-            <div className='Hero-subtitle-container'>
-              <p className='Hero-subtitle-1'>Find your perfect trip,</p>
-              <p className='Hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
-            </div>
-            <button type="button" className='Hero-button'>Let's go!</button>
+        <h1 className='Hero-title'>MyTinerary</h1>
+        <div className='Hero-description'>
+          <div className='Hero-subtitle-container'>
+            <p className='Hero-subtitle-1'>Find your perfect trip,</p>
+            <p className='Hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
           </div>
-    </div>
+          <button type="button" className='Hero-button'>Let's go!</button>
+        </div>
+      </div>
+    </WebsiteLayout>
   )
 }
 
