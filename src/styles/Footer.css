@@ -1,7 +1,4 @@
-
-/* palette */
-/* #6B5865, #40548F, #524B6D, #D1A27B, #050209 */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,13 +6,14 @@
 
 .Footer-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
-    background-color: #050209;
+    background-color: #1E212D;
     align-items: center;
     flex-wrap: wrap;
     min-height: 10vh;
-    /*up to change */
+    z-index: 200;
+    position: relative;
 }
 
 .Footer-logo {
@@ -23,12 +21,24 @@
     height: 80px;
 }
 
+.Footer-icon-img {
+    width: 50px;
+    filter: brightness(70%);
+    margin: 1rem;
+}
+
+.Footer-icon-img:hover {
+    filter: brightness(120%);
+
+}
+
 .Footer-p {
     font-family: sans-serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
+    font-style: oblique;
     font-weight: 600;
-    color: #D1A27B;
-    font-style: italic;
+    color: #FAF3E0;
+
 }
 
 @media (max-width: 800px) {
