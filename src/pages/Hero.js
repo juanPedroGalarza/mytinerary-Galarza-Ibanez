@@ -1,10 +1,11 @@
 import React from 'react';
 import "../styles/Hero.css";
 import WebsiteLayout from '../layouts/WebsiteLayout';
-
+import CitiesCarousel from '../components/CitiesCarousel';
 const Hero = () => {
   return (
     <WebsiteLayout>
+      <>
       <div className="Hero-main">
         <div className='Hero-background'></div>
         <h1 className='Hero-title'>MyTinerary</h1>
@@ -16,6 +17,8 @@ const Hero = () => {
           <button type="button" className='Hero-button'>Let's go!</button>
         </div>
       </div>
+      <CitiesCarousel />
+      </>
     </WebsiteLayout>
   )
 }
