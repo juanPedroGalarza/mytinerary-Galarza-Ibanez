@@ -15,7 +15,7 @@ align-items: center;
 justify-content: space-between;
 background-color: #1E212D;
 color: #FAF3E0;
-z-index: 80;
+z-index: 800;
 }
 .Header-user{
     margin: 1rem;
