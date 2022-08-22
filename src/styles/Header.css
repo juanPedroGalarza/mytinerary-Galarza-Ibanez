@@ -1,46 +1,58 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.Header-nav-div{
-min-height: 5vh;
-top: 0%;
-width: 100%;
-position: fixed;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-between;
-background-color: #1E212D;
-color: #FAF3E0;
-z-index: 800;
-}
-.Header-user{
-    margin: 1rem;
+.Header-nav-div {
+    display: flex;
+    position: relative;
+    min-height: 5vh;
+    top: 0%;
+    width: 100%;
+    /* position: fixed; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E212D;
+    color: #FAF3E0;
+    z-index: 800;
 }
 
-.Header-nav{
+.Header-user {
+    margin: 1rem;
+    max-width: 3rem;
+    filter: brightness(85%);
+}
+
+.Header-user:hover {
+
+    border-radius: 80%;
+    background-color: #EABF9F;
+    padding: 0.3rem;
+}
+
+.Header-nav {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
 }
 
-.Header-items-div{
+.Header-items-div {
     display: flex;
     align-items: center;
 }
 
-.Header-p{
+.Header-p {
     font-family: sans-serif;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 800;
     font-style: oblique;
-} 
+}
 
-.Header-a{
+.Header-a {
     color: #FAF3E0;
     font-family: sans-serif;
     font-size: 1.3rem;
@@ -49,18 +61,46 @@ z-index: 800;
     margin: 4px;
 }
 
-.Header-a:hover{
-    color: #B68973; 
+.Header-a:hover {
+    color: #EABF9F;
 }
+
 .Header-logo {
-    width: 160px;
-    height: 100px
+    max-width: 120px;
+    max-height: 100px;
+    margin: 1rem;
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
 
-    .Header-nav-div{
+    .Header-items-div {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .Header-nav-div {
+        flex-direction: column;
+    }
+
+    .Header-nav {
+        flex-direction: column;
+    }
+
+    .Header-a {
+        border-radius: 25%;
+        background-color: #EABF9F;
+        padding: 0.8rem;
+    }
+
+    .Header-a:hover{
+        color: #1E212D;
+    }
+
+    .Header-user:hover {
+        background-color: #1E212D;
+        border: solid 0.3rem #EABF9F;
     }
 }
