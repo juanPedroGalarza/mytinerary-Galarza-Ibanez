@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/Hero.css";
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import CitiesCarousel from '../components/CitiesCarousel';
+import CTA from '../components/CTA';
 const Hero = () => {
   return (
     <WebsiteLayout>
@@ -14,7 +15,7 @@ const Hero = () => {
             <p className='Hero-subtitle-1'>Find your perfect trip,</p>
             <p className='Hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
           </div>
-          <a href='/#' className='Hero-button'>Let's go!</a>
+          <CTA />
         </div>
       </div>
       <CitiesCarousel />
