@@ -1,0 +1,16 @@
+.CitiesPage-main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+    background-color: #EABF9Fa7;
+}
+.CitiesPage-title{
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+    text-shadow: -5px 3px black;
+    z-index: 100;
+}
