@@ -23,6 +23,7 @@ function NewCity() {
                         <p className="NewCity-form-p">text4</p>
                         <input type="text" name="text4" className="NewCity-form-input" />
                     </label>
+                    <button type="submit" className="NewCity-form-button">Send</button>
                 </form>
             </div>
         </WebsiteLayout>
