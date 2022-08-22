@@ -22,14 +22,15 @@
 }
 
 .Footer-icon-img {
-    width: 50px;
-    filter: brightness(70%);
-    margin: 1rem;
+    width: 40px;
+    filter: brightness(100%);
+    margin: 0.3rem;
+    border-radius: 40%;
+    padding: 0.5rem;
 }
 
 .Footer-icon-img:hover {
-    filter: brightness(120%);
-
+    background-color: #EABF9F;
 }
 
 .Footer-p {
@@ -38,17 +39,76 @@
     font-style: oblique;
     font-weight: 600;
     color: #FAF3E0;
+}
 
+.Footer-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer-nav-a {
+    margin: 0.5rem;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+    color: #FAF3E0;
+}
+
+.Footer-nav-a:hover {
+    color: #EABF9F;
+
+}
+
+@media (min-width: 900px) {
+
+    .Footer-scroll {
+        position: absolute;
+        right: 30px;
+    
+    }
+    
+    .Footer-scroll-img {
+        max-width: 3rem;
+        border-radius: 80%;
+        padding: 0.5rem;
+    
+    }
+}
+
+.Footer-scroll-img:hover {
+    background-color: #B68973;
 }
 
 @media (max-width: 800px) {
     .Footer-p {
         font-size: 2rem;
     }
+
+    .Footer-scroll {
+        display:none;
+    
+    }
 }
 
 @media (max-width: 500px) {
     .Footer-p {
         font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
+
+    .Footer-socialmedia {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Footer-scroll {
+        display:none;
+    
+    }
+
 }
+
+/* Necesito cambiar los iconos de media. */
