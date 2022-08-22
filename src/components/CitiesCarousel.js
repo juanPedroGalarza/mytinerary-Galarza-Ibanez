@@ -15,7 +15,7 @@ function CitiesCarousel() {
         {url:"https://img5.goodfon.com/wallpaper/nbig/6/60/mekhiko-meksika-zdaniia-ploshchad.jpg", title:"Mexico City"}
     ]
     return (
-        <Carousel data={cities} range={4} start={0} />
+        <Carousel data={cities} range={4} start={0} interval={10} />
     )
 }
 export default CitiesCarousel
