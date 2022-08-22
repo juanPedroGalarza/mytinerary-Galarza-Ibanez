@@ -1,0 +1,38 @@
+.TableList-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
+.TableList-item{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #1E212D88;
+    outline: 3px solid #1E212D;
+    outline-offset: -3px;
+}
+.TableList-item-img{
+    height: 100%;
+    width: 300px;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: 50%;
+    margin-left: 3px;
+}
+.TableList-item-title{
+    color: #FAF3E0;
+    text-shadow: 2px 1px black;
+    font-size: 2em;
+    font-family: Tahoma;
+    font-style: italic;
+    text-align: center;
+    text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
+    z-index: 120;
+}
