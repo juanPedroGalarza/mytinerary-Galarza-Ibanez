@@ -1,5 +1,5 @@
-import React from 'react'
 import '../styles/Header.css'
+import {Link as LinkRouter} from 'react-router-dom'
 
 function Header() {
     return (
@@ -9,10 +9,10 @@ function Header() {
                 <p className='Header-p'>MyTinerary</p>
             </div>
             <nav className='Header-nav'>
-                <a href="/#" className='Header-a'>Home</a>
-                <a href="/#" className='Header-a'>Cities</a>
-                <a href="/#" className='Header-a'>Log In</a>
-                <a href="/#" className='Header-a'>Sign Up</a>
+                <LinkRouter to='/' className='Header-a'>Home</LinkRouter>
+                <LinkRouter to='/cities' className='Header-a'>Cities</LinkRouter>
+                <LinkRouter to='/*' className='Header-a'>Log In</LinkRouter>
+                <LinkRouter to='/*' className='Header-a'>Sign Up</LinkRouter>
                 <img className='Header-user' src="https://i.ibb.co/jgp9dqj/user2.png"/>
             </nav>
         </div>

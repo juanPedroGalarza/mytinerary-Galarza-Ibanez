@@ -1,10 +1,11 @@
-import React from "react";
 import '../styles/Hero.css'
+import {Link as LinkRouter} from 'react-router-dom'
+
 
 function CTA(){
     return (
         <div>
-            <a href='/#' className='Hero-button'>Let's go!</a>
+            <LinkRouter to='/cities' className='Hero-button'>Let's go!</LinkRouter>
         </div>
     )
 }
