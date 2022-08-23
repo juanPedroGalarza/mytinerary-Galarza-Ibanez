@@ -1,16 +1,26 @@
-.CitiesPage-main{
+.CitiesPage-main {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 95vh;
-    background-color: #EABF9Fa7;
+    background-image: url(https://wallpapercave.com/wp/wp1809587.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
-.CitiesPage-title{
-    font-size: 2rem;
+
+.CitiesPage-title {
+    font-size: 3.5rem;
     text-align: center;
     color: aliceblue;
-    text-shadow: -5px 3px black;
+    text-shadow: 4px 4px 6px rgba(30,33,45,1);
     z-index: 100;
+    font-family: sans-serif;
+    font-weight: 800;
+    font-style: oblique;
+    margin: 1rem;
 }
+

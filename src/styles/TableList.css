@@ -1,38 +1,89 @@
-.TableList-container{
+.TableList-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     width: 80%;
 }
-.TableList-item{
+
+.TableList-item {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    flex-wrap: wrap-reverse;
+    flex-direction: column;
+    justify-content: center;
+    /* flex-wrap: wrap; */
     align-items: center;
     height: 300px;
     width: 100%;
-    overflow: hidden;
-    background-color: #1E212D88;
-    outline: 3px solid #1E212D;
     outline-offset: -3px;
+    margin: 1rem;
+    border-radius: 15px 35px 15px 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    filter: saturate(60%);
+    box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
 }
-.TableList-item-img{
+
+
+
+/* .TableList-item-img {
     height: 100%;
     width: 300px;
     object-fit: cover;
     overflow: hidden;
     object-position: 50%;
     margin-left: 3px;
-}
-.TableList-item-title{
+} */
+
+.TableList-item-title {
     color: #FAF3E0;
-    text-shadow: 2px 1px black;
-    font-size: 2em;
+    text-shadow: 2px 1px #1E212D;
+    font-size: 3rem;
     font-family: Tahoma;
     font-style: italic;
     text-align: center;
-    text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
+    font-weight: 600;
     z-index: 120;
+    margin: 1rem;
+    font-size: 4vw
+}
+
+.TableList-item-country {
+    color: #FAF3E0;
+    text-shadow: 2px 1px #1E212D;
+    font-size: 2rem;
+    font-family: Tahoma;
+    font-size: 2vw
+}
+
+.TableList-item:hover {
+    filter: brightness(110%);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.06);
+    filter: saturate(120%);
+    box-shadow: 10px 10px 21px 9px rgba(30,33,45,1);
+    -webkit-box-shadow: 10px 10px 21px 9px rgba(30,33,45,1);
+    -moz-box-shadow: 10px 10px 21px 9px rgba(30,33,45,1);
+}
+
+.TableList-item-title:hover {
+    color: #EABF9F;
+    font-style: italic;
+}
+
+@media (max-width: 800px) {
+
+    .TableList-item {
+        flex-wrap: wrap;
+    }
+
+    .TableList-item-title{
+        font-size: 8vw
+    }
+    .TableList-item-country{
+        font-size: 4vw
+    }
 }

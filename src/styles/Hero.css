@@ -71,54 +71,44 @@
 }
 
 .Hero-button {
-    position: relative;
-    background-color: #1E212D;
-    border-radius: 4em;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: sans-serif;
-    color: #FAF3E0;
-    padding: 0.8em 1.8em;
-    cursor: pointer;
-    user-select: none;
-    text-align: center;
     text-decoration: none;
-    cursor: pointer;
-    transition-duration: 0.4s;
+    padding: 15px 25px;
+    text-shadow: none;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #FAF3E0;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px #1E212D;
+    box-shadow: 4px 8px 19px -3px #1E212D;
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.Hero-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
 }
 
 .Hero-button:hover {
-    transition-duration: 0.1s;
-    background-color: #B68973;
-    color: #050209;
+    color: #e8e8e8;
 }
 
-.Hero-button:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 4em;
-    left: 0;
-    top: 0;
+.Hero-button:hover::before {
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.5s;
-    box-shadow: 0 0 10px 40px #D1A27B;
-}
-
-.Hero-button:active:after {
-    box-shadow: 0 0 0 0 #D1A27B;
-    position: absolute;
-    border-radius: 4em;
-    left: 0;
-    top: 0;
-    opacity: 1;
-    transition: 0s;
-}
-
-.Hero-button:active {
-    top: 1px;
 }
 
 @media (min-width:768px) {
