@@ -1,5 +1,4 @@
 import TableList from "../components/TableList"
-import WebsiteLayout from "../layouts/WebsiteLayout"
 import "../styles/CitiesPage.css"
 function CitiesPage() {
     const cities = [
@@ -17,12 +16,10 @@ function CitiesPage() {
         {url:"https://img5.goodfon.com/wallpaper/nbig/6/60/mekhiko-meksika-zdaniia-ploshchad.jpg", title:"Mexico City", country:"Mexico"}
     ]
     return (
-        <WebsiteLayout>
-            <div className="CitiesPage-main">
-                <h1 className="CitiesPage-title">Cities</h1>
-                <TableList data={cities} />
-            </div>
-        </WebsiteLayout>
+        <div className="CitiesPage-main">
+            <h1 className="CitiesPage-title">Cities</h1>
+            <TableList data={cities} />
+        </div>
     )
 }
 

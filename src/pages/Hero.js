@@ -1,12 +1,10 @@
 import React from 'react';
 import "../styles/Hero.css";
-import WebsiteLayout from '../layouts/WebsiteLayout';
 import CitiesCarousel from '../components/CitiesCarousel';
 import CTA from '../components/CTA';
 const Hero = () => {
   return (
-    <WebsiteLayout>
-      <>
+    <>
       <div className="Hero-main">
         <div className='Hero-background'></div>
         <h1 className='Hero-title'>MyTinerary</h1>
@@ -19,8 +17,7 @@ const Hero = () => {
         </div>
       </div>
       <CitiesCarousel />
-      </>
-    </WebsiteLayout>
+    </>
   )
 }
 
