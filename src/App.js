@@ -3,10 +3,11 @@ import Hero from './pages/Hero';
 import CitiesPage from "./pages/CitiesPage"
 import NewCity from "./pages/NewCity"
 import UnderConstruction from './pages/UnderConstruction';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import WebsiteLayout from './layouts/WebsiteLayout';
 function App() {
   return (
-    <>
+    <WebsiteLayout>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Hero />} />
@@ -15,7 +16,7 @@ function App() {
           <Route path='/*' element={<UnderConstruction />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </WebsiteLayout>
   );
 }
 
