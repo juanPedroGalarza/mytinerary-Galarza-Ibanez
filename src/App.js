@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 import Hero from './pages/Hero';
-import Footer from "./components/Footer";
-
+import CitiesPage from "./pages/CitiesPage"
+import NewCity from "./pages/NewCity"
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 function App() {
   return (
     <>
-      <Hero />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Hero />} />
+          <Route path='/cities' element={<CitiesPage />} />
+          <Route path='/new-city' element={<NewCity />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
