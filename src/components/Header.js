@@ -11,6 +11,7 @@ function Header() {
             <nav className='Header-nav'>
                 <a href="/#" className='Header-a'>Home</a>
                 <a href="/#" className='Header-a'>Cities</a>
+                <a href="/#" className='Header-a'>Log In</a>
                 <a href="/#" className='Header-a'>Sign Up</a>
                 <img className='Header-user' src="https://i.ibb.co/jgp9dqj/user2.png"/>
             </nav>

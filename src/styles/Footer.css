@@ -35,7 +35,7 @@
 
 .Footer-p {
     font-family: sans-serif;
-    font-size: 1.5rem;
+    font-size: 2vw;
     font-style: oblique;
     font-weight: 600;
     color: #FAF3E0;
@@ -69,7 +69,8 @@
     }
     
     .Footer-scroll-img {
-        max-width: 3rem;
+        /* max-width: 3rem; */
+        max-width: 4vw;
         border-radius: 80%;
         padding: 0.5rem;
     
@@ -80,9 +81,9 @@
     background-color: #B68973;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .Footer-p {
-        font-size: 2rem;
+        font-size: 4vw
     }
 
     .Footer-scroll {
@@ -93,10 +94,11 @@
 
 @media (max-width: 500px) {
     .Footer-p {
-        font-size: 1rem;
+
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        font-size: 4vw
     }
 
     .Footer-socialmedia {
