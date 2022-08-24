@@ -76,6 +76,56 @@
     font-style: italic;
 }
 
+.Details-p-div {
+background-color: #1e212dac;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100px;
+width: 100%;
+margin: 1rem;
+padding: 1rem;
+border-radius: 35px 15px 35px 15px;
+box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+-webkit-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+-moz-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+
+}
+.Details-p{
+    padding: 1rem;
+    color: #FAF3E0;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+.Details-subtitle{
+    margin: 2rem;
+    color: #FAF3E0;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.Details-btns{
+    margin: 2rem;
+
+}
+.Details-btn{
+    text-decoration: none;
+    margin: 1rem;
+    padding: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #1E212D ;
+    background-color:#FAF3E0 ;
+    border-radius: 16px;
+
+}
+.Details-btn:hover{
+    background-color: #1E212D ;
+    color:#FAF3E0;
+    font-style: italic;
+}
+
 @media (max-width: 800px) {
 
     .TableList-item {
