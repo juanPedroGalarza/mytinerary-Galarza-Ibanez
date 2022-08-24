@@ -1,4 +1,4 @@
-.Carousel-container{
+.Carousel-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,8 @@
     background-position: 50%;
     background-size: cover; */
 }
-.Carousel{
+
+.Carousel {
     display: flex;
     max-height: 80vh;
     min-height: 80vh;
@@ -20,8 +21,10 @@
     background-position: 50%;
     background-size: 90%;
     z-index: 50;
+    border-radius: 12px;
 }
-.Carousel-title{
+
+.Carousel-title {
     font-family: sans-serif;
     font-size: 1.4rem;
     font-style: italic;
@@ -30,29 +33,35 @@
     text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
     z-index: 80;
 }
-.Carousel-slide{
+
+.Carousel-slide {
     display: flex;
     flex-wrap: wrap;
     max-width: 90%;
     min-width: 90%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    align-content: space-between;
+    align-content: space-around;
+    gap: 1rem;
 }
-.Carousel-item{
+
+.Carousel-item {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
     align-items: center;
     text-decoration: none;
-    height: 48%;
-    width: 48%;
+    /* height: 48%;
+    width: 48%; */
+    height: 18vmax;
+    width: 30vmax;
     overflow: hidden;
     background-color: #1E212D88;
     outline: 3px solid #1E212D;
     outline-offset: -3px;
 }
-.Carousel-item-image{
+
+.Carousel-item-image {
     min-width: calc(100% - 6px);
     max-width: calc(100% - 6px);
     height: 90%;
@@ -61,7 +70,8 @@
     object-position: 50%;
     margin-left: 3px;
 }
-.Carousel-item-title{
+
+.Carousel-item-title {
     color: #FAF3E0;
     text-shadow: 2px 1px black;
     position: relative;
@@ -74,6 +84,7 @@
     text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
     z-index: 120;
 }
+
 @media (min-width:768px) {
 
     .Carousel-title {
@@ -86,9 +97,10 @@
 }
 
 @media (min-width:1024px) {
-    .Carousel{
-        width: 80%;
+    .Carousel {
+        width: 80vw;
     }
+
     .Carousel-title {
         font-size: 1.8rem;
     }
@@ -96,10 +108,16 @@
     .Carousel-item-title {
         font-size: 1.6em;
     }
+
+    .Carousel-item {
+        height: 40%;
+        width: 48%;
+    }
+
 }
 
 @media (min-width:1440px) {
-    .Carousel{
+    .Carousel {
         width: 70%;
     }
     .Carousel-title {
@@ -120,4 +138,53 @@
     .Carousel-item-title {
         font-size: 2.8em;
     }
+    .Carousel-item {
+        height: 45%;
+        width: 50%;
+    }
+
 }
+
+@media (max-width:1023px) {
+    .Carousel-item {
+        height: 25vmax;
+        width: 36vmax;
+    }
+
+    .Carousel {
+        width: 90vw;
+        min-height: 65vh;
+    }
+
+}
+
+@media (max-width:740px) {
+    .Carousel-item {
+        height: 25vmax;
+        width: 60vmax;
+    }
+
+    .Carousel {
+        min-height: 100vh;
+        max-width: 80vw;
+    }
+    .Carousel-slide{
+    gap: 0.2rem;
+    }
+
+}
+@media (max-width:450px) {
+    .Carousel-item {
+        height: 25vmax;
+        width: 40vmax;
+    }
+
+    .Carousel {
+        min-height: 100vh;
+        max-width: 80vw;
+    }
+    .Carousel-slide{
+    gap: 0.2rem;
+    }
+
+} 

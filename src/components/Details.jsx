@@ -1,15 +1,14 @@
-import "../styles/TableList.css"
+import "../styles/CityDetails.css"
 import { Link as LinkRouter } from 'react-router-dom'
 
 function Details(props) {
     const city = props.data
-
     const printCard = (item) => {
         return (
             <>
-                <div className="TableList-item" style={{ backgroundImage: `url(${item.url})` }}>
-                    <p className="TableList-item-title">{item.title}</p>
-                    <p className="TableList-item-country">{item.country}</p>
+                <div className="Details-item" style={{ backgroundImage: `url(${item.url})` }}>
+                    <p className="Details-item-title">{item.title}</p>
+                    <p className="Details-item-country">{item.country}</p>
                 </div>
                 <div className="Details-p-div">
                         <p className="Details-p" >{item.description}</p>
@@ -23,7 +22,7 @@ function Details(props) {
         )
     }
     return (
-        <div className="TableList-container">
+        <div className="Details-container">
             {printCard(city)}
         </div>
     )

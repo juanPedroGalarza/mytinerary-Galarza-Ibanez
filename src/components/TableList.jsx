@@ -6,7 +6,7 @@ function TableList(props) {
    // console.log(city)
     const itemView = (item) => {
         return (
-            <LinkRouter to={`/city/${item.title}`} className="TableList-item" style={{ backgroundImage: `url(${item.url})` }}>
+            <LinkRouter to={`/city/${item.title}`} className="TableList-item" key={item.country} style={{ backgroundImage: `url(${item.url})` }}>
                 <p className="TableList-item-title">{item.title}</p>
                 <p className="TableList-item-country">{item.country}</p>
             </LinkRouter>
