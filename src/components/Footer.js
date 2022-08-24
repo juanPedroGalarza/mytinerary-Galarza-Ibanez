@@ -9,9 +9,9 @@ const Footer = (props) => {
     return (
         <div className='Footer-container'>
             <div className='Footer-socialmedia'>
-                <a href="#" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/jhk8JH6/instagram2.png'></img></a>
-                <a href="#" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/6wxyJgN/twitter2.png'></img></a>
-                <a href="#" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/FnkNTjS/youtube2.png'></img></a>
+                <a href="https://www.instagram.com/mytinerary_/" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/jhk8JH6/instagram2.png'></img></a>
+                <a href="https://twitter.com/MytineraryApp" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/6wxyJgN/twitter2.png'></img></a>
+                <a href="https://www.youtube.com/watch?v=6PDmZnG8KsM" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/FnkNTjS/youtube2.png'></img></a>
             </div>
             <p className='Footer-p'>MyTinerary | 2022</p>
             <div className="Footer-nav">
