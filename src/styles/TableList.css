@@ -4,12 +4,14 @@
     align-items: center;
     flex-wrap: wrap;
     width: 80%;
+    text-decoration: none;
 }
 
 .TableList-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: none;
     /* flex-wrap: wrap; */
     align-items: center;
     height: 300px;
