@@ -81,13 +81,16 @@
     flex-direction: column;
     gap: 2rem;
     align-items: stretch;
-    left: 0;
+    left: -100%;
     top: 0;
     background-color: #1E212D;
     overflow-y: scroll;
     width: 100%;
     min-height: 100vh;
-    transition: all 250ms;
+    transition: all 400ms;
+}
+.Header-nav-modal.active{
+    transform: translate(100%,0);
 }
 @media (max-width: 768px) {
     body::-webkit-scrollbar{
