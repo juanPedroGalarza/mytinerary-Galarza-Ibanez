@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.Header-open-nav{
+    display: none;
+}
 .Header-nav-div {
     display: flex;
     position: relative;
@@ -70,33 +72,74 @@
     max-height: 100px;
     margin: 1rem;
 }
-
-
-@media (max-width: 700px) {
-
+.Header-nav-modal{
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+    left: 0;
+    top: 0;
+    background-color: #1E212D;
+    overflow-y: scroll;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 250ms;
+}
+@media (max-width: 768px) {
+    body::-webkit-scrollbar{
+        display: none;
+    }
+    .Header-nav-modal{
+        display: flex;
+    }
+    .Header-nav-div{
+        flex-direction: column;
+    }
     .Header-items-div {
         flex-direction: column;
+    }
+    .Header-close-nav{
+        background: url("https://i.ibb.co/JcCTWw0/cerrar-List-W.png");
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline;
+        align-self: flex-end;
+        padding: 1rem;
+        border-radius: 360px;
+        margin: 1rem 1rem 0 0;
+    }
+    .Header-close-nav:hover{
+        background-color: #ec684a;
+    }
+    .Header-open-nav{
+        background: url("https://i.ibb.co/Ybs0XB3/menu-List-W.png");
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        padding: 1.5rem;
+    }
+    .Header-nav{
+        display: none;
+    }
+    .Header-a{
+        text-align: start;
+        border-bottom: 2px solid #0E111D;
     }
 }
 
 @media (max-width: 450px) {
-
     .Header-nav-div {
         flex-direction: column;
     }
-
+    .Header-open-nav{
+        width: 1.5rem;
+        height:1.5rem;
+    }
     .Header-nav {
         flex-direction: column;
-    }
-
-    .Header-a {
-        border-radius: 25%;
-        background-color: #EABF9F;
-        padding: 0.8rem;
-    }
-
-    .Header-a:hover{
-        color: #1E212D;
     }
 
     .Header-user:hover {
