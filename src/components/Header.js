@@ -7,7 +7,7 @@ function Header(props) {
     const pages = props.data
     const [open,setOpen] = useState(false)
     const viewNav = (page) => {
-        return (<LinkRouter to={page.linkTo} className='Header-a'>{page.name}</LinkRouter>)
+        return (<LinkRouter to={page.linkTo} className='Header-a' key={page.name}>{page.name}</LinkRouter>)
     }
     function toggleOpen() {
         open?
