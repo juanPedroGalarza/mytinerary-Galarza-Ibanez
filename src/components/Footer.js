@@ -4,7 +4,7 @@ import ScrollToTop from "./ScrollToTop"
 const Footer = (props) => {
     const pages = props.data
     const viewNav = (page) => {
-        return (<LinkRouter to={page.linkTo} className='Footer-nav-a'>{page.name}</LinkRouter>)
+        return (<LinkRouter to={page.linkTo} className='Footer-nav-a' key={page.name}>{page.name}</LinkRouter>)
     }
     return (
         <div className='Footer-container'>
