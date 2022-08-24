@@ -29,15 +29,11 @@ function Header(props) {
                 {pages.map(viewNav)}
                 <ProfileNavList />
             </nav>
-            {open ?
-                <nav className='Header-nav-modal'>
+                <nav className={`Header-nav-modal ${open? "active":null}`}>
                 <span onClick={toggleOpen} className="Header-close-nav"></span>
                 {pages.map(viewNav)}
                 <ProfileNavList />
                 </nav>
-                :null
-            }
-            
         </div>
     )
 }
