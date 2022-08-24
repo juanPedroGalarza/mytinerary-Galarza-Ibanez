@@ -9,7 +9,7 @@ function ProfileNavList() {
     ]
     const viewProfile = (item) => {
         return (
-            <li className='ProfileNavList-item'>
+            <li className='ProfileNavList-item' key={item.name}>
                 <LinkRouter to={item.linkTo} className="ProfileNavList-item-link">{item.name}</LinkRouter>
             </li>
         )

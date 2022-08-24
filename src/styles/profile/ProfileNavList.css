@@ -7,28 +7,36 @@
     position: relative;
 }
 .ProfileNavList-img{
-    width: 2rem;
+    object-fit: fill;
+    width: calc(2rem + 1vw);
     filter: brightness(85%);
+}
+.ProfileNavList-img:hover{
+    filter: saturate(200%);
 }
 .ProfileNavList-list{
     display: flex;
     position: absolute;
-    top: 3rem;
+    top: 3.5rem;
     flex-direction: column;
     border-radius: 5px;
-    background-color: #1E212Db9;
-    width: 150px;
+    outline: 2px solid #0E111D;
+    outline-offset: -1px;
+    padding: 3px;
+    background-color: #1E212D;
+    min-width: 20vw;
     border-collapse: collapse;
+    font-size: calc(1rem + 1vw);
 }
 .ProfileNavList-item{
     list-style: none;
     border-bottom: 1px solid #0E111D;
-    border-collapse: collapse;
 }
 .ProfileNavList-item-link{
     display: block;
     color: #FAF3E0;
     text-decoration: none;
+    transition: all 250ms;
 }
 .ProfileNavList-item-link:hover{
     color: #EABF9F;
@@ -38,6 +46,7 @@
         width: 100%;
         margin: 0;
         align-items: flex-start;
+        gap: 5px;
     }
     .ProfileNavList-list{
         width: 100%;
@@ -49,6 +58,9 @@
         margin: 4px;
     }
     .ProfileNavList-img{
-        margin-left: .5rem
+        margin-left: .5rem;
+        border-radius: 360px;
+        outline: 3px solid #0E111D;
+        outline-offset: 1px;
     }
 }
