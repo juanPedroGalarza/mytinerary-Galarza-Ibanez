@@ -1,0 +1,89 @@
+.NotFound-div {
+    background-image: url("https://generisonline.com/wp-content/uploads/2022/03/banner-Construction-Companies-in-Dubai-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.NotFound-div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotFound-img {
+    margin: 1rem;
+    max-width: 10vw;
+    filter: brightness(0%);
+}
+
+
+.NotFound-h1 {
+    display: flex;
+    justify-content: center;
+    font-size: calc(1.5rem + 8vw);
+    font-family: tahoma;
+    font-weight: 800;
+    color: rgb(30, 33, 45);
+    text-shadow: -8px 6px 2px rgba(250, 243, 224, 0.79);
+
+}
+
+.NotFound-p {
+    display: flex;
+    justify-content: center;
+    font-size: calc(1rem + 5vw);
+    font-family: tahoma;
+    color: rgb(30, 33, 45);
+    text-shadow: -8px 6px 2px rgba(250, 243, 224, 0.79);
+    font-style: italic;
+
+}
+.NotFound-button {
+    text-decoration: none;
+    padding: 15px 25px;
+    text-shadow: none;
+    border: unset;
+    border-radius: 15px;
+    color: #FAF3E0;
+    z-index: 1;
+    background: #212121;
+    position: relative;
+    font-weight: 1000;
+    font-size: calc(1rem + 1vw);
+    -webkit-box-shadow: 4px 8px 19px -3px #212121;
+    box-shadow: 4px 8px 19px -3px #212121;
+    transition: all 250ms;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.NotFound-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #FAF3E0;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(30, 33, 45, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(30, 33, 45, 0.27);
+    transition: all 250ms
+}
+
+.NotFound-button:hover {
+    color: #212121;
+}
+
+.NotFound-button:hover::before {
+    width: 100%;
+}
