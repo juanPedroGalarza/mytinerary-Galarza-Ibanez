@@ -1,12 +1,13 @@
-import '../styles/Hero.css'
 import {Link as LinkRouter} from 'react-router-dom'
 
 
-function CTA(){
+function CTA(props) {
+    const classCTA = props.classCTA
+    const linkTo = props.linkTo
     return (
-        <div>
-            <LinkRouter to='/cities' className='Hero-button'>Let's go!</LinkRouter>
-        </div>
+        <LinkRouter to={linkTo} className={classCTA}>
+            {props.children}
+        </LinkRouter>
     )
 }
 

@@ -3,12 +3,16 @@ import Footer from "../components/Footer";
 
 
 function WebsiteLayout(props) {
-
+    const pages = [
+        {linkTo:"/",name:"Home"},
+        {linkTo:"/cities",name:"Cities"},
+        {linkTo:"/new-city",name:"New City"},
+    ]
     return (
         <div>
-            <Header />
+            <Header data={pages}/>
             {props.children}
-            <Footer />
+            <Footer data={pages}/>
         </div>
     )
 

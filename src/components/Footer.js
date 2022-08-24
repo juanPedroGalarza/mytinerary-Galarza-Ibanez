@@ -1,7 +1,11 @@
 import '../styles/Footer.css'
 import {Link as LinkRouter} from 'react-router-dom'
-
-const Footer = () => {
+import ScrollToTop from "./ScrollToTop"
+const Footer = (props) => {
+    const pages = props.data
+    const viewNav = (page) => {
+        return (<LinkRouter to={page.linkTo} className='Footer-nav-a'>{page.name}</LinkRouter>)
+    }
     return (
         <div className='Footer-container'>
             <div className='Footer-socialmedia'>
@@ -11,11 +15,10 @@ const Footer = () => {
             </div>
             <p className='Footer-p'>MyTinerary | 2022</p>
             <div className="Footer-nav">
-                <LinkRouter to='/' className="Footer-nav-a">Home</LinkRouter>
-                <LinkRouter to='/cities' className="Footer-nav-a">Cities</LinkRouter>
+                {pages.map(viewNav)}
             </div>
             <div className="Footer-scroll">
-                <a href="#"><img className="Footer-scroll-img" src="https://i.ibb.co/tLQFBzk/up-arrow2.png"></img></a>
+                <ScrollToTop><img className="Footer-scroll-img" src="https://i.ibb.co/tLQFBzk/up-arrow2.png"></img></ScrollToTop>
             </div>
         </div>
     )

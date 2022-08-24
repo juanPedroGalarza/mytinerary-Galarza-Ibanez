@@ -13,7 +13,7 @@ const Hero = () => {
             <p className='Hero-subtitle-1'>Find your perfect trip,</p>
             <p className='Hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
           </div>
-          <CTA />
+          <CTA classCTA="Hero-button" linkTo="cities">Let's go!</CTA>
         </div>
       </div>
       <CitiesCarousel />
