@@ -90,6 +90,28 @@
     background-color: #b02f00a2;
     border: 2px solid #50110ba2;
 }
+
+.NewCity-form-textarea{
+    resize: none;
+    border: none;
+    border-bottom: 2px solid #1E212D;
+    border-bottom-right-radius: 20px;
+    background: rgb(182,137,115);
+    background: linear-gradient(300deg, rgba(182,137,115,.8) 0%, transparent 100%);
+    font-size: 1em;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+    text-indent: 4px;
+    width: 100%;
+    transition: all .3s ease-out;
+}
+
+.NewCity-form-textarea:focus{
+    outline: none;
+    border-bottom: 2px solid #50110b;
+    background: rgba(234, 191, 159,.5);
+}
+
 @media (min-width:768px) {
     .NewCity-title {
         font-size: 2.8rem;
