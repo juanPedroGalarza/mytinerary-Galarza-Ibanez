@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    background-color: #1E212D;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 10vh;
+    z-index: 200;
+    position: relative;
+}
+
+.Footer-logo {
+    width: 140px;
+    height: 80px;
+}
+
+.Footer-icon-img {
+    width: calc(40px + 1vw);
+    filter: brightness(100%);
+    margin: 0.3rem;
+    border-radius: 40%;
+    padding: 0.5rem;
+}
+
+.Footer-icon-img:hover {
+    background-color: #EABF9F;
+}
+
+.Footer-p {
+    font-family: sans-serif;
+    font-size: calc(2rem + 2vw);
+    font-style: oblique;
+    font-weight: 600;
+    color: #FAF3E0;
+}
+
+.Footer-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer-nav-a {
+    margin: 0.5rem;
+    font-size: calc(.8rem + 1vw);
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+    color: #FAF3E0;
+}
+
+.Footer-nav-a:hover {
+    color: #EABF9F;
+
+}
+
+.Footer-scroll {
+    justify-self: end;
+}
+
+.Footer-scroll-img {
+    max-width: calc(1rem + 3vw);
+    border-radius: 80%;
+    padding: 0.5rem;
+
+}
+.Footer-scroll-img:hover {
+    background-color: #B68973;
+}
+@media (max-width: 1240px){
+    .Footer-nav{
+        flex-direction: row;
+        min-width: 50%;
+        justify-content: space-around;
+    }
+    .Footer-container{
+        justify-content: center;
+        gap: 20px;
+    }
+
+}
+@media (max-width: 1023px) {
+    .Footer-scroll {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .Footer-scroll-img{
+        max-width: calc(1rem + 4vw);
+        padding: 1px;
+    }
+    .Footer-nav {
+        flex-wrap: wrap;
+        flex-direction: row;
+        max-width: none;
+    }
+    .Footer-container{
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 425px) {
+    .Footer-p{
+        text-align: center;
+        font-size: calc(1rem + 5vw);
+    }
+}
+
+/* Necesito cambiar los iconos de media. */

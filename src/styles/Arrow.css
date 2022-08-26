@@ -1,0 +1,11 @@
+.Arrow-button{
+    width: 5%;
+    background-color: #1E212D;
+    filter: opacity(60%);
+    color: #FAF3E0;
+    font-weight: 700;
+}
+
+.Arrow-button:hover{
+color: #EABF9F;
+}

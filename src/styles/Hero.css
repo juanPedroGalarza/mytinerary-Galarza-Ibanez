@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Hero-main {
+    /* margin-top: 15vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 95vh;
+}
+
+.Hero-background {
+    /* top: 16vh; */
+    background: url("https://images7.alphacoders.com/110/thumb-1920-1108495.png");
+    background-position: 50%;
+    background-size: cover;
+    filter: brightness(80%);
+    position: fixed;
+    bottom: 0vh;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.Hero-title {
+    font-family: serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #FAF3E0;
+    margin-top: 1rem;
+    z-index: 10;
+    text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
+}
+
+.Hero-description {
+    display: flex;
+    color: #FAF3E0;
+    text-shadow: -5px 7px 0px rgba(30, 33, 45, 0.73);
+    justify-content: center;
+    align-content: center;
+    gap: 2vw;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 90%;
+    z-index: 10;
+}
+
+.Hero-subtitle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.Hero-subtitle-1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Hero-subtitle-2 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Hero-button {
+    text-decoration: none;
+    padding: 15px 25px;
+    text-shadow: none;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #FAF3E0;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px #1E212D;
+    box-shadow: 4px 8px 19px -3px #1E212D;
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.Hero-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.Hero-button:hover {
+    color: #e8e8e8;
+}
+
+.Hero-button:hover::before {
+    width: 100%;
+}
+
+@media (min-width:768px) {
+    .Hero-title {
+        font-size: 2.8rem;
+    }
+
+    .Hero-subtitle-1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .Hero-subtitle-2 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .Hero-button {
+        padding: 0.4rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width:1024px) {
+    .Hero-title {
+        font-size: 3rem;
+    }
+
+    .Hero-subtitle-1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .Hero-subtitle-2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .Hero-button {
+        padding: 0.6rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width:1440px) {
+    .Hero-title {
+        font-size: 3.5rem;
+    }
+
+    .Hero-description {
+        gap: 2.5vw;
+    }
+
+    .Hero-subtitle-1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .Hero-subtitle-2 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .Hero-button {
+        padding: 0.9rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width:1880px) {
+    .Hero-title {
+        font-size: 4.5rem;
+    }
+
+    .Hero-subtitle-1 {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+
+    .Hero-subtitle-2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .Hero-button {
+        padding: 1.3rem;
+        font-size: 2rem;
+    }
+}
