@@ -1,19 +1,19 @@
 import React from 'react';
 import "../styles/Hero.css";
 import CitiesCarousel from '../components/CitiesCarousel';
-import CTA from '../components/CTA';
+import CallToAction from '../components/CallToAction';
 const Hero = () => {
   return (
     <>
-      <div className="Hero-main">
-        <div className='Hero-background'></div>
-        <h1 className='Hero-title'>MyTinerary</h1>
-        <div className='Hero-description'>
-          <div className='Hero-subtitle-container'>
-            <p className='Hero-subtitle-1'>Find your perfect trip,</p>
-            <p className='Hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
+      <div className="hero-main">
+        <div className='hero-background'/>
+        <h1 className='hero-title'>MyTinerary</h1>
+        <div className='hero-description'>
+          <div className='hero-subtitle-container'>
+            <p className='hero-subtitle-1'>Find your perfect trip,</p>
+            <p className='hero-subtitle-2'>designed by insiders who knows and love their cities!</p>
           </div>
-          <CTA classCTA="Hero-button" linkTo="cities">Let's go!</CTA>
+          <CallToAction classCallToAction="hero-button" linkTo="cities">Let's go!</CallToAction>
         </div>
       </div>
       <CitiesCarousel />
