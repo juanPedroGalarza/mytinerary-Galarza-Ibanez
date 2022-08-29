@@ -1,63 +1,65 @@
-.ProfileNavList{
+.profileNavList{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     width: 2rem;
     margin: 1rem;
-    position: relative;
 }
-.ProfileNavList-img{
+.profileNavList-img{
     object-fit: fill;
-    width: calc(2rem + 1vw);
+    width: 2.5rem;
     filter: brightness(85%);
 }
-.ProfileNavList-img:hover{
+.profileNavList-img:hover{
     filter: saturate(200%);
 }
-.ProfileNavList-list{
+.profileNavList-list{
     display: flex;
     position: absolute;
-    top: 3.5rem;
+    top: calc(100% - 4px);
     flex-direction: column;
     border-radius: 5px;
-    outline: 2px solid #0E111D;
-    outline-offset: -1px;
-    padding: 3px;
-    background-color: #1E212D;
-    min-width: 20vw;
+    min-width: 185px;
+    padding: 2px;
+    gap: 2px;
     border-collapse: collapse;
-    font-size: calc(1rem + 1vw);
+    background-color: #1E212D;
+    border: 1px solid #0E111D;
+    font-size: 1rem;
+    z-index: 799;
 }
-.ProfileNavList-item{
+.profileNavList-item{
     list-style: none;
-    border-bottom: 1px solid #0E111D;
+    min-width: fit-content;
+    padding: 4px;
+    border-radius: 5px;
 }
-.ProfileNavList-item-link{
+.profileNavList-item:hover{
+    background-color: #0E111D;
+}
+.profileNavList-item-link{
     display: block;
     color: #FAF3E0;
     text-decoration: none;
     transition: all 250ms;
 }
-.ProfileNavList-item-link:hover{
+.profileNavList-item-link:hover{
     color: #EABF9F;
 }
 @media (max-width: 768px) {
-    .ProfileNavList{
+    .profileNavList{
         width: 100%;
         margin: 0;
         align-items: flex-start;
         gap: 5px;
     }
-    .ProfileNavList-list{
-        width: 100%;
+    .profileNavList-list{
+        max-width: 100%;
+        min-width: 100%;
         position: static;
         align-items: stretch;
     }
-    .ProfileNavList-item{
-        position: static;
-        margin: 4px;
-    }
-    .ProfileNavList-img{
+    .profileNavList-img{
         margin-left: .5rem;
         border-radius: 360px;
         outline: 3px solid #0E111D;

@@ -9,8 +9,8 @@ function ProfileNavList() {
     ]
     const viewProfile = (item) => {
         return (
-            <li className='ProfileNavList-item' key={item.name}>
-                <LinkRouter to={item.linkTo} className="ProfileNavList-item-link">{item.name}</LinkRouter>
+            <li className='profileNavList-item' key={item.name}>
+                <LinkRouter to={item.linkTo} className="profileNavList-item-link">{item.name}</LinkRouter>
             </li>
         )
     }
@@ -18,10 +18,10 @@ function ProfileNavList() {
         open? setOpen(false) : setOpen(true)
     }
     return (
-        <div className='ProfileNavList'>
-            <img className='ProfileNavList-img' src="https://i.ibb.co/jgp9dqj/user2.png" onClick={handleList} />
+        <div className='profileNavList'>
+            <img className='profileNavList-img' src="https://i.ibb.co/jgp9dqj/user2.png" onClick={handleList} />
             {open ?
-            <ul className='ProfileNavList-list'>
+            <ul className='profileNavList-list'>
                 {profile.map(viewProfile)}
             </ul>
                 :null
