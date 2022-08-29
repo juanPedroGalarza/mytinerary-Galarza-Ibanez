@@ -4,8 +4,17 @@
     filter: opacity(60%);
     color: #FAF3E0;
     font-weight: 700;
+    border: none;
+    transition: all 300ms ease-in;
 }
 
 .Arrow-button:hover{
-color: #EABF9F;
+    color: #EABF9F;
+    filter: opacity(100%);
+    transform: scale(1.1);
+}
+@media (max-width: 767px) {
+    .Arrow-button{
+        display: none;
+    }
 }
