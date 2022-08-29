@@ -4,18 +4,14 @@
     align-items: center;
     gap: .5rem;
     margin-bottom: 2rem;
-    /* background: url("https://www.xtrafondos.com/wallpapers/callejon-en-ciudad-europea-10222.jpg"); */
-    /* background: url("https://www.xtrafondos.com/wallpapers/edificios-de-arquitectura-europea-10212.jpg");
-    background-position: 50%;
-    background-size: cover; */
 }
 
 .Carousel {
     display: flex;
-    max-height: 80vh;
-    min-height: 80vh;
-    overflow-y: hidden;
-    justify-content: flex-start;
+    min-height: 95vh;
+    max-height: 95vh;
+    overflow: hidden;
+    justify-content: space-between;
     width: 100%;
     background: #1e212d96;
     background-position: 50%;
@@ -37,12 +33,11 @@
 .Carousel-slide {
     display: flex;
     flex-wrap: wrap;
-    max-width: 90%;
-    min-width: 90%;
-    justify-content: center;
+    max-width: 100%;
+    min-width: 100%;
+    justify-content: space-evenly;
     align-items: center;
     align-content: space-around;
-    gap: 1rem;
 }
 
 .Carousel-item {
@@ -51,16 +46,18 @@
     justify-content: flex-end;
     align-items: center;
     text-decoration: none;
-    /* height: 48%;
-    width: 48%; */
-    height: 18vmax;
-    width: 30vmax;
+    height: 22%;
+    width: 300px;
+    max-width: 90%;
     overflow: hidden;
     background-color: #1E212D88;
     outline: 3px solid #1E212D;
     outline-offset: -3px;
+    transition: all 300ms;
 }
-
+.Carousel-item:hover{
+    transform: scale(1.01);
+}
 .Carousel-item-image {
     min-width: calc(100% - 6px);
     max-width: calc(100% - 6px);
@@ -84,13 +81,27 @@
     text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
     z-index: 120;
 }
-
+@media (min-width:500px) {
+    .Carousel-item{
+        width: 48%;
+        height: 40%;
+    }
+    .Carousel{
+        min-height: 80vh;
+        max-height: 80vh;
+    }
+}
 @media (min-width:768px) {
-
     .Carousel-title {
         font-size: 1.6rem;
     }
-
+    .Carousel-slide{
+        min-width: 90%;
+        max-width: 90%;
+    }
+    .Carousel-item{
+        height: 48%;
+    }
     .Carousel-item-title {
         font-size: 1.3em;
     }
@@ -98,7 +109,9 @@
 
 @media (min-width:1024px) {
     .Carousel {
-        width: 80vw;
+        width: 70%;
+        min-height: 70vh;
+        max-height: 70vh;
     }
 
     .Carousel-title {
@@ -107,11 +120,6 @@
 
     .Carousel-item-title {
         font-size: 1.6em;
-    }
-
-    .Carousel-item {
-        height: 40%;
-        width: 48%;
     }
 
 }
@@ -140,51 +148,6 @@
     }
     .Carousel-item {
         height: 40%;
-        width: 44%;
     }
 
 }
-
-@media (max-width:1023px) {
-    .Carousel-item {
-        height: 25vmax;
-        width: 36vmax;
-    }
-
-    .Carousel {
-        width: 90vw;
-        min-height: 65vh;
-    }
-
-}
-
-@media (max-width:740px) {
-    .Carousel-item {
-        height: 25vmax;
-        width: 60vmax;
-    }
-
-    .Carousel {
-        min-height: 100vh;
-        max-width: 80vw;
-    }
-    .Carousel-slide{
-    gap: 0.2rem;
-    }
-
-}
-@media (max-width:450px) {
-    .Carousel-item {
-        height: 25vmax;
-        width: 40vmax;
-    }
-
-    .Carousel {
-        min-height: 100vh;
-        max-width: 80vw;
-    }
-    .Carousel-slide{
-    gap: 0.2rem;
-    }
-
-} 
