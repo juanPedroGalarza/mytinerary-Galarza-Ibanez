@@ -7,7 +7,7 @@ function Arrow(props) {
         throw new Error("a function click is *necesario*")
     }
     return (
-        <button onClick={props.click} className="Arrow-button">{ props.icon }</button>
+        <button onClick={props.click} className="arrow-button">{ props.icon }</button>
     )
 }
 export default Arrow
