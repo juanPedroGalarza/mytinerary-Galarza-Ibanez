@@ -10,8 +10,8 @@ function Carousel(props) {
     const interval = props.interval * 1000
     const [intervalId, setIntervalId] = useState(null)
     const itemView = (item) => (
-        <LinkRouter to={`/city/${item.title}`} className="carousel-item" key={item.country}>  <p className="carousel-item-title">{item.title}</p>
-            <img className="carousel-item-image" src={item.url} alt={item.title} />
+        <LinkRouter to={`/city/${item.city}`} className="carousel-item" key={item.country}>  <p className="carousel-item-title">{item.city}</p>
+            <img className="carousel-item-image" src={item.photo} alt={item.title} />
         </LinkRouter>
     )
     const slideView = (slideItems) => (
