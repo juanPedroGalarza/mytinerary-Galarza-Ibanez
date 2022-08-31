@@ -18,12 +18,6 @@ export default function SearchText() {
         console.log(q)
 
 
-        const searchFilter= (items)=>{
-            return items.filter((item)=>{
-                items.city.toLowerCase().startsWith(item.q.value)
-            })
-        }
-
 
         return (
         <div><input type="search" placeholder="Search" name="search-text-input" onChange={(e) => setQ(e.target.value)} /></div>
