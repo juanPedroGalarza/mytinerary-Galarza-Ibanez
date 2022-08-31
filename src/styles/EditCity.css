@@ -1,0 +1,60 @@
+.editCity-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 80vh;
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #FAF3E0;
+}
+.editCity-title{
+    font-size: 2rem;
+    text-align: center;
+    color: aliceblue;
+    text-shadow: -5px 3px black;
+    z-index: 100;
+}
+.editCity-form-input{
+    border: none;
+    border-bottom: 2px solid #1E212D;
+    border-bottom-right-radius: 20px;
+    background: rgb(182,137,115);
+    background: linear-gradient(300deg, rgba(182,137,115,.8) 0%, transparent 100%);
+    font-size: 1em;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+    text-indent: 4px;
+    width: 100%;
+    transition: all .3s ease-out;
+}
+.editCity-form-input:focus{
+    outline: none;
+    border-bottom: 2px solid #50110b;
+    background: rgba(234, 191, 159,.5);
+}
+.editCity-form-p{
+    font-size: 1em;
+    text-align: center;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+}
+.editCity-form-button{
+    border-radius: 5px;
+    border-bottom: 2px solid #1E212D;
+    background: rgb(234, 191, 159);
+    background: linear-gradient(300deg, rgba(234, 191, 159,.8) 50%, transparent 100%);
+    font-size: 1rem;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+    min-width: 200px;
+    max-width: 400px;
+    align-self: flex-end;
+    transition: all .5s ease-out;
+}
+.editCity-form-button:hover{
+    background-color: #b02f00a2;
+    border: 2px solid #50110ba2;
+}
