@@ -54,8 +54,14 @@ export default function EditCity() {
         setValueSelect(selectEl.current.value)
     }
     const putCity = (arrayForm,e) => {
-        let inputsForm = arrayForm.filter(element => element.value)
-        console.log(inputsForm)
+        let inputsForm = arrayForm.filter(element => element.value && element.name != "id")
+        let data = inputsForm.reduce((values,input) => {
+            values[input.name.toLowerCase()] = input.value
+            return values
+        },{})
+        axios.put(`http://localhost:4000/cities/${valueSelect}`,data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
     useEffect(() => {
         axios.get("http://localhost:4000/cities")
