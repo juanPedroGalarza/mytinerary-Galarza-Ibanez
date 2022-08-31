@@ -111,6 +111,18 @@
     border-bottom: 2px solid #50110b;
     background: rgba(234, 191, 159,.5);
 }
+.newcard-item-country{
+
+}
+.newcard-item-title{
+
+}
+.newcard-item{
+    z-index: 100;
+}
+.newcard-p-div{
+z-index: 111;
+}
 
 @media (min-width:768px) {
     .NewCity-title {
