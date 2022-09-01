@@ -11,25 +11,25 @@ export default function EditCity() {
         {
             name: "City",
             type: "text",
-            placeholder: "...",
+            placeholder: "Type the name of the city!",
             value: ""
         },
         {
             name: "Country",
             type: "text",
-            placeholder: "...",
+            placeholder: "Type the country where the city is from!",
             value: ""
         },
         {
             name: "Photo",
             type: "url",
-            placeholder: "...",
+            placeholder: "Insert the image url o the city!",
             value: ""
         },
         {
             name: "Population",
             type: "number",
-            placeholder: "...",
+            placeholder: "Type the population of the city!",
             value: ""
         },
         {
@@ -41,7 +41,7 @@ export default function EditCity() {
         {
             name: "Description",
             type: "text",
-            placeholder: "...",
+            placeholder: "Tell us about the city!",
             value: ""
         }
     ]
