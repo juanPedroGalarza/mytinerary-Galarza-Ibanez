@@ -20,7 +20,7 @@ function City() {
 
     return (  
         <div className="CitiesPage-main">
-            <Details data={name}  />
+            <Details data={name} cityId={id} />
         </div>
     )
 }

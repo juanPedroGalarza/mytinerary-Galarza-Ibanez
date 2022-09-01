@@ -3,7 +3,9 @@ import { Link as LinkRouter } from 'react-router-dom'
 
 function Details(props) {
     const city = props.data
+    const id = props.cityId
     const printCard = (item) => {
+
         return (
             <>
                 <div className="Details-item" style={{ backgroundImage: `url(${item.photo})` }}>
@@ -21,6 +23,7 @@ function Details(props) {
                 <div className="Details-btns">
                         <LinkRouter to={`/`} className="Details-btn">Back to Home</LinkRouter>
                         <LinkRouter to={`/cities`}className="Details-btn">Back to Cities</LinkRouter>
+                        <LinkRouter to={`/edit-city/${id}`}className="Details-btn">Edit</LinkRouter>
                 </div>
             </>
         )

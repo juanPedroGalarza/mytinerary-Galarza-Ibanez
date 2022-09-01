@@ -17,6 +17,7 @@ function App() {
           <Route path='/cities' element={<CitiesPage />} />
           <Route path='/new-city' element={<NewCity />} />
           <Route path='/edit-city' element={<EditCity />} />
+          <Route path='/edit-city/:id' element={<EditCity />} />
           <Route path='/*' element={<NotFound />} />
           <Route path='/city/:id' element={<City />} />
         </Routes>
