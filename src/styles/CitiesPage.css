@@ -24,3 +24,9 @@
     margin: 1rem;
 }
 
+.citiesPage-search{
+    padding: 0.5rem;
+    border-radius: 12px;
+    width: 30vw;
+    border: solid 0.3rem rgba(30, 33, 45, 0.548);
+}
