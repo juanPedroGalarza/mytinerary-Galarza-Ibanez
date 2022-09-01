@@ -24,8 +24,10 @@
     font-size: 2rem;
     text-align: center;
     color: aliceblue;
-    text-shadow: -5px 3px black;
+    text-shadow: 4px 4px 6px rgba(30,33,45,1);
+    font-family: sans-serif;
     z-index: 100;
+    margin:1rem;
 }
 .NewCity-form{
     display: flex;
