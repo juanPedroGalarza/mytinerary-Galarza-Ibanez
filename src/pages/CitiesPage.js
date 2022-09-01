@@ -1,7 +1,7 @@
 import TableList from "../components/TableList"
 import "../styles/CitiesPage.css"
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function CitiesPage() {
