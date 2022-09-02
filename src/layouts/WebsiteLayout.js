@@ -7,6 +7,7 @@ function WebsiteLayout(props) {
         {linkTo:"/",name:"Home"},
         {linkTo:"/cities",name:"Cities"},
         {linkTo:"/new-city",name:"New City"},
+        {linkTo:"/edit-city",name:"Edit City"},
     ]
     return (
         <div>

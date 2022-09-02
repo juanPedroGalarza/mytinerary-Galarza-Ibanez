@@ -1,30 +1,67 @@
-import WebsiteLayout from "../layouts/WebsiteLayout"
+import Input from "../components/Input"
 import "../styles/NewCity.css"
-function NewCity() {
+import axios from "axios"
+import { useState } from "react";
+
+function NewCity(props) {
+    const inputArray =[
+        {
+            name: "City",
+            type: "text",
+            placeholder: "type the name of the city!",
+            value: ""
+        },
+        {
+            name: "Country",
+            type: "text",
+            placeholder: "Type the contry where the city is from!",
+            value: ""
+        },
+        {
+            name: "Photo",
+            type: "url",
+            placeholder: "Insert the image url of the city!",
+            value: ""
+        },
+        {
+            name: "Population",
+            type: "number",
+            placeholder: "Type the population of the city!",
+            value: ""
+        },
+        {
+            name: "Fundation",
+            type: "date",
+            placeholder: "Type the date of fundation of the city!",
+            value: ""
+        },
+        {
+            name: "Description",
+            type: "text",
+            placeholder: "Tell us about the city!",
+            value: ""
+        }
+    ]
+    const [valueSelect,setValueSelect] = useState(null)
+    const handleValue = (e) => {
+        setValueSelect(e.current.value)
+    }
+    const postCity = (arrayform) =>{
+        let inputsForm = arrayform
+        let data = inputsForm.reduce((values,input) => {
+            values[input.name.toLowerCase()] = input.value
+            return values
+        },{})
+        axios.post(`http://localhost:4000/cities` ,data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
+
     return (
         <div className="NewCity-main">
-            <div className="NewCity-background"></div>
+            <div className="NewCity-background"> </div>
             <h1 className="NewCity-title">NewCity</h1>
-            <form className="NewCity-form">
-                <label className="NewCity-form-label">
-                    <p className="NewCity-form-p">City Name</p>
-                    <input type="text" name="text1" className="NewCity-form-input" />
-                </label>
-                <label className="NewCity-form-label">
-                    <p className="NewCity-form-p">Country</p>
-                    <input type="text" name="text2" className="NewCity-form-input" />
-                </label>
-                <label className="NewCity-form-label">
-                    <p className="NewCity-form-p">Description</p>
-                    <textarea placeholder="Leave us a description of the city..." className="NewCity-form-textarea"  />
-                </label>
-                <label className="NewCity-form-label">
-                    <p className="NewCity-form-p">Picture of the city</p>
-                    <input type="url" name="url" id="url"
-       placeholder="https://exampleimageurl.com" className="NewCity-form-input" />
-                </label>
-                <button type="submit" className="NewCity-form-button">Send</button>
-            </form>
+            <Input inputsData={inputArray} event={(arrayForm)=>postCity(arrayForm)} onChange={handleValue}classPage="NewCity"/>
         </div>
     )   
 }

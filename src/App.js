@@ -3,6 +3,7 @@ import './App.css';
 import Hero from './pages/Hero';
 import CitiesPage from "./pages/CitiesPage"
 import NewCity from "./pages/NewCity"
+import EditCity from './pages/EditCity';
 import NotFound from './pages/NotFound';
 import City from './pages/City';
 import WebsiteLayout from './layouts/WebsiteLayout';
@@ -15,8 +16,9 @@ function App() {
           <Route path='/' element={<Hero />} />
           <Route path='/cities' element={<CitiesPage />} />
           <Route path='/new-city' element={<NewCity />} />
+          <Route path='/edit-city' element={<EditCity />} />
           <Route path='/*' element={<NotFound />} />
-          <Route path='/city/:title' element={<City />} />
+          <Route path='/city/:id' element={<City />} />
         </Routes>
     </WebsiteLayout>
     </BrowserRouter>

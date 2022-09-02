@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.Hero-main {
+.hero-main {
     /* margin-top: 15vh; */
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
     min-height: 95vh;
 }
 
-.Hero-background {
+.hero-background {
     /* top: 16vh; */
     background: url("https://images7.alphacoders.com/110/thumb-1920-1108495.png");
     background-position: 50%;
@@ -26,7 +26,7 @@
     z-index: 1;
 }
 
-.Hero-title {
+.hero-title {
     font-family: serif;
     font-size: 2.5rem;
     font-style: italic;
@@ -37,7 +37,7 @@
     text-shadow: -5px 7px 4px rgba(30, 33, 45, 0.73);
 }
 
-.Hero-description {
+.hero-description {
     display: flex;
     color: #FAF3E0;
     text-shadow: -5px 7px 0px rgba(30, 33, 45, 0.73);
@@ -51,26 +51,26 @@
     z-index: 10;
 }
 
-.Hero-subtitle-container {
+.hero-subtitle-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
 }
 
-.Hero-subtitle-1 {
+.hero-subtitle-1 {
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
 }
 
-.Hero-subtitle-2 {
+.hero-subtitle-2 {
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
 }
 
-.Hero-button {
+.hero-button {
     text-decoration: none;
     padding: 15px 25px;
     text-shadow: none;
@@ -88,7 +88,7 @@
     overflow: hidden;
 }
 
-.Hero-button::before {
+.hero-button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -103,97 +103,97 @@
     transition: all 250ms
 }
 
-.Hero-button:hover {
+.hero-button:hover {
     color: #e8e8e8;
 }
 
-.Hero-button:hover::before {
+.hero-button:hover::before {
     width: 100%;
 }
 
 @media (min-width:768px) {
-    .Hero-title {
+    .hero-title {
         font-size: 2.8rem;
     }
 
-    .Hero-subtitle-1 {
+    .hero-subtitle-1 {
         font-size: 1.6rem;
         text-align: center;
     }
 
-    .Hero-subtitle-2 {
+    .hero-subtitle-2 {
         font-size: 1.1rem;
         text-align: center;
     }
 
-    .Hero-button {
+    .hero-button {
         padding: 0.4rem;
         font-size: 1.1rem;
     }
 }
 
 @media (min-width:1024px) {
-    .Hero-title {
+    .hero-title {
         font-size: 3rem;
     }
 
-    .Hero-subtitle-1 {
+    .hero-subtitle-1 {
         font-size: 1.8rem;
         text-align: center;
     }
 
-    .Hero-subtitle-2 {
+    .hero-subtitle-2 {
         font-size: 1.3rem;
         text-align: center;
     }
 
-    .Hero-button {
+    .hero-button {
         padding: 0.6rem;
         font-size: 1.3rem;
     }
 }
 
 @media (min-width:1440px) {
-    .Hero-title {
+    .hero-title {
         font-size: 3.5rem;
     }
 
-    .Hero-description {
+    .hero-description {
         gap: 2.5vw;
     }
 
-    .Hero-subtitle-1 {
+    .hero-subtitle-1 {
         font-size: 2.2rem;
         text-align: center;
     }
 
-    .Hero-subtitle-2 {
+    .hero-subtitle-2 {
         font-size: 1.6rem;
         text-align: center;
     }
 
-    .Hero-button {
+    .hero-button {
         padding: 0.9rem;
         font-size: 1.6rem;
     }
 }
 
 @media (min-width:1880px) {
-    .Hero-title {
+    .hero-title {
         font-size: 4.5rem;
     }
 
-    .Hero-subtitle-1 {
+    .hero-subtitle-1 {
         font-size: 2.8rem;
         text-align: center;
     }
 
-    .Hero-subtitle-2 {
+    .hero-subtitle-2 {
         font-size: 2rem;
         text-align: center;
     }
 
-    .Hero-button {
+    .hero-button {
         padding: 1.3rem;
         font-size: 2rem;
     }

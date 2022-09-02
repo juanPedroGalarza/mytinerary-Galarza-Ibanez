@@ -35,7 +35,7 @@
 
 .Footer-p {
     font-family: sans-serif;
-    font-size: calc(2rem + 2vw);
+    font-size: calc(2rem + 1vw);
     font-style: oblique;
     font-weight: 600;
     color: #FAF3E0;
@@ -48,7 +48,7 @@
 
 .Footer-nav-a {
     margin: 0.5rem;
-    font-size: calc(.8rem + 1vw);
+    font-size: calc(.8rem + 0.5vw);
     font-family: sans-serif;
     text-decoration: none;
     font-weight: 700;

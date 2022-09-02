@@ -10,12 +10,12 @@ function Carousel(props) {
     const interval = props.interval * 1000
     const [intervalId, setIntervalId] = useState(null)
     const itemView = (item) => (
-        <LinkRouter to={`/city/${item.title}`} className="Carousel-item" key={item.country}>  <p className="Carousel-item-title">{item.title}</p>
-            <img className="Carousel-item-image" src={item.url} alt={item.title} />
+        <LinkRouter to={`/city/${item._id}`} className="carousel-item" key={item.country}>  <p className="carousel-item-title">{item.city}</p>
+            <img className="carousel-item-image" src={item.photo} alt={item.title} />
         </LinkRouter>
     )
     const slideView = (slideItems) => (
-        <div className="Carousel-slide">
+        <div className="carousel-slide">
             {slideItems.map(itemView)}
         </div>
     )
@@ -43,9 +43,9 @@ function Carousel(props) {
         return () => clearInterval(intervalId)
     }, [end])
     return (
-        <div className="Carousel-container">
-            <h3 className="Carousel-title">Popular Cities</h3>
-            <div className="Carousel">
+        <div className="carousel-container">
+            <h3 className="carousel-title">Popular Cities</h3>
+            <div className="carousel">
                 <Arrow icon="<" click={prev} />
                 {slideView(items.slice(start, end))}
                 <Arrow icon=">" click={next} />

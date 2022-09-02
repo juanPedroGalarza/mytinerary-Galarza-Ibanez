@@ -1,0 +1,194 @@
+.editCity-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #FAF3E0;
+}
+.editCity-title{
+    font-size: 3rem;
+    font-family: sans-serif;
+    text-align: center;
+    color: aliceblue;
+    text-shadow: 4px 4px 6px rgba(30,33,45,1);
+    z-index: 100;
+}
+
+.editCity-form-input{
+    border: none;
+    border-bottom: 2px solid #1E212D;
+    border-bottom-right-radius: 20px;
+    background: rgb(182,137,115);
+    background: linear-gradient(300deg, rgba(182,137,115,.8) 0%, transparent 100%);
+    font-size: 1.5em;
+    color: aliceblue;
+    text-shadow: -10px 10px 10px black;
+    text-indent: 4px;
+    width: 100%;
+    transition: all .3s ease-out;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.editCity-form-input:focus{
+    outline: none;
+    border-bottom: 2px solid #50110b;
+    background: rgba(234, 191, 159,.5);
+}
+.editCity-form-p{
+    font-size: 2em;
+    text-align: center;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+}
+.editCity-form-button{
+    border-radius: 10px;
+    border-bottom: 4px solid #1E212D;
+    background: rgb(234, 191, 159);
+    background: linear-gradient(300deg, rgba(234, 191, 159,.8) 50%, transparent 100%);
+    font-size: 2rem;
+    color: aliceblue;
+    text-shadow: -2px 2px 2px black;
+    min-width: 200px;
+    max-width: 400px;
+    align-self: flex-end;
+    transition: all .5s ease-out;
+}
+.editCity-form-button:hover{
+    background-color: #b02f00a2;
+    border-color: solid #50110ba2;
+}
+.editCity-select{
+display: flex;
+align-self: center;
+text-align: center;
+font-size: 1em;
+text-align: center;
+background-color: #FAF3E0;
+color: black;
+border-radius: 12px;
+padding: 6px;
+width: 30% ;
+}
+.editCity-form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: -1px 1px 10px #14161daa;
+    min-width: 60%;
+    max-width: 100%;
+    z-index: 90;
+    background-color: #1e212daa;
+    padding: 10px;
+    gap: 20px;
+    margin: 2vh;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+
+.editCity-form-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 25%;
+}
+
+
+@media (min-width:768px) {
+    .editCity-title {
+        font-size: 2.8rem;
+    }
+
+    .editCity-form-p {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .editCity-form-input {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .editCity-form-button {
+        padding: 0.4rem;
+        font-size: 1.1rem;
+        border-radius: 7px;
+    }
+}
+
+@media (min-width:1024px) {
+    .editCity-title {
+        font-size: 3rem;
+    }
+
+    .editCity-form-p {
+        font-size: 1.8rem;
+    }
+
+    .editCity-form-input {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .editCity-form-button {
+        padding: 0.6rem;
+        font-size: 1.3rem;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width:1440px) {
+    .editCity-title {
+        font-size: 3.5rem;
+    }
+
+    .editCity-description {
+        gap: 2.5vw;
+    }
+
+    .editCity-form-p {
+        font-size: 2.2rem;
+    }
+
+    .editCity-form-input {
+        font-size: 1.6rem;
+    }
+
+    .editCity-form-button {
+        padding: 0.9rem;
+        font-size: 1.6rem;
+        border-radius: 15px;
+    }
+}
+
+@media (min-width:1880px) {
+    .editCity-title {
+        font-size: 5rem;
+    }
+
+    .editCity-form-p {
+        font-size: 3rem;
+    }
+
+    .editCity-form-input {
+        font-size: 2.2rem;
+    }
+
+    .editCity-form-button {
+        padding: 1.6rem;
+        font-size: 2rem;
+        border-radius: 20px;
+    }
+}
