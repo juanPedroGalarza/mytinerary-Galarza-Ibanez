@@ -1,42 +1,39 @@
 import TableList from "../components/TableList"
 import "../styles/CitiesPage.css"
-import { useEffect, useState } from "react";
-import citiesActions from "../features/actions/citiesActions";
-import {useDispatch, useSelector} from "react-redux"
-
+import { useState, useRef } from "react";
+import { useGetAllCitiesQuery} from '../features/actions/citiesAPI'
 
 function CitiesPage() {
-   // const [cities, setCities] = useState([])
-    const [searchValue,setSearchValue] = useState("")
-    const handleValue = (e) => {
-        setSearchValue(e.target.value)
-    }
+    const [searchValue,setSearchValue] = useState()
+    const search = useRef('')
+        const handleValue = (e) => {
+            // setSearchValue(e.target.value)
+            //console.log(search?.current.value)
+            setSearchValue(search.current.value)
+        }
+        
+    let {
+        data: cities, 
+        error,
+        isLoading,
+        isSuccess,
+        isFailed,
+        } = useGetAllCitiesQuery(search.current? search.current.value : '')
 
-    const dispatch = useDispatch();
-
-    const cities = useSelector((state)=>state.citiesReducer.cities
-    ) 
-    useEffect(()=>{
-        dispatch(citiesActions.getCities(searchValue))
-    },[searchValue]) 
-
-    // useEffect(() => {
-    //     if (searchValue) {
-    //         axios.get(`http://localhost:4000/cities/?city=${searchValue}`)
-    //         .then(res => setCities(res.data.response))
-    //         .catch(err => console.log(err))
-    //     } else {
-    //         axios.get("http://localhost:4000/cities")
-    //         .then(res => setCities(res.data.response))
-    //         .catch(err => console.log(err))
-    //     }
-    // },[searchValue]) 
-
-
+        let content;
+            if (isLoading){
+                cities = []
+            } else if(isSuccess){
+                cities = cities.response
+            }else if (isFailed){
+                cities= []
+                // console.log(error)
+        } 
+        
     return (
         <div className="CitiesPage-main">
             <h1 className="CitiesPage-title">Cities</h1>
-            <input type="search" placeholder="Search" name="city" onChange={handleValue} className="citiesPage-search" />
+            <input type="search" placeholder="Search" name="city" ref={search} onChange={handleValue} className="citiesPage-search" />
             <TableList data={cities} />
         </div>
     )
