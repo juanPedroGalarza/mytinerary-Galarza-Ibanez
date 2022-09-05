@@ -7,7 +7,9 @@ import { useState } from "react"
 function Details(props) {
     const city = props.data
     const id = props.cityId
-    const [itineraries,setItineraries] = useState([])
+    const [itineraries, setItineraries] = useState([])
+    let newDate = new Date(city.fundation)
+    let year = newDate.getFullYear()
     useEffect(() => {
         if (city) {
             axios.get(`http://localhost:4000/itineraries/?city=${city.city}`)
@@ -25,7 +27,7 @@ function Details(props) {
             <div className="Details-p-div">
                 <div className="details-p-innerdiv">
                 <p className="Details-innerp"><span className="details-p-span">Country:</span> {city.country}.</p>
-                    <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {city.fundation}.</p>
+                    <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {year}.</p>
                     <p className="Details-innerp" ><span className="details-p-span"> Population:</span> {city.population}.</p>
                 </div>
                 <p className="Details-p" >{city.description}</p>
