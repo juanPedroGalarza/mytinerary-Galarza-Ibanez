@@ -5,7 +5,9 @@ function Details(props) {
     const city = props.data
     const id = props.cityId
     const printCard = (item) => {
-
+        let newDate = new Date(item.fundation)
+        let year = newDate.getFullYear()
+       // console.log(item.fundation)
         return (
             <>
                 <div className="Details-item" style={{ backgroundImage: `url(${item.photo})` }}>
@@ -14,7 +16,7 @@ function Details(props) {
                 <div className="Details-p-div">
                     <div className="details-p-innerdiv">
                     <p className="Details-innerp"><span className="details-p-span">Country:</span> {item.country}.</p>
-                        <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {item.fundation}.</p>
+                        <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {year}.</p>
                         <p className="Details-innerp" ><span className="details-p-span"> Population:</span> {item.population}.</p>
                     </div>
                         <p className="Details-p" >{item.description}</p>
