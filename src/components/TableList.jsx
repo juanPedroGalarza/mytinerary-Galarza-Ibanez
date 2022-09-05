@@ -14,6 +14,7 @@ function TableList(props) {
         )
     }
     //console.log(cities)
+
     return (
         <div className="TableList-container">
         {cities?.map(itemView)}
