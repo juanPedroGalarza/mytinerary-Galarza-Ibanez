@@ -2,8 +2,8 @@ import "../styles/TableList.css"
 import { Link as LinkRouter } from 'react-router-dom'
 
 function TableList(props) {
-    const cities = props.data
-   // console.log(city)
+    const cities = props.data.response? props.data.response : props.data
+    //console.log(cities)
     
     const itemView = (item) => {
         return (
@@ -13,8 +13,6 @@ function TableList(props) {
             </LinkRouter>
         )
     }
-    //console.log(cities)
-
     return (
         <div className="TableList-container">
         {cities?.map(itemView)}

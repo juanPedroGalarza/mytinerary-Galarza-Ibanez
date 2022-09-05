@@ -8,14 +8,9 @@ export const citiesAPI = createApi({
     }),
     endpoints: (builder) => ({
         getAllCities: builder.query({
-            query: (search)=>{ 
-                console.log(search)
-                if (search) {
-                    return `/cities/?city=${search}`
-                    }
-            return '/cities'
-            }}),
-
+            query: (search)=>`/cities/?city=${search}`
+            }),
+        
     })
 })
 
