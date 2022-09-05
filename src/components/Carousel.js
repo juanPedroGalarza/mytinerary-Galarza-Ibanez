@@ -14,11 +14,14 @@ function Carousel(props) {
             <img className="carousel-item-image" src={item.photo} alt={item.title} />
         </LinkRouter>
     )
-    const slideView = (slideItems) => (
-        <div className="carousel-slide">
-            {slideItems.map(itemView)}
-        </div>
-    )
+    function slideView (slideItems) {
+        return (
+            <div className="carousel-slide">
+                {slideItems?
+                slideItems.map(itemView): null}
+            </div>
+            )
+        }
     function next() {
         if (end <= items.length - range) {
             setStart(start + range)
@@ -42,12 +45,17 @@ function Carousel(props) {
         setIntervalId(id)
         return () => clearInterval(intervalId)
     }, [end])
+    console.log(items)
     return (
         <div className="carousel-container">
             <h3 className="carousel-title">Popular Cities</h3>
             <div className="carousel">
                 <Arrow icon="<" click={prev} />
-                {slideView(items.slice(start, end))}
+                {() => { 
+                    
+                    if(items){
+                    slideView(items.reponse?.slice(start, end))}
+                }}
                 <Arrow icon=">" click={next} />
             </div>
         </div>
