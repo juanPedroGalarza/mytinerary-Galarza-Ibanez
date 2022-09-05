@@ -1,0 +1,45 @@
+.itinerary-container{
+    background-color: #1e212dac;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    min-height: 200px;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 35px 15px 35px 15px;
+    box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    color: #FAF3E0;
+    text-align: center;
+}
+.itinerary-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    width: fit-content;
+    align-self: center;
+}
+.itinerary-user-photo{
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 360px;
+}
+.itinerary-body{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80%;
+}
+.itinerary-text{
+    width: 70%;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
