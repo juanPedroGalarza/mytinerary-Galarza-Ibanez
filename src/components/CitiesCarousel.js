@@ -9,7 +9,7 @@ function CitiesCarousel() {
         isLoading,
         isSuccess,
         isFailed,
-        } = useGetAllCitiesQuery()
+        } = useGetAllCitiesQuery('')
         
         if (isLoading){
             cities = []

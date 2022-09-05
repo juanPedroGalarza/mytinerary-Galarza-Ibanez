@@ -3,7 +3,7 @@ import Arrow from "./Carousel/Arrow";
 import { useEffect, useState } from "react";
 import { Link as LinkRouter } from 'react-router-dom'
 function Carousel(props) {
-    let items = props.data
+    let items = props.data.response? props.data.response : props.data
     let range = props.range
     let [start, setStart] = useState(props.start)
     let [end, setEnd] = useState(start + range)
