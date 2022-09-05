@@ -16,7 +16,7 @@ function TableList(props) {
     //console.log(cities)
     return (
         <div className="TableList-container">
-        {cities?.response.map(itemView)}
+        {cities?.map(itemView)}
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import {configureStore} from "@reduxjs/toolkit"
-import citiesReducer from "./reducers/citiesReducer"
 import { citiesAPI } from "./actions/citiesAPI"
 
 export const store = configureStore({

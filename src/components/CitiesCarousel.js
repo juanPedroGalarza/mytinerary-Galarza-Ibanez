@@ -3,13 +3,22 @@ import {useGetAllCitiesQuery} from '../features/actions/citiesAPI'
 
 function CitiesCarousel() {
  
-    const {
+    let {
         data: cities,
         error,
         isLoading,
         isSuccess,
         isFailed,
-    } = useGetAllCitiesQuery()
+        } = useGetAllCitiesQuery()
+        
+        if (isLoading){
+            cities = []
+        } else if(isSuccess){
+            cities = cities.response
+        }else if (error){
+            cities= []
+            console.log(error)
+    }
 
 
     return (

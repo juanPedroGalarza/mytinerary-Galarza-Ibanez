@@ -2,7 +2,7 @@ import TableList from "../components/TableList"
 import "../styles/CitiesPage.css"
 import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {useGetAllCitiesQuery} from '../features/actions/citiesAPI'
+import {citiesAPI, useGetAllCitiesQuery, useGetFilterCitiesQuery} from '../features/actions/citiesAPI'
 
 function CitiesPage() {
     const [searchValue,setSearchValue] = useState("")
@@ -10,16 +10,23 @@ function CitiesPage() {
             setSearchValue(e.target.value)
         }
 
-    const {
+    let {
         data: cities, 
         error,
         isLoading,
         isSuccess,
         isFailed,
-    } = useGetAllCitiesQuery()
+        } = useGetAllCitiesQuery()
         
-    //console.log(cities)
-
+        let content;
+            if (isLoading){
+                cities = []
+            } else if(isSuccess){
+                cities = cities.response
+            }else if (error){
+                cities= []
+                //console.log(error)
+        }
 
     return (
         <div className="CitiesPage-main">
