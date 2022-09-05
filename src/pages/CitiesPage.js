@@ -3,7 +3,6 @@ import "../styles/CitiesPage.css"
 import { useEffect, useState } from "react";
 import citiesActions from "../features/actions/citiesActions";
 import {useDispatch, useSelector} from "react-redux"
-import axios from "axios";
 
 
 function CitiesPage() {
