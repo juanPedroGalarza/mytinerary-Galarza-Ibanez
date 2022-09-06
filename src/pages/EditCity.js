@@ -2,6 +2,7 @@ import Input from "../components/Input";
 import "../styles/EditCity.css"
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
+import apiurl from "../api";
 export default function EditCity() {
     const [cities, setCities] = useState([])
     const selectEl = useRef(null)
@@ -59,12 +60,12 @@ export default function EditCity() {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
-        axios.put(`http://localhost:4000/cities/${valueSelect}`,data)
+        axios.put(`${apiurl}/cities/${valueSelect}`,data)
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
     useEffect(() => {
-        axios.get("http://localhost:4000/cities")
+        axios.get(`${apiurl}/cities`)
             .then(res => {
                 const fetchCities = res.data.response
                 setCities(fetchCities)
@@ -74,7 +75,7 @@ export default function EditCity() {
     }, [])
     useEffect(() => {
         if (valueSelect) {
-            axios.get(`http://localhost:4000/cities/${valueSelect}`)
+            axios.get(`${apiurl}/cities/${valueSelect}`)
             .then(res => setBackgroundIamge(res.data.response.photo))
             .catch(err => console.log(err))
         }

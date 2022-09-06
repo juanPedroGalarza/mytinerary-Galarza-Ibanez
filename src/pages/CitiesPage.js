@@ -2,7 +2,7 @@ import TableList from "../components/TableList"
 import "../styles/CitiesPage.css"
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import apiurl from "../api";
 
 function CitiesPage() {
     const [cities, setCities] = useState([])
@@ -12,11 +12,11 @@ function CitiesPage() {
     }
     useEffect(() => {
         if (searchValue) {
-            axios.get(`http://localhost:4000/cities/?city=${searchValue}`)
+            axios.get(`${apiurl}/cities/?city=${searchValue}`)
             .then(res => setCities(res.data.response))
             .catch(err => console.log(err))
         } else {
-            axios.get("http://localhost:4000/cities")
+            axios.get(`${apiurl}/cities`)
             .then(res => setCities(res.data.response))
             .catch(err => console.log(err))
         }

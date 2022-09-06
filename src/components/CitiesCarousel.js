@@ -1,11 +1,11 @@
 import Carousel from "./Carousel"
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import apiurl from "../api"
 function CitiesCarousel() {
     const [cities,setCities] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:4000/cities")
+        axios.get(`${apiurl}/cities`)
             .then(res => setCities(res.data.response.slice(0,12)))
             .catch(error=> console.log(error))
     },[])

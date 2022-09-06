@@ -2,7 +2,7 @@ import Input from "../components/Input"
 import "../styles/NewCity.css"
 import axios from "axios"
 import { useState } from "react";
-
+import apiurl from "../api";
 function NewCity(props) {
     const inputArray =[
         {
@@ -52,7 +52,7 @@ function NewCity(props) {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
-        axios.post(`http://localhost:4000/cities` ,data)
+        axios.post(`${apiurl}/cities` ,data)
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
