@@ -133,8 +133,11 @@
         }
         .Details-item {
             flex-wrap: wrap;
+            margin: 1rem 0;
         }
-    
+        .Details-p-div{
+            margin:1rem 0;
+        }
         .Details-item-title{
             font-size: 8vw
         }
@@ -144,6 +147,9 @@
     }
 
     @media (max-width: 450px){
+        .Details-container{
+            width: 100%;
+        }
         .Details-btn{
             font-size: 5vw;
         }

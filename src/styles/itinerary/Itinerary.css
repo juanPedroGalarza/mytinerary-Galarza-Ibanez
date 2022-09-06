@@ -43,3 +43,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+@media (max-width: 450px){
+    .itinerary-container{
+        margin: 1rem 0;
+    }
+}
