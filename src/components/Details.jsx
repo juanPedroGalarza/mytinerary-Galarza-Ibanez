@@ -11,14 +11,14 @@ function Details(props) {
     let newDate = new Date(city.fundation)
     let year = newDate.getFullYear()
     useEffect(() => {
-        if (city) {
-            axios.get(`http://localhost:4000/itineraries/?city=${city.city}`)
-            .then(res => { setItineraries(res.data.response) })
-            .catch(err=>{
-                console.log(err)
+        axios.get(`http://localhost:4000/itineraries/?city=${id}`)
+            .then(res => {
+                setItineraries(res.data.response)
             })
-        }
-    },[city])
+        .catch(err=>{
+            console.log(err)
+        })
+    },[])
     return (
         <div className="Details-container">
             <div className="Details-item" style={{ backgroundImage: `url(${city.photo})` }}>
