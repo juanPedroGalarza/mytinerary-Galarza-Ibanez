@@ -34,11 +34,11 @@ export default function Activities(props) {
                 {open? "Close ":""}
             Activities
         </button>
-        <div className="activities-container">
             {open ?
-                activities.map(viewActivity)
-            :null}
+        <div className="activities-container">
+                    {activities.map(viewActivity)}
         </div>
+            :null}
         </>
     )
 }
