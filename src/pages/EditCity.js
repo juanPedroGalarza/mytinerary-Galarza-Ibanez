@@ -3,6 +3,7 @@ import "../styles/EditCity.css"
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
 import apiurl from "../api";
+import { useParams } from "react-router-dom";
 export default function EditCity() {
     const [cities, setCities] = useState([])
     const selectEl = useRef(null)
@@ -46,13 +47,21 @@ export default function EditCity() {
             value: ""
         }
     ]
+    const {id}= useParams()
     const viewOptions = city => {
+        
         return (
             <option value={city._id} className="editCity-option" key={city._id}>{city.city}</option>
         )
     }
     const handleValue = () => {
         setValueSelect(selectEl.current.value)
+        
+    }
+    const handleOnLoadValue = () => {
+        selectEl.current.value = id
+        setValueSelect(selectEl.current.value)
+        //console.log(id)
     }
     const putCity = (arrayForm,e) => {
         let inputsForm = arrayForm.filter(element => element.value && element.name != "id")
@@ -65,13 +74,23 @@ export default function EditCity() {
             .catch(err => console.log(err))
     }
     useEffect(() => {
-        axios.get(`${apiurl}/cities`)
+        if (id){
+        axios.get(`${apiurl}/cities/${id}`)
+            .then(res => {
+                const fetchCities = res.data.response
+                setCities([fetchCities])
+                setValueSelect(fetchCities._id)
+            })
+            .catch(err => console.log(err))
+        }else {
+            axios.get(`${apiurl}/cities`)
             .then(res => {
                 const fetchCities = res.data.response
                 setCities(fetchCities)
                 setValueSelect(fetchCities[0]._id)
             })
             .catch(err => console.log(err))
+        }
     }, [])
     useEffect(() => {
         if (valueSelect) {
@@ -84,7 +103,7 @@ export default function EditCity() {
         <div className="editCity-main" style={{ backgroundImage: `url(${backgroundIamge})` }}>
             <h1 className="editCity-title">Edit City</h1>
             <Input inputsData={inputArray} event={(arrayForm,e)=>putCity(arrayForm,e)} classPage="editCity">
-                <select name="id" className="editCity-select" ref={selectEl} onChange={handleValue}>
+                <select name="id" className="editCity-select" ref={selectEl} onChange={handleValue} onLoad={handleOnLoadValue} >
                     {cities.map(viewOptions)}
                 </select>
             </Input>

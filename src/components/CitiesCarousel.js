@@ -1,14 +1,26 @@
 import Carousel from "./Carousel"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import apiurl from "../api"
+import {useGetAllCitiesQuery} from '../features/actions/citiesAPI'
+
 function CitiesCarousel() {
-    const [cities,setCities] = useState([])
-    useEffect(() => {
-        axios.get(`${apiurl}/cities`)
-            .then(res => setCities(res.data.response.slice(0,12)))
-            .catch(error=> console.log(error))
-    },[])
+ 
+    let {
+        data: cities,
+        error,
+        isLoading,
+        isSuccess,
+        isFailed,
+        } = useGetAllCitiesQuery('')
+        
+        if (isLoading){
+            cities = []
+        } else if(isSuccess){
+            cities = cities.response
+        }else if (error){
+            cities= []
+            console.log(error)
+    }
+
+
     return (
         <Carousel data={cities} range={4} start={0} interval={10} />
     )
