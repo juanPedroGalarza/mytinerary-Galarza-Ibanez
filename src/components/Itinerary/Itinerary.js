@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
+import Comments from "./Comments"
 export default function Itinerary(props) {
     const itinerary = props.data
     const [user, setUser] = useState()
@@ -38,7 +39,8 @@ export default function Itinerary(props) {
                     {itinerary.tags.map(tag => "#" + tag + " ")}
                 </p>
             </div>
-            <Activities/>
+            <Activities />
+            <Comments />
         </div>
     )
 }
