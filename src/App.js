@@ -7,6 +7,7 @@ import EditCity from './pages/EditCity';
 import NotFound from './pages/NotFound';
 import City from './pages/City';
 import WebsiteLayout from './layouts/WebsiteLayout';
+import MyTineraries from './pages/MyTineraries';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/edit-city/:id' element={<EditCity />} />
           <Route path='/*' element={<NotFound />} />
           <Route path='/city/:id' element={<City />} />
+          <Route path='/mytineraries' element={<MyTineraries />} />
         </Routes>
     </WebsiteLayout>
     </BrowserRouter>
