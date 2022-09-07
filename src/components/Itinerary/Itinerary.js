@@ -1,20 +1,10 @@
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
-//import { useGetItinerariesUsersQuery } from "../../features/actions/itinerariesAPI"
 
 
 export default function Itinerary(props) {
     const itinerary = props.data.response? props.data.response : props.data
-    //const [user, setUser] = useState()
-
-    // let {
-    //     data: itineraries,
-    //     error,
-    //     isLoading,
-    //     isSuccess,
-    //     isfailed
-    //     } = useGetItinerariesUsersQuery()
 
     return (
         <div className="itinerary-container">
