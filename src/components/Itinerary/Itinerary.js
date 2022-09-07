@@ -1,47 +1,28 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
-import { useGetAllItinerariesQuery } from "../../features/actions/itinerariesAPI"
+//import { useGetItinerariesUsersQuery } from "../../features/actions/itinerariesAPI"
 
 
 export default function Itinerary(props) {
-    const itinerary = props.data
-    const [user, setUser] = useState()
-    // useEffect(() => {
-    //     if (itinerary) {
-    //         axios.get(`http://localhost:4000/auth/631258d85b6dd57b0bd6a913`)
-    //         .then(res => setUser(res.data.response))
-    //         //de momento se va a usar el mismo usario para probar
-    //         .catch(err=>{
-    //             console.log(err)
-    //         })
-    //     }
-    // }, [itinerary])
+    const itinerary = props.data.response? props.data.response : props.data
+    //const [user, setUser] = useState()
 
-    let {
-        data: itineraries,
-        error,
-        isLoading,
-        isSuccess,
-        isfailed
-        } = useGetAllItinerariesQuery()
+    // let {
+    //     data: itineraries,
+    //     error,
+    //     isLoading,
+    //     isSuccess,
+    //     isfailed
+    //     } = useGetItinerariesUsersQuery()
 
-        let content; 
-        if(isLoading){
-            itineraries =[]
-        } else if(isSuccess){
-            itineraries = itineraries.response
-        }
-        
     return (
         <div className="itinerary-container">
             <p className="itinerary-name">{itinerary.name}</p>
-            {user?<div className="itinerary-user">
-                <img src={user.photo} alt="user-photo" className="itinerary-user-photo"/>
+            {itinerary.user?<div className="itinerary-user">
+                <img src={itinerary.user.photo} alt="user-pfp" className="itinerary-user-photo" />
                 <p>{itinerary.user.name}</p>
-                <p>{user.lastName}</p>
+                <p>{itinerary.user.country}</p>
             </div> : null}
             {/* esto es para evitar un error de carga mientras el usuario no este en itinerary */}
             <div className="itinerary-body">
@@ -51,14 +32,14 @@ export default function Itinerary(props) {
                 </div>
                 <p className="itinerary-price">{"💵 ".repeat(itinerary.price)}</p>
                 <p className="itinerary-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nesciunt necessitatibus perspiciatis exercitationem magnam dolorum dignissimos suscipit laboriosam! At itaque tempora fugit iure tempore quo similique optio deleniti dolores ex.
+                {itinerary.description}
                 </p>
                 <p className="itinerary-tags">
                     {itinerary.tags.map(tag => "#" + tag + " ")}
                 </p>
             </div>
-            <Activities />
-            <Comments />
+            <Activities itinerary={itinerary._id} />
+            <Comments itinerary={itinerary._id}/>
         </div>
     )
 }
