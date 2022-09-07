@@ -1,7 +1,17 @@
 import { useState } from "react"
 import "../../styles/itinerary/Comments.css"
+import { useGetAllCommentsQuery } from "../../features/actions/comentsAPI"
+
 export default function Comments(props) {
-    const comments = [
+
+    let{
+        data: comments,
+        error,
+        isLoading,
+        isSucces
+        }= useGetAllCommentsQuery()
+
+    const commentsForm = [
         {
             message: "🐙",
             user: {
@@ -27,6 +37,8 @@ export default function Comments(props) {
             }
         },
     ]
+
+
     const [open, setOpen] = useState(false)
     const handleOpen = () => {
         open ?

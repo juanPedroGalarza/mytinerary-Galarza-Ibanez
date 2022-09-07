@@ -15,7 +15,7 @@ export default function Activities(props) {
             photo: "https://imagenes.elpais.com/resizer/pKpsAzeO1aqa2M1a-6AIp_ZbxH0=/1960x1103/cloudfront-eu-central-1.images.arcpublishing.com/prisa/VXSEYFTVUFDGPJH6BZFVCGH6OU.jpg",
         }
     ]
-    const [open,setOpen] = useState(false)
+   // const [open,setOpen] = useState(false)
     const viewActivity = (activity) => {
         return (
             <div className="activities-item" key={activity.name} style={{ backgroundImage: `url(${activity.photo})` }}>
@@ -23,22 +23,16 @@ export default function Activities(props) {
             </div>
         )
     }
-    const handleOpen=()=>{
-        open ?
-        setOpen(false)
-        :setOpen(true)
-    }
+    // const handleOpen=()=>{
+    //     open ?
+    //     setOpen(false)
+    //     :setOpen(true)
+    // }
     return (
         <>
-            <button type="button" onClick={handleOpen} className="activities-button">
-                {open? "Close ":""}
-            Activities
-        </button>
-            {open ?
         <div className="activities-container">
                     {activities.map(viewActivity)}
         </div>
-            :null}
         </>
     )
 }

@@ -1,22 +1,40 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
+import { useGetAllItinerariesQuery } from "../../features/actions/itinerariesAPI"
+
+
 export default function Itinerary(props) {
     const itinerary = props.data
     const [user, setUser] = useState()
-    useEffect(() => {
-        if (itinerary) {
-            axios.get(`http://localhost:4000/auth/631258d85b6dd57b0bd6a913`)
-            .then(res => setUser(res.data.response))
-            //de momento se va a usar el mismo usario para probar
-            .catch(err=>{
-                console.log(err)
-            })
+    // useEffect(() => {
+    //     if (itinerary) {
+    //         axios.get(`http://localhost:4000/auth/631258d85b6dd57b0bd6a913`)
+    //         .then(res => setUser(res.data.response))
+    //         //de momento se va a usar el mismo usario para probar
+    //         .catch(err=>{
+    //             console.log(err)
+    //         })
+    //     }
+    // }, [itinerary])
+
+    let {
+        data: itineraries,
+        error,
+        isLoading,
+        isSuccess,
+        isfailed
+        } = useGetAllItinerariesQuery()
+
+        let content; 
+        if(isLoading){
+            itineraries =[]
+        } else if(isSuccess){
+            itineraries = itineraries.response
         }
-    }, [itinerary])
+        
     return (
         <div className="itinerary-container">
             <p className="itinerary-name">{itinerary.name}</p>
