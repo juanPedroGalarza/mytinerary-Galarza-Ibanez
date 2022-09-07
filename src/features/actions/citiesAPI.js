@@ -11,8 +11,25 @@ export const citiesAPI = createApi({
         getAllCities: builder.query({
             query: (search)=>`/cities/?city=${search}`
             }),
-        
+        postOneCity: builder.mutation({
+            query: (data) => ({
+                url: "/cities/",
+                method: "POST",
+                body: data,
+                responseHandler: (res)=> res.body.response
+            })
+            }),
+        editOneCity: builder.mutation({
+            query: ({id,data}) => ({
+                url: `/cities/${id}`,
+                method: "PUT",
+                body: data,
+                responseHandler: (res)=> res.body.response
+                })
+            }),
     })
 })
 
-export const {useGetAllCitiesQuery, useGetFilterCitiesQuery} = citiesAPI
+export const {  useGetAllCitiesQuery,
+                usePostOneCityMutation,
+                useEditOneCityMutation } = citiesAPI
