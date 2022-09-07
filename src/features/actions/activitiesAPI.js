@@ -28,18 +28,17 @@ export const activitiesAPI = createApi({
                     }),
 
                 modifyActivity: builder.mutation({
-                    query: (activity) =>({
-                    url: `/activities/${activity._id}`,
+                    query: (id,data) =>({
+                    url: `/activities/${id}`,
                     method:'PATCH',
-                    body: activity
+                    body: data
                         })
                     }),
 
                 deleteActivity: builder.mutation({
-                    query: (activity) =>({
-                        url: `/activities/${activity._id}`,
+                    query: (id) =>({
+                        url: `/activities/${id}`,
                         method:'DELETE',
-                        body: activity
                         })
                     })
         })

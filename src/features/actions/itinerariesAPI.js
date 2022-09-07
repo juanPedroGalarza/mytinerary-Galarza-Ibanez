@@ -27,17 +27,16 @@ export const itinerariesAPI = createApi({
             query: (id) => `/itineraries/?auth=${id}`
             }),
         modifyItinerary: builder.mutation({
-            query: (itinerary) =>({
-            url: `/itineraries/${itinerary._id}`,
+            query: (id,data) =>({
+            url: `/itineraries/${id}`,
             method:'PATCH',
-            body: itinerary
+            body: data
                 })
             }),
         deleteItinerary: builder.mutation({
-            query: (itinerary) =>({
-                url: `/itineraries/${itinerary._id}`,
+            query: (id) =>({
+                url: `/itineraries/${id}`,
                 method:'DELETE',
-                body: itinerary
                 })
             })
 })})

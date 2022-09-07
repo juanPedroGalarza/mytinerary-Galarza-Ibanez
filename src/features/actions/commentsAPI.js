@@ -29,18 +29,17 @@ export const commentsAPI = createApi({
                     }),
                     
             modifyComment: builder.mutation({
-                query: (comment) =>({
-                url: `/comments/${comment._id}`,
+                query: (id,data) =>({
+                url: `/comments/${id}`,
                 method:'PATCH',
-                body: comment
+                body: data
                     })
                 }),
 
             deleteComment: builder.mutation({
-                query: (comment) =>({
-                    url: `/comment/${comment._id}`,
-                    method:'DELETE',
-                    body: comment
+                query: (id) =>({
+                    url: `/comment/${id}`,
+                    method:'DELETE'
                     })
                 })
         })
