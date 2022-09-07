@@ -14,12 +14,18 @@ export const itinerariesAPI = createApi({
         //     body: itinerary
         //         })
         //     }),
-        getAllItineraries: builder.query({
-            query: () => `/itineraries/`
-            }),
         // getItinerary: builder.query({
         //     query: (id) => `/itineraries/${id}`
         //     }),
+        getAllItineraries: builder.query({
+            query: () => `/itineraries/`
+            }),
+        getCityItineraries: builder.query({
+            query: (id) => `/itineraries/?city=${id}`
+            }),
+        getItinerariesUsers: builder.query({
+            query: (id) => `/itineraries/?auth=${id}`
+            }),
         modifyItinerary: builder.mutation({
             query: (itinerary) =>({
             url: `/itineraries/${itinerary._id}`,
@@ -36,4 +42,4 @@ export const itinerariesAPI = createApi({
             })
 })})
 
-export const {useGetAllItinerariesQuery,useDeleteItineraryMutation,useModifyItineraryMutation } = itinerariesAPI
+export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation } = itinerariesAPI
