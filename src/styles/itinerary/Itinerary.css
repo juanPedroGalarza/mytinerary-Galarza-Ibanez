@@ -15,6 +15,14 @@
     color: #FAF3E0;
     text-align: center;
 }
+.itinerary-user-name{
+    font-family:  Tahoma ;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.itinerary-user-country{
+    font-weight: 600;
+}
 .itinerary-user{
     display: flex;
     flex-direction: column;
@@ -31,7 +39,7 @@
     justify-content: center;
     max-width: 80%;
     font-family: sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
 }
 .itinerary-text{
@@ -42,9 +50,16 @@
     justify-content: space-around;
     font-family: sans-serif;
 }
-.tinerary-description{
+.itinerary-description{
     color: #FAF3E0;
     font-style: italic;
+    margin: 0.5rem;
+    font-size: 1.3rem;
+}
+.itinerary-tags{
+    font-weight: 600;
+    font-style: oblique;
+    margin: 0.5rem;
 }
 
 .itinerary-user-photo{

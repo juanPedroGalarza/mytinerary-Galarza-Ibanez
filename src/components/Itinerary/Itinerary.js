@@ -1,3 +1,4 @@
+import { commentsAPI } from "../../features/actions/commentsAPI"
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
@@ -5,14 +6,14 @@ import Comments from "./Comments"
 
 export default function Itinerary(props) {
     const itinerary = props.data.response? props.data.response : props.data
-
+   
     return (
         <div className="itinerary-container">
             <p className="itinerary-name">{itinerary.name}</p>
             {itinerary.user?<div className="itinerary-user">
                 <img src={itinerary.user.photo} alt="user-pfp" className="itinerary-user-photo" />
-                <p>{itinerary.user.name}</p>
-                <p>{itinerary.user.country}</p>
+                <p className="itinerary-user-name">{itinerary.user.name}</p>
+                <p className="itinerary-user-country">{itinerary.user.country}</p>
             </div> : null}
             {/* esto es para evitar un error de carga mientras el usuario no este en itinerary */}
             <div className="itinerary-body">
@@ -29,7 +30,7 @@ export default function Itinerary(props) {
                 </p>
             </div>
             <Activities itinerary={itinerary._id} />
-            <Comments itinerary={itinerary._id}/>
+            <Comments itinerary={itinerary._id} />
         </div>
     )
 }

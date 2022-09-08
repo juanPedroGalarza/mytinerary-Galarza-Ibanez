@@ -22,6 +22,7 @@ export const itinerariesAPI = createApi({
             }),
         getCityItineraries: builder.query({
             query: (id) =>(`/itineraries/?city=${id}`),
+            
             }),
         getItinerariesUsers: builder.query({
             query: (id) => `/itineraries/?auth=${id}`
