@@ -66,13 +66,21 @@
     max-height: 200px;
     object-fit: contain;
     border-radius: 50%;
-    border: solid;}
+    border: solid;
+    transition:  0.5s;
+}
 
 .itinerary-user-photo:hover{
     -webkit-transform: rotateY(180deg);
     -webkit-transform-style: preserve-3d;
     transform: rotateY(180deg);
     transform-style: preserve-3d;
+}
+.itinerary-name{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: Tahoma;
 }
 
 
