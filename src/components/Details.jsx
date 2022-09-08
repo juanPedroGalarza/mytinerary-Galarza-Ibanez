@@ -1,24 +1,25 @@
 import "../styles/CityDetails.css"
 import { Link as LinkRouter } from 'react-router-dom'
-import axios from "axios"
 import Itinerary from "./Itinerary/Itinerary"
-import { useEffect } from "react"
-import { useState } from "react"
+import {useGetCityItinerariesQuery} from "../features/actions/itinerariesAPI"
+
 function Details(props) {
     const city = props.data
     const id = props.cityId
-    const [itineraries, setItineraries] = useState([])
+    //console.log(id)
+    let {data: itineraries, isLoading,isSuccess}= useGetCityItinerariesQuery(id)
+
     let newDate = new Date(city.fundation)
     let year = newDate.getFullYear()
-    useEffect(() => {
-        axios.get(`http://localhost:4000/itineraries/?city=${id}`)
-            .then(res => {
-                setItineraries(res.data.response)
-            })
-        .catch(err=>{
-            console.log(err)
-        })
-    },[])
+
+    let content;
+            if(isLoading){
+                itineraries = [] }else if(isSuccess){
+                    itineraries= itineraries.response
+                }
+    //console.log(itineraries.response)
+
+
     return (
         <div className="Details-container">
             <div className="Details-item" style={{ backgroundImage: `url(${city.photo})` }}>

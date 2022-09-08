@@ -16,11 +16,12 @@
     min-height: 250px;
     background-position: 50%;
     background-size: cover;
-    border-radius: 20% 0% 20% 0%;
+    border-radius: 16% 2% 16% 2%;
 }
 .activities-item:hover {
     filter: grayscale(60%);
     border-radius: 50%;
+    transition:0.4s;
     
 }
 .activities-button{

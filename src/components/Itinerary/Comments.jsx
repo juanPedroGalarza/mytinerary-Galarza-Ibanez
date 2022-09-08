@@ -47,7 +47,7 @@ export default function Comments(props) {
         <button className="comments-button" type="button" onClick={handleOpen}>
             {open? "Close ":""}
             Comments
-        </button> : <p>There are not comments here...</p> }
+        </button> : <p className="no-comments">There are not comments here...</p> }
             {open ?
         <div className="comments-container">
                 {comments?.map(viewComment)}
