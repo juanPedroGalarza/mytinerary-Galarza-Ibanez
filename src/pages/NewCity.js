@@ -1,9 +1,7 @@
 import Input from "../components/Input"
 import "../styles/NewCity.css"
-import axios from "axios"
-import { useState } from "react";
-
-function NewCity(props) {
+import {usePostOneCityMutation} from "../features/actions/citiesAPI"
+function NewCity() {
     const inputArray =[
         {
             name: "City",
@@ -42,26 +40,20 @@ function NewCity(props) {
             value: ""
         }
     ]
-    const [valueSelect,setValueSelect] = useState(null)
-    const handleValue = (e) => {
-        setValueSelect(e.current.value)
-    }
+    let [postOneCity] = usePostOneCityMutation()
     const postCity = (arrayform) =>{
         let inputsForm = arrayform
         let data = inputsForm.reduce((values,input) => {
             values[input.name.toLowerCase()] = input.value
             return values
-        },{})
-        axios.post(`http://localhost:4000/cities` ,data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        }, {})
+        postOneCity(data)
     }
-
     return (
         <div className="NewCity-main">
             <div className="NewCity-background"> </div>
             <h1 className="NewCity-title">NewCity</h1>
-            <Input inputsData={inputArray} event={(arrayForm)=>postCity(arrayForm)} onChange={handleValue}classPage="NewCity"/>
+            <Input inputsData={inputArray} event={(arrayForm)=>postCity(arrayForm)} classPage="NewCity"/>
         </div>
     )   
 }

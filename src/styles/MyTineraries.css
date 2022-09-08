@@ -1,0 +1,30 @@
+.myTineraries-container{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 90vh;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #FAF3E0;
+
+}
+.myTineraries-btn{
+    text-decoration: none;
+    margin: 1rem;
+    padding: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.2vw;
+    color: #1E212D ;
+    background-color:#B68973 ;
+    border-radius: 16px;
+
+}
+.myTineraries-btn:hover{
+    background-color: #1E212D ;
+    color:#EABF9F;
+    font-style: italic;
+}

@@ -1,11 +1,14 @@
 import Input from "../components/Input";
 import "../styles/EditCity.css"
-import axios from "axios"
+import { useEditOneCityMutation, useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 export default function EditCity() {
-    const [cities, setCities] = useState([])
     const selectEl = useRef(null)
-    const [valueSelect,setValueSelect] = useState(null)
+    let { data: cities } = useGetAllCitiesQuery('')
+    const [getACity, { data: city }] = useGetACityMutation()
+    const [editOneCity, {data: editedCity}] = useEditOneCityMutation()
+    const {id}= useParams()
     const [backgroundIamge,setBackgroundIamge] = useState(null)
     const inputArray = [
         {
@@ -50,41 +53,38 @@ export default function EditCity() {
             <option value={city._id} className="editCity-option" key={city._id}>{city.city}</option>
         )
     }
-    const handleValue = () => {
-        setValueSelect(selectEl.current.value)
+    const handleCity = () => {
+        getACity(selectEl.current.value)
     }
     const putCity = (arrayForm,e) => {
         let inputsForm = arrayForm.filter(element => element.value && element.name != "id")
-        let data = inputsForm.reduce((values,input) => {
+        let dataCity = inputsForm.reduce((values,input) => {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
-        axios.put(`http://localhost:4000/cities/${valueSelect}`,data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        editOneCity({id: city.response._id, data: dataCity})
     }
     useEffect(() => {
-        axios.get("http://localhost:4000/cities")
-            .then(res => {
-                const fetchCities = res.data.response
-                setCities(fetchCities)
-                setValueSelect(fetchCities[0]._id)
-            })
-            .catch(err => console.log(err))
-    }, [])
-    useEffect(() => {
-        if (valueSelect) {
-            axios.get(`http://localhost:4000/cities/${valueSelect}`)
-            .then(res => setBackgroundIamge(res.data.response.photo))
-            .catch(err => console.log(err))
+        if (cities) {
+            if (id) {
+                getACity(id)
+            } else {        
+                getACity(cities?.response[0]._id)
+            }
         }
-    },[valueSelect])
+        if (id) {
+            selectEl.current.value = id
+        }
+    }, [cities])
+    useEffect(() => {
+        setBackgroundIamge(city?.response.photo)
+    },[city])
     return (
         <div className="editCity-main" style={{ backgroundImage: `url(${backgroundIamge})` }}>
             <h1 className="editCity-title">Edit City</h1>
             <Input inputsData={inputArray} event={(arrayForm,e)=>putCity(arrayForm,e)} classPage="editCity">
-                <select name="id" className="editCity-select" ref={selectEl} onChange={handleValue}>
-                    {cities.map(viewOptions)}
+                <select name="id" className="editCity-select" ref={selectEl} onChange={handleCity}>
+                    {cities?.response.map(viewOptions)}
                 </select>
             </Input>
         </div>

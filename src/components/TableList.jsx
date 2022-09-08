@@ -2,8 +2,9 @@ import "../styles/TableList.css"
 import { Link as LinkRouter } from 'react-router-dom'
 
 function TableList(props) {
-    const city = props.data
-   // console.log(city)
+    const cities = props.data.response? props.data.response : props.data
+    //console.log(cities)
+    
     const itemView = (item) => {
         return (
             <LinkRouter to={`/city/${item._id}`} className="TableList-item" key={item._id} style={{ backgroundImage: `url(${item.photo})` }}>
@@ -14,7 +15,7 @@ function TableList(props) {
     }
     return (
         <div className="TableList-container">
-            {props.data.map(itemView)}
+        {cities?.map(itemView)}
         </div>
     )
 }
