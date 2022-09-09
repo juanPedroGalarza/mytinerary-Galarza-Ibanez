@@ -28,9 +28,9 @@ function NewCity() {
             value: ""
         },
         {
-            name: "Fundation",
+            name: "Foundation",
             type: "date",
-            placeholder: "Type the date of fundation of the city!",
+            placeholder: "Type the date of foundation of the city!",
             value: ""
         },
         {

@@ -36,7 +36,7 @@ export default function EditCity() {
             value: ""
         },
         {
-            name: "Fundation",
+            name: "Foundation",
             type: "date",
             placeholder: "...",
             value: ""
