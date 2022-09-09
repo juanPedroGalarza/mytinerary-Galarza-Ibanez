@@ -9,7 +9,7 @@ function Details(props) {
     //console.log(id)
     let {data: itineraries, isLoading,isSuccess}= useGetCityItinerariesQuery(id)
 
-    let newDate = new Date(city.fundation)
+    let newDate = new Date(city.foundation)
     let year = newDate.getFullYear()
 
     let content;
@@ -28,7 +28,7 @@ function Details(props) {
             <div className="Details-p-div">
                 <div className="details-p-innerdiv">
                 <p className="Details-innerp"><span className="details-p-span">Country:</span> {city.country}.</p>
-                    <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {year}.</p>
+                    <p className="Details-innerp" ><span className="details-p-span">Foundation:</span> {year}.</p>
                     <p className="Details-innerp" ><span className="details-p-span"> Population:</span> {city.population}.</p>
                 </div>
                 <p className="Details-p" >{city.description}</p>
