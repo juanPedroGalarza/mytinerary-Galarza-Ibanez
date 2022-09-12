@@ -28,3 +28,15 @@
     color:#EABF9F;
     font-style: italic;
 }
+.myTineraries-item{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    padding-top: 1rem;
+}
+@media (max-width: 768px){
+    .myTineraries-item{
+        width: 100%;
+    }
+}
