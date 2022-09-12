@@ -25,7 +25,8 @@ export const itinerariesAPI = createApi({
             
             }),
         getItinerariesUsers: builder.query({
-            query: (id) => `/itineraries/?auth=${id}`
+            query: (id) => `/itineraries/?user=${id}`,
+            transformResponse: res => res.response
             }),
         modifyItinerary: builder.mutation({
             query: (id,data) =>({
