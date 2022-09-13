@@ -9,8 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
-    transform: scaleX(-1);
+    background-position: center;
 }
 .signin-form{
     display: flex;
