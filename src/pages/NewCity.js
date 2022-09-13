@@ -6,7 +6,7 @@ function NewCity() {
         {
             name: "City",
             type: "text",
-            placeholder: "type the name of the city!",
+            placeholder: "Type the name of the city!",
             value: ""
         },
         {
