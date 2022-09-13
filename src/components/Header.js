@@ -24,15 +24,15 @@ function Header(props) {
                 <img className='header-logo' src='https://i.ibb.co/WfpYBpB/logomytinerary.png'></img>
                 <p className='header-p'>MyTinerary</p>
             </div>
-            <span onClick={toggleOpen} className="header-open-nav"></span>
+            <span onClick={toggleOpen} className="header-open-nav" ></span>
             <nav className='header-nav'>
                 {pages.map(viewNav)}
-                <ProfileNavList />
+                <ProfileNavList user={props.user} />
             </nav>
                 <nav className={`header-nav-modal ${open? "active":null}`}>
                 <span onClick={toggleOpen} className="header-close-nav"></span>
                 {pages.map(viewNav)}
-                <ProfileNavList />
+                <ProfileNavList user={props.user} />
                 </nav>
         </div>
     )
