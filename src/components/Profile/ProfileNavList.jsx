@@ -4,7 +4,7 @@ import "../../styles/profile/ProfileNavList.css"
 function ProfileNavList() {
     const [open,setOpen] = useState(false)
     const profile = [
-        {linkTo:"/login",name:"Log In"},
+        {linkTo:"/signin",name:"Log In"},
         {linkTo:"/signup",name:"Sign Up"},
     ]
     const viewProfile = (item) => {

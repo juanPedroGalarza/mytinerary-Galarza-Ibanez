@@ -9,6 +9,7 @@ import City from './pages/City';
 import WebsiteLayout from './layouts/WebsiteLayout';
 import MyTineraries from './pages/MyTineraries';
 import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/edit-city' element={<EditCity />} />
           <Route path='/edit-city/:id' element={<EditCity />} />
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/signin' element={<SignIn />} />
           <Route path='/city/:id' element={<City />} />
           <Route path='/mytineraries' element={<MyTineraries />} />
           <Route path='/*' element={<NotFound />} />
