@@ -21,6 +21,7 @@ export const usersAPI = createApi({
                 method: "POST",
                 body: user
             }),
+            transformResponse: res=> res.response
             }),
         })
     })
