@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound';
 import City from './pages/City';
 import WebsiteLayout from './layouts/WebsiteLayout';
 import MyTineraries from './pages/MyTineraries';
-
+import SignUp from './pages/SignUp';
 function App() {
   return (
     <BrowserRouter>
@@ -19,9 +19,10 @@ function App() {
           <Route path='/new-city' element={<NewCity />} />
           <Route path='/edit-city' element={<EditCity />} />
           <Route path='/edit-city/:id' element={<EditCity />} />
-          <Route path='/*' element={<NotFound />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/city/:id' element={<City />} />
           <Route path='/mytineraries' element={<MyTineraries />} />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
     </WebsiteLayout>
     </BrowserRouter>
