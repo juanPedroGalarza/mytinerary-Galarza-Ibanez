@@ -1,28 +1,30 @@
 
 import { useRef, useEffect } from "react"
 import * as jose from "jose"
+import { useUserSignUpMutation } from "../../features/actions/usersAPI"
 
 
 export default function GoogleSignUp() {
     const buttonDiv= useRef(null)
     //console.log(buttonDiv.current)
+    let [newUser]= useUserSignUpMutation()
+
 
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential)
         console.log(userObject)
-
-
-        // let data ={
-        //     name: userObject.name,
-        //         lastName: userObject.lastName,
-        //         photo: userObject.photo,
-        //         country: userObject.country,
-        //         email: userObject.email,
-        //         password: userObject.password,
-        //         role: 'user',
-        //         from: 'google'
-        // }
-    }
+        let data ={
+                name: userObject.given_name,
+                lastName: userObject.family_name,
+                photo: userObject.picture,
+                country: "EnriGoblin",
+                email: userObject.email,
+                password: userObject.sub,
+                role: 'user',
+                from: 'google'
+        }
+        newUser(data)
+    } 
     
     useEffect(() =>{
         /*global google */
@@ -37,8 +39,7 @@ export default function GoogleSignUp() {
         }, [])
         return (
             <div>
-                <div ref={buttonDiv}></div>
-
+                <div ref={buttonDiv} ></div>
             </div>
         )
     }

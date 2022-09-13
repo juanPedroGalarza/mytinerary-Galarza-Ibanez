@@ -61,7 +61,7 @@ function SignUp() {
     return (
         <div className="signup-page-main">
             <Input inputsData={inputArray}  event={signUserForm} classPage="signup" />
-            <GoogleSignUp/>
+            <GoogleSignUp  />
 
         </div>
     )
