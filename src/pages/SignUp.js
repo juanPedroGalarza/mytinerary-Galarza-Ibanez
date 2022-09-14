@@ -46,7 +46,7 @@ function SignUp() {
 
     let [userSignUp] = useUserSignUpMutation()
     const signUserForm =(arrayform) => {
-        let inputsForm = arrayform
+        let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
             values[input.name] = input.value
             return values
