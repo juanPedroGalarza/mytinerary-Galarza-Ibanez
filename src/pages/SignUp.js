@@ -2,6 +2,8 @@ import GoogleSignUp from "../components/Users/GoogleSignUp";
 import '../styles/SignUpPage.css';
 import Input from "../components/Input";
 import { useUserSignUpMutation } from "../features/actions/usersAPI";
+import { useState, useEffect } from "react"
+import Alert from "../components/Alert"
 
 function SignUp() {
     const inputArray =[
@@ -43,27 +45,35 @@ function SignUp() {
             value: ""
         },
     ]
-
-    let [userSignUp] = useUserSignUpMutation()
+    const [showAlert,setShowAlert] = useState(false)
+    let [userSignUp, { data: resSignUp, error}] = useUserSignUpMutation()
+    
     const signUserForm =(arrayform) => {
         let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
             values[input.name] = input.value
             return values
         }, {})
-        console.log(data)
-        
         data.role = "user"
         data.from ="form"
         userSignUp(data)
+        setShowAlert(true)
     }
-
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    },[resSignUp, error])
 
     return (
         <div className="signup-page-main">
             <Input inputsData={inputArray}  event={signUserForm} classPage="signup" />
-            <GoogleSignUp  />
-
+            <GoogleSignUp />
+            {showAlert ?
+                <Alert res={resSignUp} err={error} />
+            : null}
         </div>
     )
 }
