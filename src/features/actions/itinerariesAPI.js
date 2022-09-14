@@ -7,16 +7,13 @@ export const itinerariesAPI = createApi({
         baseUrl: apiurl
         }),
     endpoints: (builder)=>({
-        // createItinerary: builder.mutation({
-        //     query: (itinerary) =>({
-        //     url: `/itineraries`,
-        //     method:'POST',
-        //     body: itinerary
-        //         })
-        //     }),
-        // getItinerary: builder.query({
-        //     query: (id) => `/itineraries/${id}`
-        //     }),
+        postItinerary: builder.mutation({
+            query: (data) =>({
+            url: "/itineraries",
+            method:'POST',
+            body: data
+                })
+            }),
         getAllItineraries: builder.query({
             query: () => `/itineraries/`
             }),
@@ -43,4 +40,4 @@ export const itinerariesAPI = createApi({
             })
 })})
 
-export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery } = itinerariesAPI
+export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery, usePostItineraryMutation } = itinerariesAPI
