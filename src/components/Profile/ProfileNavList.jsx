@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react'
 import {Link as LinkRouter} from 'react-router-dom'
+import { useUserSignOutMutation } from '../../features/actions/usersAPI'
 import "../../styles/profile/ProfileNavList.css"
+
 function ProfileNavList(props) {
     const [open, setOpen] = useState(false)
+    let [userSignOut] = useUserSignOutMutation()
     const user = props.user
+    let logged;
     const loggout = () => {
-        console.log("loggout")
-        //aca iria el mutation de signOut
+        //console.log("loggout")
+        logged =  JSON.parse(localStorage.getItem('user'))
+        userSignOut(logged)
+        //console.log(logged)
+        localStorage.removeItem('user');
+        //localStorage.clear()
     }
     const initProfile = [
-        {linkTo:"/signin",name:"Log In"},
+        {linkTo:"/signin",name:"Sign In"},
         {linkTo:"/signup",name:"Sign Up"},
     ]
     const loggedProfile = [

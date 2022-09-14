@@ -23,7 +23,14 @@ export const usersAPI = createApi({
             }),
             transformResponse: res=> res.response
             }),
-        })
+            userSignOut: builder.mutation({
+                query: (user) => ({
+                    url: "/auth/signout",
+                    method: "POST",
+                    body: user
+                })
+            })
+        }),
     })
 
-    export const { useUserSignUpMutation, useUserSignInMutation } = usersAPI
+    export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation } = usersAPI
