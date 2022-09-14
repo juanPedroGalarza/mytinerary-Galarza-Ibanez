@@ -35,7 +35,8 @@ function SignIn() {
         }
     },[data])
     const signUserForm =(arrayform) => {
-        let data = arrayform.reduce((values,input)=>{
+        let inputsForm = arrayform
+        let data = inputsForm.reduce((values,input)=>{
             values[input.name] = input.value
             return values
         }, {})
