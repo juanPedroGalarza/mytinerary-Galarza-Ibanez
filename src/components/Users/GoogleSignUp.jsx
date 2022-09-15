@@ -1,31 +1,38 @@
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import * as jose from "jose"
 import { useUserSignUpMutation } from "../../features/actions/usersAPI"
-
+import Alert from "../Alert";
 
 export default function GoogleSignUp() {
     const buttonDiv= useRef(null)
     //console.log(buttonDiv.current)
-    let [newUser]= useUserSignUpMutation()
-
+    let [newUser,{data: resSignUp, error}]= useUserSignUpMutation()
+    const [showAlert,setShowAlert] = useState(false)
 
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential)
         console.log(userObject)
         let data ={
                 name: userObject.given_name,
-                lastName: userObject.family_name,
+                lastname: userObject.family_name,
                 photo: userObject.picture,
-                country: "EnriGoblin",
+                country: "Argentina",
                 email: userObject.email,
                 password: userObject.sub,
                 role: 'user',
                 from: 'google'
         }
         newUser(data)
+        setShowAlert(true)
     } 
-    
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    },[resSignUp, error])
     useEffect(() =>{
         /*global google */
             google.accounts.id.initialize({
@@ -40,6 +47,9 @@ export default function GoogleSignUp() {
         return (
             <div>
                 <div ref={buttonDiv} ></div>
+                {showAlert ?
+                <Alert res={resSignUp} err={error} />
+            : null}
             </div>
         )
     }
