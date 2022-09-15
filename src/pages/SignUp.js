@@ -39,7 +39,7 @@ function SignUp() {
             value: ""
         },
         {
-            name: "Photo",
+            name: "hoto",
             type: "url",
             placeholder: "Insert the image url for your profile picture!",
             value: ""
@@ -51,7 +51,7 @@ function SignUp() {
     const signUserForm =(arrayform) => {
         let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
-            values[input.name.toLowerCase()] = input.value
+            values[input.name.trim().toLowerCase()] = input.value
             return values
         }, {})
         data.role = "user"
