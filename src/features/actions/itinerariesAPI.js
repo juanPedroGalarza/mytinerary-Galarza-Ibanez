@@ -22,11 +22,11 @@ export const itinerariesAPI = createApi({
             transformResponse: res => res.response
             }),
         getItinerariesUsers: builder.query({
-            query: (id) => `/itineraries/?user=${id}`,
+            query: (id) => `/itineraries/?auth=${id}`,
             transformResponse: res => res.response
             }),
         modifyItinerary: builder.mutation({
-            query: (id,data) =>({
+            query: ({id,data}) =>({
             url: `/itineraries/${id}`,
             method:'PATCH',
             body: data
