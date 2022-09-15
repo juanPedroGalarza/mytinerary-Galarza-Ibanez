@@ -39,7 +39,7 @@ function SignUp() {
             value: ""
         },
         {
-            name: "hoto",
+            name: "Photo",
             type: "url",
             placeholder: "Insert the image url for your profile picture!",
             value: ""
