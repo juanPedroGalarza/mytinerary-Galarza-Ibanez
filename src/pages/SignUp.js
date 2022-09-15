@@ -9,37 +9,37 @@ function SignUp() {
     const inputArray =[
         
         {
-            name: "name",
+            name: "Name",
             type: "text",
             placeholder: "Write your name here!",
             value: ""
         },
         {
-            name: "lastName",
+            name: "Lastname",
             type: "text",
             placeholder: "Write your last name here!",
             value: ""
         },
         {
-            name: "email",
+            name: "Email",
             type: "email",
             placeholder: "Write your email here",
             value: ""
         },
         {
-            name: "country",
+            name: "Country",
             type: "text",
             placeholder: "Where are you from?",
             value: ""
         },
         {
-            name: "password",
+            name: "Password",
             type: "password",
             placeholder: "Insert your password",
             value: ""
         },
         {
-            name: "photo",
+            name: "Photo",
             type: "url",
             placeholder: "Insert the image url for your profile picture!",
             value: ""
@@ -51,7 +51,7 @@ function SignUp() {
     const signUserForm =(arrayform) => {
         let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
-            values[input.name] = input.value
+            values[input.name.toLowerCase()] = input.value
             return values
         }, {})
         data.role = "user"
