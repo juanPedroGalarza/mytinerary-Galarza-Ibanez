@@ -2,19 +2,21 @@ import { useEffect, useState } from 'react'
 import {Link as LinkRouter} from 'react-router-dom'
 import { useUserSignOutMutation } from '../../features/actions/usersAPI'
 import "../../styles/profile/ProfileNavList.css"
+import Alert from "../Alert";
 
 function ProfileNavList(props) {
     const [open, setOpen] = useState(false)
-    let [userSignOut] = useUserSignOutMutation()
+    let [userSignOut, {data: resSignOut, error}] = useUserSignOutMutation()
     const user = props.user
+    const [showAlert,setShowAlert] = useState(false)
     let logged;
     const loggout = () => {
         //console.log("loggout")
         logged =  JSON.parse(localStorage.getItem('user'))
         userSignOut(logged)
-        //console.log(logged)
+        setShowAlert(true)
         localStorage.removeItem('user');
-        //localStorage.clear()
+
     }
     const initProfile = [
         {linkTo:"/signin",name:"Sign In"},
@@ -54,6 +56,15 @@ function ProfileNavList(props) {
     function handleList() {
         open? setOpen(false) : setOpen(true)
     }
+
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    },[resSignOut, error])
+
     return (
         <div className='profileNavList'>
             <img className='profileNavList-img' src={user? user.photo:"https://i.ibb.co/jgp9dqj/user2.png"} onClick={handleList} />
@@ -63,6 +74,9 @@ function ProfileNavList(props) {
             </ul>
                 :null
             }
+            {showAlert ?
+                <Alert res={resSignOut}  />
+            : null}
         </div>
     )
 }
