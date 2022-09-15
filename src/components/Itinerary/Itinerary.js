@@ -1,12 +1,18 @@
-import { commentsAPI } from "../../features/actions/commentsAPI"
+import { useEffect, useState } from "react"
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
 
 
 export default function Itinerary(props) {
-    const itinerary = props.data.response? props.data.response : props.data
-   
+    const itinerary = props.data
+    const [userId, setUserId] = useState()
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"))
+        if (user) {
+            setUserId(user.id)
+        }
+    },[itinerary])
     return (
         <div className="itinerary-container">
             <p className="itinerary-name">{itinerary.name}</p>
@@ -30,7 +36,7 @@ export default function Itinerary(props) {
                 </p>
             </div>
             <Activities itinerary={itinerary._id} />
-            <Comments itinerary={itinerary._id} />
+            <Comments itinerary={itinerary._id} userId={userId} />
         </div>
     )
 }

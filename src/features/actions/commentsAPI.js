@@ -24,16 +24,21 @@ export const commentsAPI = createApi({
                 query: (id) => `/comments/${id}`
                 }),
 
-            getItinerariesComment: builder.query({
-                query: (id) => `/comments/?itinerary=${id}`
+            getItinerariesComment: builder.mutation({
+                query: (id) => ({
+                    url: `/comments/?itinerary=${id}`,
+                    mothod: "GET",
+                }),
+                transformResponse: (res) => res.response
                     }),
                     
             modifyComment: builder.mutation({
-                query: (id,data) =>({
+                query: ({id,data}) =>({
                 url: `/comments/${id}`,
-                method:'PATCH',
+                method:'PUT',
                 body: data
-                    })
+                }),
+                transformResponse: res => res.response
                 }),
 
             deleteComment: builder.mutation({
@@ -45,4 +50,4 @@ export const commentsAPI = createApi({
         })
     })
 
-export const {useCreateCommentMutation,useGetAllCommentsQuery, useDeleteCommentMutation, useModifyCommentMutation,useGetItinerariesCommentQuery} = commentsAPI
+export const {useCreateCommentMutation, useDeleteCommentMutation, useModifyCommentMutation,useGetItinerariesCommentMutation} = commentsAPI
