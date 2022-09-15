@@ -16,7 +16,7 @@ export const citiesAPI = createApi({
                 url: "/cities/",
                 method: "POST",
                 body: data,
-                responseHandler: (res)=> res.body.response
+                //responseHandler: (res)=> res.body.response
             })
             }),
         editOneCity: builder.mutation({

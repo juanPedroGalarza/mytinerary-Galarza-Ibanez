@@ -20,8 +20,7 @@ export const usersAPI = createApi({
                 url: "/auth/signin",
                 method: "POST",
                 body: user
-            }),
-            transformResponse: res=> res.response
+            }), 
             }),
             userSignOut: builder.mutation({
                 query: (user) => ({

@@ -51,7 +51,7 @@ function SignUp() {
     const signUserForm =(arrayform) => {
         let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
-            values[input.name.toLowerCase()] = input.value
+            values[input.name.trim().toLowerCase()] = input.value
             return values
         }, {})
         data.role = "user"

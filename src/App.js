@@ -23,7 +23,7 @@ function App() {
   
   useEffect(() =>{
     
-      JSON.parse(localStorage.getItem('user'))&& setLogged(true)
+      JSON.parse(localStorage.getItem('user'))?.role&& setLogged(true)
       JSON.parse(localStorage.getItem('user'))?.role==='admin' && setAdmin(true)
   }, [])
 
