@@ -58,7 +58,7 @@ export default function Comments(props) {
                         <button type="button" className="comments-post-cancel"
                         onClick={handleOpenEdit}>Cancel</button>
                 </form>
-                    : <button type="button" onClick={handleOpenEdit}>
+                    : <button className="comments-message-post" type="button" onClick={handleOpenEdit}>
                         Post a comment</button>}
             </>
         )

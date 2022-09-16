@@ -9,15 +9,22 @@
 }
 
 .comments-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
     margin-top: .5rem;
     background-color: #1e212dac;
     border-radius: 10px;
+    width: 70%;
+    padding: 0.5rem;
     color: #FAF3E0;
     border-color: #1e212d;
 }
 
 .comments-button:hover {
     background-color: #1e212d;
+    transition: all .5s ease-out;
+    width: 80%;
     color: #f8f3e6;
     border-color: #262a3a;
 }
@@ -41,7 +48,27 @@
     min-width: 20%;
     font-size: .7rem;
 }
+.comments-message-post{
+    margin: 2rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: .5rem;
+    background-color: #1e212dac;
+    border-radius: 10px;
+    width: 70%;
+    padding: 0.5rem;
+    color: #FAF3E0;
+    border-color: #1e212d;
+}
 
+.comments-message-post:hover{
+    background-color: #1e212d;
+    transition: all .5s ease-out;
+    width: 80%;
+    color: #f8f3e6;
+    border-color: #262a3a;
+}
 .comments-user p{
     font-family: sans-serif;
     color: #FAF3E0;
@@ -63,7 +90,7 @@
     border-radius: 5px;
 }
 .comments-date, .comments-edit,.comments-delete, .comments-save, .comments-save-cancel{
-    font-size: .5rem;
+    font-size: .9rem;
     opacity: .7;
     padding: .2rem;
     background-color: transparent;

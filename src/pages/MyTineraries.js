@@ -25,7 +25,7 @@ const MyTineraries = () => {
                     <div className="myTineraries-item" key={itinerary._id}>
                         
                         <Itinerary data={itinerary}>
-                        <button type="button" onClick={(e) => { delelteThisItinerary(itinerary._id,e.target.parentElement) }} >
+                        <button type="button" className="delete-itinerary-btn" onClick={(e) => { delelteThisItinerary(itinerary._id,e.target.parentElement) }} >
                         Delete
                         </button>
                         </Itinerary>
