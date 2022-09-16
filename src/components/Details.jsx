@@ -6,6 +6,7 @@ import {useGetCityItinerariesQuery} from "../features/actions/itinerariesAPI"
 function Details(props) {
     const city = props.data
     const id = props.cityId
+    
     //console.log(id)
     let {data: itineraries}= useGetCityItinerariesQuery(id)
 
@@ -35,8 +36,9 @@ function Details(props) {
                 }
             <div className="Details-btns">
                     <LinkRouter to={`/`} className="Details-btn">Back to Home</LinkRouter>
-                    <LinkRouter to={`/cities`}className="Details-btn">Back to Cities</LinkRouter>
                     <LinkRouter to={`/edit-city/${id}`}className="Details-btn">Edit</LinkRouter>
+                    <LinkRouter to={`/new-itinerary/${id}`}className="Details-btn">New Itinerary</LinkRouter>
+                    <LinkRouter to={`/cities`}className="Details-btn">Back to Cities</LinkRouter>
             </div>
         </div>
     )
