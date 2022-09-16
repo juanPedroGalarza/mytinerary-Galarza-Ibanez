@@ -62,7 +62,7 @@
     padding: 4px;
     border-radius: 5px;
 }
-.comments-date, .comments-edit, .comments-save, .comments-save-cancel{
+.comments-date, .comments-edit,.comments-delete, .comments-save, .comments-save-cancel{
     font-size: .5rem;
     opacity: .7;
     padding: .2rem;
@@ -70,7 +70,7 @@
     color:#FAF3E0;
     border: none;
 }
-.comments-edit:hover, .comments-save:hover, .comments-save-cancel:hover{
+.comments-edit:hover, .comments-save:hover,.comments-delete:hover, .comments-save-cancel:hover{
     opacity: 1
 }
 .comments-message p, .comments-message input{
@@ -80,6 +80,10 @@
     text-align: start;
     font-family: sans-serif;
     color: #FAF3E0;
+}
+.comments-settings{
+    display: flex;
+    flex-wrap: wrap;
 }
 .comments-message input:focus{
     outline: none;
