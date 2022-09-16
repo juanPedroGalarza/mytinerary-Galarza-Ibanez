@@ -38,7 +38,7 @@ export default function Itinerary(props) {
     
     return (
         <div className="itinerary-container">
-            <p className="itinerary-name">{itinerary.name}</p>
+            <p className="itinerary-title">{itinerary.name}</p>
             {itinerary.user?<div className="itinerary-user">
                 <img src={props.data.user.photo} alt="user-pfp" className="itinerary-user-photo" />
                 <p className="itinerary-user-name">{props.data.user.name}</p>
@@ -55,15 +55,15 @@ export default function Itinerary(props) {
                 <input className="itinerary-name" name="name" type="text" defaultValue={itinerary.name} />
                 <div className="itinerary-text">
                 <p>♥{itinerary.likes.reduce((likes) => likes + 1,0) }</p>
-                <input className="itinerary-duration" name="duration" type="number" defaultValue={itinerary.duration} />
+                <input className="itinerary-duration-input" name="duration" type="number" defaultValue={itinerary.duration} />
                 </div>
-                <input className="itinerary-price"
+                <input className="itinerary-price-input"
                         type="number" name="price"
                         defaultValue={itinerary.price} min="1" max="5" step="1" />
-                    <input className="itinerary-description"
+                    <input className="itinerary-description-input"
                         type="text" name="description"
                         defaultValue={itinerary.description} />
-                    <input className="itinerary-tags"
+                    <input className="itinerary-tags-input"
                     type="text" name="tags"
                         defaultValue={itinerary.tags?.join(" ")} />
                 </form>
