@@ -28,7 +28,7 @@ export default function Comments(props) {
     },[open,openEdit])
     const viewComment = (commentData) => {
         return (
-            <Comment comment={commentData} userId={userId} />
+            <Comment key={commentData._id} comment={commentData} userId={userId} />
         )
     }
     const createCommentForm = () => {
@@ -52,7 +52,7 @@ export default function Comments(props) {
                         <input type="text"
                                 name="comment"
                                 ref={inputCommentPost}
-                                required="true"/>
+                                required/>
                     </div>
                         <button type="submit" className="comments-post-btn">Post</button>
                         <button type="button" className="comments-post-cancel"

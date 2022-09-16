@@ -15,11 +15,6 @@ export const commentsAPI = createApi({
                 body: comment
                     })
                 }),
-
-            // getAllComments: builder.query({
-            //     query: () => `/comments/`
-            //     }),
-            //No es necesario de momento.
             getComment: builder.query({
                 query: (id) => `/comments/${id}`
                 }),
@@ -40,10 +35,9 @@ export const commentsAPI = createApi({
                 }),
                 transformResponse: res => res.response
                 }),
-
             deleteComment: builder.mutation({
                 query: (id) =>({
-                    url: `/comment/${id}`,
+                    url: `/comments/${id}`,
                     method:'DELETE'
                     })
                 })
