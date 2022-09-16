@@ -1,11 +1,14 @@
 import { useRef, useState, useEffect } from "react"
-import { useModifyCommentMutation } from "../../features/actions/commentsAPI"
+import { useModifyCommentMutation, useDeleteCommentMutation } from "../../features/actions/commentsAPI"
 export default function Comment(props) {
+
     const userId = props.userId
     const [comment,setComment] = useState(props.comment)
     const [editComment, setEditComment] = useState(false)
     const [modifyComment,{data:editedComment}] = useModifyCommentMutation()
+    const [deleteComment] = useDeleteCommentMutation()
     const inputComment = useRef(null)
+    const [userRole, setUserRole] = useState()
     function saveComment() {
         modifyComment({
             data: {
@@ -20,10 +23,19 @@ export default function Comment(props) {
             setComment(editedComment)
         }
     },[editedComment])
+
+    useEffect(()=> {
+        let roleUser = JSON.parse(localStorage.getItem("user"))
+            if (roleUser){
+                setUserRole(roleUser.role)
+            }
+    },[])
+
+
     return (
         <>
             {editComment ?
-                <form className="comments-item" key={comment._id}
+                <form className="comments-item" 
                     onSubmit={() => {
                     saveComment()
                     setEditComment(false)
@@ -47,7 +59,7 @@ export default function Comment(props) {
                 </div>
                 </form>
             :
-            <div className="comments-item" key={comment._id}>
+            <div className="comments-item">
                     {props.comment.user ?
                 <div className="comments-user">
                     <img src={props.comment.user.photo} alt={props.comment.user.name} className="comments-user-photo"/>
@@ -60,12 +72,17 @@ export default function Comment(props) {
                     {comment.date ?
                             <span className="comments-date">
                                 {new Date(comment.date).toDateString()}
-                                {comment.date.getDay}
                             </span> : null}
-                    {userId == props.comment?.user._id ?
-                    <div className="comments-edit"
+                    {userId == props.comment?.user._id || userRole === 'admin' ?
+                    <div className="comments-settings"> 
+                        <div className="comments-edit"
                         onClick={() => setEditComment(true)}>
                         Edit
+                        </div>
+                        <div className="comments-delete"
+                        onClick={() => deleteComment(comment._id)}>
+                        Delete
+                        </div>
                     </div>
                         : null}
                     <p>

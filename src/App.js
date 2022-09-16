@@ -41,6 +41,7 @@ function App() {
           <Route path='/signin' element={logged? <Hero /> :<SignIn />} />
           <Route path='/city/:id' element={<City />} />
           <Route path='/mytineraries' element={logged? <MyTineraries /> :<NotFound />} />
+          <Route path='/new-itinerary/:id' element={logged? <NewItinerary /> :<NotFound />} />
           <Route path='/new-itinerary' element={logged? <NewItinerary /> :<NotFound />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
