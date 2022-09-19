@@ -23,7 +23,11 @@ export const store = configureStore({
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             inmutableCheck:false,
             serializableCheck: false,
-        })
+        }).concat(citiesAPI.middleware,
+            itinerariesAPI.middleware,
+            commentsAPI.middleware,
+            activitiesAPI.middleware,
+            usersAPI.middleware)
 })
 
 
