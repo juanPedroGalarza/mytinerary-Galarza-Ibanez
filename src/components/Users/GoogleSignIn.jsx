@@ -26,7 +26,7 @@ export default function GoogleSignIn(props) {
         }
     },[resSignIn])
     useEffect(() =>{
-        /*global google */
+        /* global google */
             google.accounts.id.initialize({
                 client_id: "273414375096-cnn3h8j0u985jn49k0gsrp7cfjg00fm4.apps.googleusercontent.com",
                 callback: handleCredentialResponse
