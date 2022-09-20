@@ -4,7 +4,9 @@ import { useUserSignInMutation } from "../features/actions/usersAPI";
 import GoogleSignIn from '../components/Users/GoogleSignIn';
 import { useEffect, useState } from 'react';
 import Alert from "../components/Alert";
-
+import { useDispatch } from 'react-redux';
+import {logIn, setUser} from "../features/user/userSlice"
+import { useNavigate } from 'react-router-dom';
 function SignIn() {
     const inputArray =[
         {
@@ -20,19 +22,17 @@ function SignIn() {
             value: ""
         }
     ]
-    const [showAlert,setShowAlert] = useState(false)
+    const dispatch = useDispatch()
+    const [showAlert, setShowAlert] = useState(false)
+    const navigate = useNavigate()
     let [userSignIn, {data: resSignIn, error}] = useUserSignInMutation()
     function localUser(dataUser) {
-        if (localStorage.getItem("user")) {
-            return true
-        }
         localStorage.setItem("user", JSON.stringify(dataUser))
-        return false
+        dispatch(setUser(dataUser))
     }
     useEffect(() => {
         if (resSignIn) {
-            const isLogged = localUser(resSignIn.response.user)
-            //isLogged se usara luego para verificar si ya esta logeado
+            localUser(resSignIn.response.user)
         }
     },[resSignIn])
     const signUserForm =(arrayform) => {
@@ -45,10 +45,15 @@ function SignIn() {
         userSignIn(data)
         setShowAlert(true)
     }
+    const stopAlert = () => {
+        setShowAlert(false)
+        dispatch(logIn())
+        navigate("/")
+    }
     useEffect(() => {
-        if (showAlert) {
+        if (showAlert && (resSignIn || error)) {
             setTimeout(() => {
-                setShowAlert(false)
+                stopAlert()
             },5000)
         }
     },[resSignIn, error])
@@ -59,7 +64,7 @@ function SignIn() {
             <Input inputsData={inputArray}  event={signUserForm} classPage="signin" />
             <GoogleSignIn localUser={localUser} />
             {showAlert ?
-                <Alert res={resSignIn} err={error} />
+                <Alert res={resSignIn} err={error} stop={stopAlert} />
             : null}
         </div>
     )

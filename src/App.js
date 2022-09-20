@@ -12,20 +12,27 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import NewItinerary from './pages/NewItinerary';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {logIn, setUser} from "./features/user/userSlice"
 
 function App() {
-
-  const [logged, setLogged] = useState(false);
-  const [admin, setAdmin]= useState(false);
-  //let users = useSelector((state)=>state.usersAPI.userSignIn)
-  
-  useEffect(() =>{
-    
-      JSON.parse(localStorage.getItem('user'))?.role&& setLogged(true)
-      JSON.parse(localStorage.getItem('user'))?.role==='admin' && setAdmin(true)
-  }, [])
+  const logged = useSelector(state=>state.user.logged)
+  const user = useSelector(state=>state.user.user)
+  const [admin, setAdmin] = useState(false);
+  const [role, setRole] = useState("")
+  const dispatch = useDispatch()
+  useEffect(() => {
+    user ? setRole(user.role) : setRole("")
+  },[logged,user])
+  useEffect(() => {
+    role === 'admin'? setAdmin(true): setAdmin(false)
+  }, [role])
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      dispatch(setUser(JSON.parse(localStorage.getItem("user"))))
+      dispatch(logIn())
+    }
+  },[])
 
 
   return (
@@ -34,11 +41,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Hero />} />
           <Route path='/cities' element={<CitiesPage />} />
-          <Route path='/new-city' element={logged&&admin? <NewCity /> : <Hero />} />
-          <Route path='/edit-city' element={logged&&admin? <EditCity /> : <Hero />} />
+          <Route path='/new-city' element={logged&&admin? <NewCity /> : <NotFound />} />
+          <Route path='/edit-city' element={logged&&admin? <EditCity /> : <NotFound />} />
           <Route path='/edit-city/:id' element={logged&&admin? <EditCity />: <NotFound />} />
-          <Route path='/signup' element={logged? <Hero /> :<SignUp />} />
-          <Route path='/signin' element={logged? <Hero /> :<SignIn />} />
+          <Route path='/signup' element={logged? <NotFound /> :<SignUp />} />
+          <Route path='/signin' element={logged? <NotFound /> :<SignIn />} />
           <Route path='/city/:id' element={<City />} />
           <Route path='/mytineraries' element={logged? <MyTineraries /> :<NotFound />} />
           <Route path='/new-itinerary/:id' element={logged? <NewItinerary /> :<NotFound />} />

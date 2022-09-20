@@ -2,23 +2,23 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 function WebsiteLayout(props) {
-    const [user,setUser] = useState({})
+    const user = useSelector(state=>state.user.user)
     const initPages = [
         {linkTo:"/",name:"Home"},
         {linkTo:"/cities",name:"Cities"}
     ]
-    const pathname = useLocation()
+    const logged = useSelector(state => state.user.logged)
     const [pages, setPages] = useState(initPages)
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("user")))
-        if (user) {
+        if (user.role) {
             setPages(initPages.concat([
                 {linkTo:"/new-itinerary",name:"New Itinerary"}
             ]))
-            if (user.role == "admin") {
+            if (user.role === "admin") {
                 setPages(initPages.concat([
                 {linkTo:"/new-itinerary",name:"New Itinerary"},
                 {linkTo:"/new-city",name:"New City"},
@@ -28,10 +28,10 @@ function WebsiteLayout(props) {
         } else {
             setPages(initPages)
         }
-    },[pathname])
+    },[user])
     return (
         <div>
-            <Header data={pages} user={user} />
+            <Header data={pages} />
             {props.children}
             <Footer data={pages}/>
         </div>

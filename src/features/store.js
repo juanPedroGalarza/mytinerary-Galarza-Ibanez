@@ -4,21 +4,15 @@ import { citiesAPI } from "./actions/citiesAPI"
 import { commentsAPI } from "./actions/commentsAPI"
 import { itinerariesAPI } from "./actions/itinerariesAPI"
 import { usersAPI } from "./actions/usersAPI"
-
+import userReducer from "./user/userSlice"
 export const store = configureStore({
     reducer:{
-
-            cities: citiesAPI,
             [citiesAPI.reducerPath] : citiesAPI.reducer,
-            itineraries: itinerariesAPI,
-            [itinerariesAPI.reducerPath]: itinerariesAPI.reducer,    
-            comments: commentsAPI,
+            [itinerariesAPI.reducerPath]: itinerariesAPI.reducer, 
             [commentsAPI.reducerPath]: commentsAPI.reducer,
-            activities: activitiesAPI,
             [activitiesAPI.reducerPath]: activitiesAPI.reducer, 
-            users: usersAPI,
             [usersAPI.reducerPath]: usersAPI.reducer,
-        
+            user: userReducer
         },
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             inmutableCheck:false,
