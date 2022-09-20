@@ -9,15 +9,22 @@
 }
 
 .comments-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
     margin-top: .5rem;
     background-color: #1e212dac;
     border-radius: 10px;
+    width: 70%;
+    padding: 0.5rem;
     color: #FAF3E0;
     border-color: #1e212d;
 }
 
 .comments-button:hover {
     background-color: #1e212d;
+    transition: all .5s ease-out;
+    width: 80%;
     color: #f8f3e6;
     border-color: #262a3a;
 }
@@ -41,27 +48,72 @@
     min-width: 20%;
     font-size: .7rem;
 }
+.comments-message-post{
+    margin: 2rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: .5rem;
+    background-color: #1e212dac;
+    border-radius: 10px;
+    width: 70%;
+    padding: 0.5rem;
+    color: #FAF3E0;
+    border-color: #1e212d;
+}
 
+.comments-message-post:hover{
+    background-color: #1e212d;
+    transition: all .5s ease-out;
+    width: 80%;
+    color: #f8f3e6;
+    border-color: #262a3a;
+}
 .comments-user p{
     font-family: sans-serif;
     color: #FAF3E0;
     font-size: 0.8rem;
     font-weight: 700;
 }
-
+.comments-message input{
+    background-color: transparent;
+    border: none;
+}
 .comments-message {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
     min-width: 75%;
     border: 1px solid #1e212d;
     background-color: #1e212daa;
     padding: 4px;
     border-radius: 5px;
 }
-
-.comments-message p {
+.comments-date, .comments-edit,.comments-delete, .comments-save, .comments-save-cancel{
+    font-size: .9rem;
+    opacity: .7;
+    padding: .2rem;
+    background-color: transparent;
+    color:#FAF3E0;
+    border: none;
+}
+.comments-edit:hover, .comments-save:hover,.comments-delete:hover, .comments-save-cancel:hover{
+    opacity: 1
+}
+.comments-message p, .comments-message input{
+    min-width: 100%;
     margin: 0.4rem;
+    font-size: 1rem;
     text-align: start;
     font-family: sans-serif;
     color: #FAF3E0;
+}
+.comments-settings{
+    display: flex;
+    flex-wrap: wrap;
+}
+.comments-message input:focus{
+    outline: none;
 }
 .no-comments{
     font-family: sans-serif;

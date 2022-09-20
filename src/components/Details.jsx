@@ -6,18 +6,12 @@ import {useGetCityItinerariesQuery} from "../features/actions/itinerariesAPI"
 function Details(props) {
     const city = props.data
     const id = props.cityId
+    
     //console.log(id)
-    let {data: itineraries, isLoading,isSuccess}= useGetCityItinerariesQuery(id)
+    let {data: itineraries}= useGetCityItinerariesQuery(id)
 
-    let newDate = new Date(city.fundation)
+    let newDate = new Date(city.foundation)
     let year = newDate.getFullYear()
-
-    let content;
-            if(isLoading){
-                itineraries = [] }else if(isSuccess){
-                    itineraries= itineraries.response
-                }
-    //console.log(itineraries.response)
 
 
     return (
@@ -28,13 +22,13 @@ function Details(props) {
             <div className="Details-p-div">
                 <div className="details-p-innerdiv">
                 <p className="Details-innerp"><span className="details-p-span">Country:</span> {city.country}.</p>
-                    <p className="Details-innerp" ><span className="details-p-span">Fundation:</span> {year}.</p>
+                    <p className="Details-innerp" ><span className="details-p-span">Foundation:</span> {year}.</p>
                     <p className="Details-innerp" ><span className="details-p-span"> Population:</span> {city.population}.</p>
                 </div>
                 <p className="Details-p" >{city.description}</p>
-                {itineraries.length? null:<h3 className="Details-subtitle"> We don't have any itineraries here right now...</h3>}
+                {itineraries?.length? null:<h3 className="Details-subtitle"> We don't have any itineraries here right now...</h3>}
             </div>
-                {itineraries.length? itineraries.map(itinerary => {
+                {itineraries?.length? itineraries.map(itinerary => {
                     return (
                         <Itinerary data={itinerary} key={itinerary._id} />
                         )
@@ -42,8 +36,9 @@ function Details(props) {
                 }
             <div className="Details-btns">
                     <LinkRouter to={`/`} className="Details-btn">Back to Home</LinkRouter>
-                    <LinkRouter to={`/cities`}className="Details-btn">Back to Cities</LinkRouter>
                     <LinkRouter to={`/edit-city/${id}`}className="Details-btn">Edit</LinkRouter>
+                    <LinkRouter to={`/new-itinerary/${id}`}className="Details-btn">New Itinerary</LinkRouter>
+                    <LinkRouter to={`/cities`}className="Details-btn">Back to Cities</LinkRouter>
             </div>
         </div>
     )

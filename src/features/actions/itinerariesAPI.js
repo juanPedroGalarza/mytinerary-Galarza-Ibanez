@@ -7,28 +7,26 @@ export const itinerariesAPI = createApi({
         baseUrl: apiurl
         }),
     endpoints: (builder)=>({
-        // createItinerary: builder.mutation({
-        //     query: (itinerary) =>({
-        //     url: `/itineraries`,
-        //     method:'POST',
-        //     body: itinerary
-        //         })
-        //     }),
-        // getItinerary: builder.query({
-        //     query: (id) => `/itineraries/${id}`
-        //     }),
+        postItinerary: builder.mutation({
+            query: (data) =>({
+            url: "/itineraries",
+            method:'POST',
+            body: data
+                })
+            }),
         getAllItineraries: builder.query({
             query: () => `/itineraries/`
             }),
         getCityItineraries: builder.query({
-            query: (id) =>(`/itineraries/?city=${id}`),
-            
+            query: (id) => (`/itineraries/?city=${id}`),
+            transformResponse: res => res.response
             }),
         getItinerariesUsers: builder.query({
-            query: (id) => `/itineraries/?auth=${id}`
+            query: (id) => `/itineraries/?auth=${id}`,
+            transformResponse: res => res.response
             }),
         modifyItinerary: builder.mutation({
-            query: (id,data) =>({
+            query: ({id,data}) =>({
             url: `/itineraries/${id}`,
             method:'PATCH',
             body: data
@@ -42,4 +40,4 @@ export const itinerariesAPI = createApi({
             })
 })})
 
-export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery } = itinerariesAPI
+export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery, usePostItineraryMutation } = itinerariesAPI
