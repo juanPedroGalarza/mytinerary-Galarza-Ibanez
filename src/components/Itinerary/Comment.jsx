@@ -1,12 +1,12 @@
 import { useRef, useState, useEffect } from "react"
-import { useModifyCommentMutation, useDeleteCommentMutation } from "../../features/actions/commentsAPI"
+import { useModifyCommentMutation } from "../../features/actions/commentsAPI"
 export default function Comment(props) {
 
     const userId = props.userId
+    const delComment = props.delComment
     const [comment,setComment] = useState(props.comment)
     const [editComment, setEditComment] = useState(false)
     const [modifyComment,{data:editedComment}] = useModifyCommentMutation()
-    const [deleteComment] = useDeleteCommentMutation()
     const inputComment = useRef(null)
     const [userRole, setUserRole] = useState()
     function saveComment() {
@@ -80,7 +80,7 @@ export default function Comment(props) {
                         Edit
                         </div>
                         <div className="comments-delete"
-                        onClick={() => deleteComment(comment._id)}>
+                        onClick={() => delComment(comment._id)}>
                         Delete
                         </div>
                     </div>

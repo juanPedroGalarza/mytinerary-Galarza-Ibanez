@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import { useUserSignUpMutation } from "../features/actions/usersAPI";
 import { useState, useEffect } from "react"
 import Alert from "../components/Alert"
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
     const inputArray =[
@@ -47,7 +48,7 @@ function SignUp() {
     ]
     const [showAlert,setShowAlert] = useState(false)
     let [userSignUp, { data: resSignUp, error}] = useUserSignUpMutation()
-    
+    const navigate = useNavigate()
     const signUserForm =(arrayform) => {
         let inputsForm = arrayform.filter(element => element.value)
         let data = inputsForm.reduce((values,input)=>{
@@ -59,10 +60,14 @@ function SignUp() {
         userSignUp(data)
         setShowAlert(true)
     }
+    const stopAlert = () => {
+        setShowAlert(false)
+        navigate("/signin")
+    }
     useEffect(() => {
-        if (showAlert) {
+        if (showAlert && (resSignUp || error)) {
             setTimeout(() => {
-                setShowAlert(false)
+                stopAlert()
             },5000)
         }
     },[resSignUp, error])
@@ -72,7 +77,7 @@ function SignUp() {
             <Input inputsData={inputArray}  event={signUserForm} classPage="signup" />
             <GoogleSignUp />
             {showAlert ?
-                <Alert res={resSignUp} err={error} />
+                <Alert res={resSignUp} err={error} stop={stopAlert} />
             : null}
         </div>
     )

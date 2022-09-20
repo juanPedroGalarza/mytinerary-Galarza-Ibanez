@@ -21,7 +21,7 @@ export const itinerariesAPI = createApi({
             query: (id) => (`/itineraries/?city=${id}`),
             transformResponse: res => res.response
             }),
-        getItinerariesUsers: builder.query({
+        getItinerariesUsers: builder.mutation({
             query: (id) => `/itineraries/?auth=${id}`,
             transformResponse: res => res.response
             }),
@@ -40,4 +40,4 @@ export const itinerariesAPI = createApi({
             })
 })})
 
-export const {useGetAllItinerariesQuery,useGetItinerariesUsersQuery,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery, usePostItineraryMutation } = itinerariesAPI
+export const {useGetAllItinerariesQuery,useGetItinerariesUsersMutation,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery, usePostItineraryMutation } = itinerariesAPI

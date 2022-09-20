@@ -1,13 +1,14 @@
 import { useState, useRef, useEffect } from "react"
 import "../../styles/itinerary/Comments.css"
-import { useCreateCommentMutation, useGetItinerariesCommentMutation } from "../../features/actions/commentsAPI"
+import { useCreateCommentMutation, useGetItinerariesCommentMutation, useDeleteCommentMutation } from "../../features/actions/commentsAPI"
 import Comment from "./Comment"
 
 export default function Comments(props) {
     let id = props.itinerary
     const userId = props.userId
     const inputCommentPost = useRef()
-    const [createComment] = useCreateCommentMutation()
+    const [createComment, {data: resPost}] = useCreateCommentMutation()
+    const [deleteComment, {data: resDel}] = useDeleteCommentMutation()
     const [open, setOpen] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
     const handleOpen = () => {
@@ -20,15 +21,19 @@ export default function Comments(props) {
         setOpenEdit(false)
         :setOpenEdit(true)
     }
-    let [getItinerariesComment,{data: comments}]= useGetItinerariesCommentMutation(id)
+    let [getItinerariesComment, { data: resComments, isSuccess }] = useGetItinerariesCommentMutation(id)
+    const [comments, setComments] = useState([])
     useEffect(() => {
-        if (!open) {   
-            getItinerariesComment(id)
+        getItinerariesComment(id)
+    }, [open, resPost, resDel])
+    useEffect(() => {
+        if (isSuccess) {   
+            setComments(resComments)
         }
-    },[open,openEdit])
+    },[resComments])
     const viewComment = (commentData) => {
         return (
-            <Comment key={commentData._id} comment={commentData} userId={userId} />
+            <Comment key={commentData._id} comment={commentData} userId={userId} delComment={ deleteComment } />
         )
     }
     const createCommentForm = () => {
@@ -41,7 +46,7 @@ export default function Comments(props) {
                 date: new Date()
             }
             createComment(commentData)
-            handleOpenEdit()
+            setOpenEdit(false)
         }
         return (
             <>
@@ -65,7 +70,7 @@ export default function Comments(props) {
     }
     return (
         <>
-        {comments?.length?
+        {comments.length?
         <button className="comments-button" type="button" onClick={handleOpen}>
             {open? "Close ":""}
             Comments

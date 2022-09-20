@@ -3,12 +3,20 @@ import { useRef, useEffect, useState } from "react"
 import * as jose from "jose"
 import { useUserSignInMutation } from "../../features/actions/usersAPI"
 import Alert from "../Alert";
-
+import { useDispatch } from 'react-redux';
+import {logIn} from "../../features/user/userSlice"
+import { useNavigate } from 'react-router-dom';
 export default function GoogleSignIn(props) {
     const buttonDiv= useRef(null)
     let [userSignIn,{data: resSignIn, error}]= useUserSignInMutation()
     const [showAlert,setShowAlert] = useState(false)
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const stopAlert = () => {
+        setShowAlert(false)
+        dispatch(logIn())
+        navigate("/")
+    }
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential)
         let dataLogin = {
@@ -21,12 +29,18 @@ export default function GoogleSignIn(props) {
     } 
     useEffect(() => {
         if (resSignIn) {
-            const isLogged = props.localUser(resSignIn.response.user)
-            //isLogged se usara luego para verificar si ya esta logeado
+            props.localUser(resSignIn.response.user)
         }
     },[resSignIn])
+    useEffect(() => {
+        if (showAlert && (resSignIn || error)) {
+            setTimeout(() => {
+                stopAlert()
+            },5000)
+        }
+    },[resSignIn, error])
     useEffect(() =>{
-        /*global google */
+        /* global google */
             google.accounts.id.initialize({
                 client_id: "273414375096-cnn3h8j0u985jn49k0gsrp7cfjg00fm4.apps.googleusercontent.com",
                 callback: handleCredentialResponse
@@ -40,7 +54,7 @@ export default function GoogleSignIn(props) {
             <div>
                 <div ref={buttonDiv} ></div>
                 {showAlert ?
-                <Alert res={resSignIn} err={error} />
+                    <Alert res={resSignIn} err={error} stop={ stopAlert } />
             : null}
             </div>
         )
