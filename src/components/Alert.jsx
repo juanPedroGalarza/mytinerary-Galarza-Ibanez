@@ -5,7 +5,7 @@ function Alert(props) {
     let [message,setMessage] = useState("")
     let [load,setLoad] = useState("")
     let [wrong,setWrong] = useState("")
-    
+    const stop = props.stop
     useEffect(() => {
         if (props.err) {
             setMessage(props.err.data.message)
@@ -23,7 +23,7 @@ function Alert(props) {
     return (
         <div className={`alert-container ${load} ${wrong}`}>
             <p className={`alert-text ${load} ${wrong}`}>{message}</p>
-            <span className={`alert-close ${load} ${wrong}`}>X</span>
+            <span className={`alert-close ${load} ${wrong}`} onClick={stop}>X</span>
         </div>
     )
 }
