@@ -5,7 +5,7 @@ import GoogleSignIn from '../components/Users/GoogleSignIn';
 import { useEffect, useState } from 'react';
 import Alert from "../components/Alert";
 import { useDispatch } from 'react-redux';
-import {logIn, setUser} from "../features/user/userSlice"
+import {logIn, setCredentials} from "../features/user/userSlice"
 import { useNavigate } from 'react-router-dom';
 function SignIn() {
     const inputArray =[
@@ -26,13 +26,9 @@ function SignIn() {
     const [showAlert, setShowAlert] = useState(false)
     const navigate = useNavigate()
     let [userSignIn, {data: resSignIn, error}] = useUserSignInMutation()
-    function localUser(dataUser) {
-        localStorage.setItem("user", JSON.stringify(dataUser))
-        dispatch(setUser(dataUser))
-    }
     useEffect(() => {
         if (resSignIn) {
-            localUser(resSignIn.response.user)
+            dispatch(setCredentials(resSignIn.response))
         }
     },[resSignIn])
     const signUserForm =(arrayform) => {
@@ -62,7 +58,7 @@ function SignIn() {
     return (
         <div className="signin-page-main">
             <Input inputsData={inputArray}  event={signUserForm} classPage="signin" />
-            <GoogleSignIn localUser={localUser} />
+            <GoogleSignIn />
             {showAlert ?
                 <Alert res={resSignIn} err={error} stop={stopAlert} />
             : null}
