@@ -11,7 +11,10 @@ export const itinerariesAPI = createApi({
             query: (data) =>({
             url: "/itineraries",
             method:'POST',
-            body: data
+            body: data,
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+                }
                 })
             }),
         getAllItineraries: builder.query({
@@ -22,14 +25,22 @@ export const itinerariesAPI = createApi({
             transformResponse: res => res.response
             }),
         getItinerariesUsers: builder.mutation({
-            query: (id) => `/itineraries/?auth=${id}`,
+            query: (id) =>({ 
+                url:`/itineraries/auth/?=${id}`,
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
+            }),
             transformResponse: res => res.response
             }),
         modifyItinerary: builder.mutation({
             query: ({id,data}) =>({
             url: `/itineraries/${id}`,
             method:'PATCH',
-            body: data
+            body: data,
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+                }
                 })
             }),
         deleteItinerary: builder.mutation({
@@ -37,7 +48,22 @@ export const itinerariesAPI = createApi({
                 url: `/itineraries/${id}`,
                 method:'DELETE',
                 })
+            }),
+            likeItinerary: builder.mutation({
+                query: (id, token) =>({
+                    url: `/itineraries/${id}`,
+                    method:'PATCH',
+                    headers: {"Authorization": "Bearer " + token}
+                    })
+                }),
             })
-})})
+})
 
-export const {useGetAllItinerariesQuery,useGetItinerariesUsersMutation,useDeleteItineraryMutation,useModifyItineraryMutation, useGetCityItinerariesQuery, usePostItineraryMutation } = itinerariesAPI
+export const {
+                useGetAllItinerariesQuery,
+                useGetItinerariesUsersMutation,
+                useDeleteItineraryMutation,
+                useModifyItineraryMutation,
+                useGetCityItinerariesQuery,
+                usePostItineraryMutation, 
+                useLikeItineraryMutation } = itinerariesAPI

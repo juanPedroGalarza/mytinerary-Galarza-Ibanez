@@ -62,6 +62,7 @@ export default function EditCity() {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
+        console.log(dataCity)
         editOneCity({id: city.response._id, data: dataCity})
     }
     useEffect(() => {

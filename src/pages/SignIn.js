@@ -43,8 +43,10 @@ function SignIn() {
     }
     const stopAlert = () => {
         setShowAlert(false)
+        if (resSignIn){
         dispatch(logIn())
         navigate("/")
+        }
     }
     useEffect(() => {
         if (showAlert && (resSignIn || error)) {
