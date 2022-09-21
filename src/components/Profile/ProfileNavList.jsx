@@ -12,12 +12,10 @@ function ProfileNavList() {
     const user = useSelector(state => state.user.user)
     const [showAlert,setShowAlert] = useState(false)
     const loggout = () => {
-        let logged =  JSON.parse(localStorage.getItem('user'))
-        userSignOut(logged)
+        userSignOut(user)
         setShowAlert(true)
-        setOpen(false)
         dispatch(logOut())
-        localStorage.removeItem('user');
+        localStorage.removeItem('token');
     }
     const initProfile = [
         {linkTo:"/signin",name:"Sign In"},
@@ -72,7 +70,7 @@ function ProfileNavList() {
         <div className='profileNavList'>
             <img className='profileNavList-img' src={user.photo || "https://i.ibb.co/jgp9dqj/user2.png"} onClick={handleList} />
             {open ?
-            <ul className='profileNavList-list'>
+            <ul className='profileNavList-list' onClick={()=>setOpen(false)}>
                 {profile.map(viewProfile)}
             </ul>
                 :null

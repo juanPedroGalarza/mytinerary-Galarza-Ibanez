@@ -13,14 +13,31 @@ import SignIn from './pages/SignIn';
 import NewItinerary from './pages/NewItinerary';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {logIn, setUser} from "./features/user/userSlice"
+import {logIn, setCredentials} from "./features/user/userSlice"
+import { useVerifyTokenMutation } from './features/actions/usersAPI';
+import Alert from './components/Alert';
 
 function App() {
   const logged = useSelector(state=>state.user.logged)
   const user = useSelector(state=>state.user.user)
   const [admin, setAdmin] = useState(false);
   const [role, setRole] = useState("")
+  const [showAlert, setShowAlert] = useState(false)
+  const [verifyToken,{data:resToken, error:errToken, isSuccess}] = useVerifyTokenMutation()
   const dispatch = useDispatch()
+  useEffect(() => {
+    let localToken = localStorage.getItem("token")
+    localToken && verifyToken(localToken)
+  },[])
+  useEffect(() => {
+    if (resToken?.success) {
+      dispatch(setCredentials(resToken.response))
+      dispatch(logIn())
+      setShowAlert(true)
+    } else if(errToken){
+      localStorage.removeItem("token")
+    }
+  },[isSuccess,errToken])
   useEffect(() => {
     user ? setRole(user.role) : setRole("")
   },[logged,user])
@@ -28,13 +45,10 @@ function App() {
     role === 'admin'? setAdmin(true): setAdmin(false)
   }, [role])
   useEffect(() => {
-    if (localStorage.getItem("user")) {
-      dispatch(setUser(JSON.parse(localStorage.getItem("user"))))
-      dispatch(logIn())
-    }
-  },[])
-
-
+    setTimeout(() => {
+      setShowAlert(false)
+    },5000)
+  },[isSuccess])
   return (
     <BrowserRouter>
     <WebsiteLayout>
@@ -52,6 +66,9 @@ function App() {
           <Route path='/new-itinerary' element={logged? <NewItinerary /> :<NotFound />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
+        {showAlert ?
+          <Alert res={resToken} stop={() => setShowAlert(false)} />:null
+      }
     </WebsiteLayout>
     </BrowserRouter>
   );
