@@ -22,14 +22,20 @@ export const usersAPI = createApi({
                 body: user
             }), 
             }),
-            userSignOut: builder.mutation({
-                query: (user) => ({
-                    url: "/auth/signout",
-                    method: "POST",
-                    body: user
+        userSignOut: builder.mutation({
+            query: (user) => ({
+                url: "/auth/signout",
+                method: "POST",
+                body: user
+            })
+        }),
+        verifyToken: builder.mutation({
+            query: (token)=>({
+                url: "/auth/token",
+                headers: {"Authorization": "Bearer " + token}
                 })
             })
         }),
     })
 
-    export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation } = usersAPI
+    export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation, useVerifyTokenMutation } = usersAPI
