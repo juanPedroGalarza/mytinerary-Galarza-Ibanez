@@ -2,15 +2,17 @@ import { useState, useRef, useEffect } from "react"
 import "../../styles/itinerary/Comments.css"
 import { useCreateCommentMutation, useGetItinerariesCommentMutation, useDeleteCommentMutation } from "../../features/actions/commentsAPI"
 import Comment from "./Comment"
+import { useSelector } from "react-redux"
 
 export default function Comments(props) {
     let id = props.itinerary
-    const userId = props.userId
+    const userId = useSelector(state=>state.user.user.id)
     const inputCommentPost = useRef()
     const [createComment, {data: resPost}] = useCreateCommentMutation()
     const [deleteComment, {data: resDel}] = useDeleteCommentMutation()
     const [open, setOpen] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
+    const token = localStorage.getItem("token")
     const handleOpen = () => {
         open ?
         setOpen(false)
@@ -33,7 +35,7 @@ export default function Comments(props) {
     },[resComments])
     const viewComment = (commentData) => {
         return (
-            <Comment key={commentData._id} comment={commentData} userId={userId} delComment={ deleteComment } />
+            <Comment key={commentData._id} comment={commentData} userId={userId} delComment={deleteComment} token={token} />
         )
     }
     const createCommentForm = () => {
@@ -41,11 +43,10 @@ export default function Comments(props) {
             e.preventDefault()
             let commentData = {
                 comment: inputCommentPost.current.value,
-                user: userId,
                 itinerary: id,
-                date: new Date()
             }
-            createComment(commentData)
+            createComment({ comment:commentData,token })
+            setOpen(true)
             setOpenEdit(false)
         }
         return (
