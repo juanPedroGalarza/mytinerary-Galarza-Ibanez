@@ -17,7 +17,7 @@ export const userSlice = createSlice({
     setCredentials: (state, action) => {
       let userData = action.payload.user
       let token = action.payload.token
-      state.user = userData
+      userData? state.user = userData : state.user = {}
       token && localStorage.setItem("token",token)
     },
   },

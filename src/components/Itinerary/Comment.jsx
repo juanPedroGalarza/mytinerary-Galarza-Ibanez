@@ -1,21 +1,22 @@
 import { useRef, useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import { useModifyCommentMutation } from "../../features/actions/commentsAPI"
 export default function Comment(props) {
-
+    const token = props.token
     const userId = props.userId
     const delComment = props.delComment
     const [comment,setComment] = useState(props.comment)
     const [editComment, setEditComment] = useState(false)
     const [modifyComment,{data:editedComment}] = useModifyCommentMutation()
     const inputComment = useRef(null)
-    const [userRole, setUserRole] = useState()
+    const userRole = useSelector(state=>state.user.user.role)
     function saveComment() {
         modifyComment({
             data: {
                 comment: inputComment.current.value,
-                date: new Date()
             },
-            id: comment._id
+            id: comment._id,
+            token
         })
     }
     useEffect(() => {
@@ -23,13 +24,6 @@ export default function Comment(props) {
             setComment(editedComment)
         }
     },[editedComment])
-
-    useEffect(()=> {
-        let roleUser = JSON.parse(localStorage.getItem("user"))
-            if (roleUser){
-                setUserRole(roleUser.role)
-            }
-    },[])
 
 
     return (
@@ -80,7 +74,7 @@ export default function Comment(props) {
                         Edit
                         </div>
                         <div className="comments-delete"
-                        onClick={() => delComment(comment._id)}>
+                        onClick={() => delComment({id:comment._id,token})}>
                         Delete
                         </div>
                     </div>
