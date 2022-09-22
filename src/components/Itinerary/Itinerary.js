@@ -3,6 +3,8 @@ import { useModifyItineraryMutation } from "../../features/actions/itinerariesAP
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
 import Comments from "./Comments"
+import Likes from "./Likes"
+
 
 
 export default function Itinerary(props) {
@@ -70,7 +72,7 @@ export default function Itinerary(props) {
                 : <div className="itinerary-body">
                     {userId === props.data.user?._id?<button type="button" className="itinerary-edit" onClick={()=>setOpenEditor(true)}>Edit</button>:null}
                 <div className="itinerary-text">
-                <p>♥{itinerary.likes.reduce((likes) => likes + 1,0) }</p>
+                < Likes itinerary={itinerary}  />
                 <p className="itinerary-duration">{itinerary.duration}hs</p>
                 </div>
                 <p className="itinerary-price">{"💵 ".repeat(itinerary.price)}</p>
