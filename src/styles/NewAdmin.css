@@ -1,0 +1,22 @@
+.newadmin-background {
+    background-color: blue;
+}
+.newadmin-form{
+    min-height: 100vh;
+}
+.newadmin-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 3rem;
+}
+
+.newadmin-input{
+    border: none;
+    display: flex;
+    align-content: center;
+    font-size: 1.5em;
+}
+
+

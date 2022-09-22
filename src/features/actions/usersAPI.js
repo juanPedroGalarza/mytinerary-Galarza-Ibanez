@@ -35,8 +35,23 @@ export const usersAPI = createApi({
                 url: "/auth/token",
                 headers: {"Authorization": "Bearer " + token}
                 })
-            })
-        }),
+            }),
+            editUser: builder.mutation({
+                query: (data) =>({
+                    url: `/auth/`,
+                    method:"PUT",
+                    body:data,
+                    headers: { "Authorization": "Bearer " + localStorage.getItem("token")}
+                })
+            }),
+        })
     })
 
-    export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation, useVerifyTokenMutation } = usersAPI
+    export const { 
+            useUserSignUpMutation,
+            useUserSignInMutation,
+            useUserSignOutMutation,
+            useVerifyTokenMutation,
+            useEditUserMutation,
+            useGetUserQuery
+        } = usersAPI
