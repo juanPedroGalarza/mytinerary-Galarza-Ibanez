@@ -16,6 +16,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {logIn, setCredentials} from "./features/user/userSlice"
 import { useVerifyTokenMutation } from './features/actions/usersAPI';
 import Alert from './components/Alert';
+import NewAdmin from './pages/NewAdmin';
+
 
 function App() {
   const logged = useSelector(state=>state.user.logged)
@@ -58,6 +60,7 @@ function App() {
           <Route path='/new-city' element={logged&&admin? <NewCity /> : <NotFound />} />
           <Route path='/edit-city' element={logged&&admin? <EditCity /> : <NotFound />} />
           <Route path='/edit-city/:id' element={logged&&admin? <EditCity />: <NotFound />} />
+          <Route path='/new-admin' element={logged&&admin? <NewAdmin/>: <NotFound />} />
           <Route path='/signup' element={logged? <NotFound /> :<SignUp />} />
           <Route path='/signin' element={logged? <NotFound /> :<SignIn />} />
           <Route path='/city/:id' element={<City />} />
