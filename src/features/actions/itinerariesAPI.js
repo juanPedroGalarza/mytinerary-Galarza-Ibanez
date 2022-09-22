@@ -47,6 +47,7 @@ export const itinerariesAPI = createApi({
             query: (id) =>({
                 url: `/itineraries/${id}`,
                 method:'DELETE',
+                headers:{ "Authorization": "Bearer " + localStorage.getItem("token")}
                 })
             }),
             likeItinerary: builder.mutation({

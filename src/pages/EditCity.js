@@ -100,7 +100,7 @@ export default function EditCity() {
                 </select>
             </Input>
             {showAlert ?
-                <Alert res={editedCity} err={error} />
+                <Alert res={editedCity} err={error} stop={() => setShowAlert(false)} />
             : null}
         </div>
     )

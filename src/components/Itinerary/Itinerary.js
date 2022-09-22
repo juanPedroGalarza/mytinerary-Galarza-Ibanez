@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { useModifyItineraryMutation } from "../../features/actions/itinerariesAPI"
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
@@ -9,15 +10,9 @@ import Likes from "./Likes"
 
 export default function Itinerary(props) {
     const [itinerary,setItinerary] = useState(props.data)
-    const [userId, setUserId] = useState()
+    const user = useSelector(state => state.user.user)
     const [openEditor,setOpenEditor] = useState(false)
     const [modifyItinerary, {data: resItinerary}] = useModifyItineraryMutation()
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem("user"))
-        if (user) {
-            setUserId(user.id)
-        }
-    }, [itinerary])
     function saveItinerary(e) {
         let dataItinerary = Array.from(e.target)
         dataItinerary = dataItinerary.filter((input) => input.value)
@@ -47,7 +42,7 @@ export default function Itinerary(props) {
                 <p className="itinerary-user-country">{props.data.user.country}</p>
             </div> : null}
             {/* esto es para evitar un error de carga mientras el usuario no este en itinerary */}
-            {userId === props.data.user?._id && openEditor?
+            {(user.id === props.data?.user?._id || user.role === 'admin') && openEditor?
                 <form className="itinerary-body" onSubmit={saveItinerary} >
                     <button type="submit" className="itinerary-submit">
                         Save</button>
@@ -56,7 +51,7 @@ export default function Itinerary(props) {
                     {props.children}
                 <input className="itinerary-name" name="name" type="text" defaultValue={itinerary.name} />
                 <div className="itinerary-text">
-                <p>♥{itinerary.likes.reduce((likes) => likes + 1,0) }</p>
+                <p>💖{itinerary.likes.reduce((likes) => likes + 1,0) }</p>
                 <input className="itinerary-duration-input" name="duration" type="number" defaultValue={itinerary.duration} />
                 </div>
                 <input className="itinerary-price-input"
@@ -70,7 +65,7 @@ export default function Itinerary(props) {
                         defaultValue={itinerary.tags?.join(" ")} />
                 </form>
                 : <div className="itinerary-body">
-                    {userId === props.data.user?._id?<button type="button" className="itinerary-edit" onClick={()=>setOpenEditor(true)}>Edit</button>:null}
+                    {user.id === props.data.user?._id || user.role === 'admin'?<button type="button" className="itinerary-edit" onClick={()=>setOpenEditor(true)}>Edit</button>:null}
                 <div className="itinerary-text">
                 < Likes itinerary={itinerary}  />
                 <p className="itinerary-duration">{itinerary.duration}hs</p>
@@ -85,7 +80,7 @@ export default function Itinerary(props) {
                 </div>
             }
             <Activities itinerary={itinerary._id} />
-            <Comments itinerary={itinerary._id} userId={userId} />
+            <Comments itinerary={itinerary._id} />
         </div>
     )
 }

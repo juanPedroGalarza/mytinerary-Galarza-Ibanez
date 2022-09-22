@@ -107,7 +107,7 @@ export default function NewTinerary(props) {
                 </select>
             </Input>
             {showAlert ?
-                <Alert res={resNewItinerary} err={error} />
+                <Alert res={resNewItinerary} err={error} stop={() => setShowAlert(false)} />
             : null}
         </div>  
     )

@@ -38,7 +38,7 @@ function Likes(props) {
     return (
         <div>
             {showAlert ?
-                <Alert res={resLike} err={error} />
+                <Alert res={resLike} err={error} stop={() => setShowAlert(false)}/>
             : null}
             <button onClick={handleLikes}>
             💞{likes.length}
