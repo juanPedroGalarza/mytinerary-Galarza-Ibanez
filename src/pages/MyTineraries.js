@@ -10,7 +10,7 @@ const MyTineraries = () => {
     const [getItinerariesUsers,{
         data: resItineraries,
         isSuccess
-    }] = useGetItinerariesUsersMutation(userId)
+    }] = useGetItinerariesUsersMutation()
     const [deleteItinerary, {data:resDel}] = useDeleteItineraryMutation()
     useEffect(() => {
         setUserId(JSON.parse(localStorage.getItem("user"))?.id)

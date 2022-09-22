@@ -55,7 +55,7 @@ export default function NewTinerary(props) {
     //console.log(selectEl.current.value)
 
     }
-    useEffect((loggedUser) => {
+    useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"))
         if (user) {
             setLoggedUser(user.id)
@@ -75,7 +75,6 @@ export default function NewTinerary(props) {
         itineraryData.likes= []
         itineraryData.user = loggedUser
         newItinerary(itineraryData)
-        console.log(itineraryData)
     }
 
     useEffect(() => {
