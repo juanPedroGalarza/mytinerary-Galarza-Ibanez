@@ -16,15 +16,19 @@ export const citiesAPI = createApi({
                 url: "/cities/",
                 method: "POST",
                 body: data,
-                //responseHandler: (res)=> res.body.response
-            })
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
+                })
             }),
         editOneCity: builder.mutation({
             query: ({id,data}) => ({
                 url: `/cities/${id}`,
                 method: "PUT",
                 body: data,
-                responseHandler: (res)=> res.body.response
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
                 })
         }),
         getOneCity: builder.query({

@@ -4,7 +4,7 @@ import * as jose from "jose"
 import { useUserSignInMutation } from "../../features/actions/usersAPI"
 import Alert from "../Alert";
 import { useDispatch } from 'react-redux';
-import {logIn} from "../../features/user/userSlice"
+import {logIn, setCredentials} from "../../features/user/userSlice"
 import { useNavigate } from 'react-router-dom';
 export default function GoogleSignIn(props) {
     const buttonDiv= useRef(null)
@@ -14,8 +14,10 @@ export default function GoogleSignIn(props) {
     const navigate = useNavigate()
     const stopAlert = () => {
         setShowAlert(false)
-        dispatch(logIn())
-        navigate("/")
+        if (resSignIn){
+            dispatch(logIn())
+            navigate("/")
+            }
     }
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential)
@@ -29,7 +31,7 @@ export default function GoogleSignIn(props) {
     } 
     useEffect(() => {
         if (resSignIn) {
-            props.localUser(resSignIn.response.user)
+            dispatch(setCredentials(resSignIn.response))
         }
     },[resSignIn])
     useEffect(() => {

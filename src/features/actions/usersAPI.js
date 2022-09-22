@@ -16,10 +16,11 @@ export const usersAPI = createApi({
                 }),
         }),
         userSignIn: builder.mutation({
-            query: (user) =>({
+            query: (user, token) =>({
                 url: "/auth/signin",
                 method: "POST",
-                body: user
+                body: user,
+                headers: {"Authorization": "Bearer " + token}
             }), 
             }),
         userSignOut: builder.mutation({

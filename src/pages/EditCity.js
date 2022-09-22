@@ -3,13 +3,16 @@ import "../styles/EditCity.css"
 import { useEditOneCityMutation, useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import Alert from "../components/Alert";
+
 export default function EditCity() {
     const selectEl = useRef(null)
     let { data: cities } = useGetAllCitiesQuery('')
     const [getACity, { data: city }] = useGetACityMutation()
-    const [editOneCity, {data: editedCity}] = useEditOneCityMutation()
+    const [editOneCity, {data: editedCity,error}] = useEditOneCityMutation()
     const {id}= useParams()
     const [backgroundIamge,setBackgroundIamge] = useState(null)
+    const [showAlert,setShowAlert] = useState(false)
     const inputArray = [
         {
             name: "City",
@@ -63,6 +66,7 @@ export default function EditCity() {
             return values
         },{})
         editOneCity({id: city.response._id, data: dataCity})
+        setShowAlert(true)
     }
     useEffect(() => {
         if (cities) {
@@ -79,6 +83,14 @@ export default function EditCity() {
     useEffect(() => {
         setBackgroundIamge(city?.response.photo)
     },[city])
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    }, [editedCity,error])
+    
     return (
         <div className="editCity-main" style={{ backgroundImage: `url(${backgroundIamge})` }}>
             <h1 className="editCity-title">Edit City</h1>
@@ -87,6 +99,9 @@ export default function EditCity() {
                     {cities?.response.map(viewOptions)}
                 </select>
             </Input>
+            {showAlert ?
+                <Alert res={editedCity} err={error} stop={() => setShowAlert(false)} />
+            : null}
         </div>
     )
 }
