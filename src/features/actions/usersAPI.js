@@ -44,6 +44,9 @@ export const usersAPI = createApi({
                     headers: { "Authorization": "Bearer " + localStorage.getItem("token")}
                 })
             }),
+            getUser: builder.query({
+                query: (id) => `/auth/${id}`
+            })
         })
     })
 
