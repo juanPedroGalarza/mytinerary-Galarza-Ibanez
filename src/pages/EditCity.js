@@ -1,13 +1,13 @@
 import Input from "../components/Input";
 import "../styles/EditCity.css"
-import { useEditOneCityMutation, useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
+import { useEditOneCityMutation, useGetAllCitiesBaseQuery, useGetACityMutation } from "../features/actions/citiesAPI";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import Alert from "../components/Alert";
 
 export default function EditCity() {
     const selectEl = useRef(null)
-    let { data: cities } = useGetAllCitiesQuery('')
+    let { data: cities } = useGetAllCitiesBaseQuery('')
     const [getACity, { data: city }] = useGetACityMutation()
     const [editOneCity, {data: editedCity,error}] = useEditOneCityMutation()
     const {id}= useParams()
@@ -51,6 +51,7 @@ export default function EditCity() {
             value: ""
         }
     ]
+
     const viewOptions = city => {
         return (
             <option value={city._id} className="editCity-option" key={city._id}>{city.city}</option>
