@@ -37,14 +37,12 @@ function CitiesPage() {
     },[])
 
     useEffect(() => {
-        console.log(citiesBase)
         if (isSuccess){
             let dataCountry = new Set(citiesBase.map(city=>city.country))
             dataCountry?
             setCountry([...dataCountry])
             : setCountry([])
         }
-
     }, [citiesBase])
         
             const viewOptions = country => {

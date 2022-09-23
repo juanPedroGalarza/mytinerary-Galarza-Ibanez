@@ -45,7 +45,6 @@ function Carousel(props) {
         setIntervalId(id)
         return () => clearInterval(intervalId)
     }, [end])
-    //console.log(items)
     return (
         <div className="carousel-container">
             <h3 className="carousel-title">Popular Cities</h3>

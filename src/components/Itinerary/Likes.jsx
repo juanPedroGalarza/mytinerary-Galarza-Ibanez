@@ -9,11 +9,11 @@ function Likes(props) {
     const userMaterial = useSelector(state=> state.user.user)
     const [liked, setLiked] = useState(false)
     let id = props.itinerary._id
-    const [likes, setLikes] = useState([]
-    )
+    const [likes, setLikes] = useState([])
     const [likeOrDislike, {data: resLike, error}] = useLikeItineraryMutation() 
-    const [showAlert,setShowAlert] = useState(false)
-    function handleLikes(e){
+    const [showAlert, setShowAlert] = useState(false)
+    
+    function handleLikes(){
             setShowAlert(true)
             likeOrDislike(id)
             liked? setLiked(false) : setLiked(true)
@@ -30,7 +30,8 @@ function Likes(props) {
     useEffect(() =>{
         if (props.itinerary){
             setLikes(props.itinerary.likes)
-            likes.includes(userMaterial.id) || !logged? setLiked(true) 
+            likes.includes(userMaterial.id) || !logged ?
+                setLiked(true)
             : setLiked(false)
 
         }

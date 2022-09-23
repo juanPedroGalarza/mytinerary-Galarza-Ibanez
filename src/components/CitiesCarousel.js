@@ -9,7 +9,7 @@ function CitiesCarousel() {
 
 
     return (
-        <Carousel data={cities.slice(0,12)} range={4} start={0} interval={10} />
+        <Carousel data={cities?.slice(0,12)} range={4} start={0} interval={10} />
     )
 }
 export default CitiesCarousel
