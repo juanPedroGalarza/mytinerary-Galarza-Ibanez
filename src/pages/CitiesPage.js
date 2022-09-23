@@ -49,7 +49,7 @@ function CitiesPage() {
         
             const viewOptions = country => {
                 return(
-                    <option value={country} className="country-option">{country}</option>)
+                    <option value={country} className="country-option" key={country}>{country}</option>)
             }
 
 
