@@ -49,7 +49,7 @@ export default function GoogleSignIn(props) {
             });
             google.accounts.id.renderButton(
                 buttonDiv.current,
-                { theme: "filled_black", size: "large", shape:"pill", text: "signup_with" }  // customization attributes
+                { theme: "filled_black", size: "large", shape:"pill", text: "signup_with" }
             );
         }, [])
         return (

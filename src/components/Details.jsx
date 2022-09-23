@@ -6,10 +6,7 @@ import {useGetCityItinerariesQuery} from "../features/actions/itinerariesAPI"
 function Details(props) {
     const city = props.data
     const id = props.cityId
-    
-    //console.log(id)
     let {data: itineraries}= useGetCityItinerariesQuery(id)
-
     let newDate = new Date(city.foundation)
     let year = newDate.getFullYear()
 

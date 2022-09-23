@@ -33,13 +33,16 @@ export const citiesAPI = createApi({
                 })
         }),
         getOneCity: builder.query({
-            query: (id)=>`/cities/${id}`
+            query: (id) => `/cities/${id}`,
+            transformResponse: res => res.response
         }),
         getAllCitiesBase: builder.query({
-            query: () => `/cities/`
+            query: () => `/cities/`,
+            transformResponse: res => res.response
             }),
         getACity: builder.mutation({
-            query: (id)=>`/cities/${id}`
+            query: (id)=>`/cities/${id}`,
+            transformResponse: res => res.response
         }),
     })
 })

@@ -4,7 +4,7 @@ import { useCreateCommentMutation, useGetItinerariesCommentMutation, useDeleteCo
 import Comment from "./Comment"
 import { useSelector } from "react-redux"
 
-export default function Comments(props) {
+export default function DisplayComments(props) {
     let id = props.itinerary
     const userId = useSelector(state=>state.user.user.id)
     const inputCommentPost = useRef()

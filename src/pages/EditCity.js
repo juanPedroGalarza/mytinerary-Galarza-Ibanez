@@ -7,7 +7,7 @@ import Alert from "../components/Alert";
 
 export default function EditCity() {
     const selectEl = useRef(null)
-    let { data: cities } = useGetAllCitiesBaseQuery('')
+    let { data: cities } = useGetAllCitiesBaseQuery()
     const [getACity, { data: city }] = useGetACityMutation()
     const [editOneCity, {data: editedCity,error}] = useEditOneCityMutation()
     const {id}= useParams()
@@ -66,7 +66,7 @@ export default function EditCity() {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
-        editOneCity({id: city.response._id, data: dataCity})
+        editOneCity({id: city._id, data: dataCity})
         setShowAlert(true)
     }
     useEffect(() => {
@@ -74,7 +74,7 @@ export default function EditCity() {
             if (id) {
                 getACity(id)
             } else {        
-                getACity(cities?.response[0]._id)
+                getACity(cities[0]._id)
             }
         }
         if (id) {
@@ -82,7 +82,7 @@ export default function EditCity() {
         }
     }, [cities])
     useEffect(() => {
-        setBackgroundIamge(city?.response.photo)
+        setBackgroundIamge(city?.photo)
     },[city])
     useEffect(() => {
         if (showAlert) {
@@ -97,7 +97,7 @@ export default function EditCity() {
             <h1 className="editCity-title">Edit City</h1>
             <Input inputsData={inputArray} event={(arrayForm,e)=>putCity(arrayForm,e)} classPage="editCity">
                 <select name="id" className="editCity-select" ref={selectEl} onChange={handleCity}>
-                    {cities?.response.map(viewOptions)}
+                    {cities?.map(viewOptions)}
                 </select>
             </Input>
             {showAlert ?

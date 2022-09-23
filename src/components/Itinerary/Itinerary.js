@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { useModifyItineraryMutation } from "../../features/actions/itinerariesAPI"
 import "../../styles/itinerary/Itinerary.css"
 import Activities from "./Activities"
-import Comments from "./Comments"
+import DisplayComments from "./DisplayComments"
 import Likes from "./Likes"
 
 
@@ -41,7 +41,6 @@ export default function Itinerary(props) {
                 <p className="itinerary-user-name">{props.data.user.name}</p>
                 <p className="itinerary-user-country">{props.data.user.country}</p>
             </div> : null}
-            {/* esto es para evitar un error de carga mientras el usuario no este en itinerary */}
             {(user.id === props.data?.user?._id || user.role === 'admin') && openEditor?
                 <form className="itinerary-body" onSubmit={saveItinerary} >
                     <button type="submit" className="itinerary-submit">
@@ -80,7 +79,7 @@ export default function Itinerary(props) {
                 </div>
             }
             <Activities itinerary={itinerary._id} />
-            <Comments itinerary={itinerary._id} />
+            <DisplayComments itinerary={itinerary._id} />
         </div>
     )
 }

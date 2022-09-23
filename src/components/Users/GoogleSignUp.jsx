@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function GoogleSignUp() {
     const buttonDiv= useRef(null)
-    //console.log(buttonDiv.current)
     let [newUser,{data: resSignUp, error}]= useUserSignUpMutation()
     const [showAlert,setShowAlert] = useState(false)
     const navigate = useNavigate()
@@ -45,7 +44,7 @@ export default function GoogleSignUp() {
             });
             google.accounts.id.renderButton(
                 buttonDiv.current,
-                { theme: "filled_black", size: "large", shape:"pill", text: "signup_with" }  // customization attributes
+                { theme: "filled_black", size: "large", shape:"pill", text: "signup_with" }
             );
         }, [])
         return (

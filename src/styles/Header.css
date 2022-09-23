@@ -89,7 +89,7 @@
     background-color: #1E212D;
     overflow-y: scroll;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     transition: all 400ms;
 }
 .header-nav-modal.active{
@@ -109,7 +109,7 @@
         justify-content: center;
     }
     .header-close-nav{
-        background: url("https://i.ibb.co/JcCTWw0/cerrar-List-W.png");
+        background: url("../../public/img/closeList.png");
         background-position: 50%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -126,7 +126,7 @@
         margin: .2rem;
     }
     .header-open-nav{
-        background: url("https://i.ibb.co/Ybs0XB3/menu-List-W.png");
+        background: url("../../public/img/menuListW.png");
         background-position: 50%;
         background-size: contain;
         background-repeat: no-repeat;

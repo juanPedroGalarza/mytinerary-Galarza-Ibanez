@@ -1,26 +1,20 @@
 import Details from "../components/Details"
 import { useParams } from 'react-router-dom'
 import "../styles/CitiesPage.css" 
+import { useGetOneCityQuery } from "../features/actions/citiesAPI"
 import { useEffect, useState } from "react"
-import axios from "axios"
-import apiurl from "../api"
 function City() {
     const {id} = useParams()
-    const [name, setName] = useState([]);
+    const { data: resCity} = useGetOneCityQuery(id)
+    const [city, setCity] = useState({})
 
-    useEffect(()=>{
-        axios.get(`${apiurl}/cities/${id}`)
-        .then(res => {setName(res.data.response) 
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-    },[])
-
-
+    useEffect(() => {
+        resCity && setCity(resCity)
+    }, [resCity])
+    
     return (  
         <div className="CitiesPage-main">
-            <Details data={name} cityId={id} />
+            <Details data={city} cityId={id} />
         </div>
     )
 }

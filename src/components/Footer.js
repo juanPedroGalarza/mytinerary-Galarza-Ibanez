@@ -10,16 +10,19 @@ const Footer = (props) => {
     return (
         <div className='Footer-container'>
             <div className='Footer-socialmedia'>
-                <a href="https://www.instagram.com/mytinerary_/" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/jhk8JH6/instagram2.png'></img></a>
-                <a href="https://twitter.com/MytineraryApp" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/6wxyJgN/twitter2.png'></img></a>
-                <a href="https://www.youtube.com/watch?v=6PDmZnG8KsM" className='Footer-mediaicon'><img className="Footer-icon-img" src='https://i.ibb.co/FnkNTjS/youtube2.png'></img></a>
+                <a href="https://www.instagram.com/mytinerary_/" className='Footer-mediaicon'>
+                    <img className="Footer-icon-img" src='/img/instagram.png'></img></a>
+                <a href="https://twitter.com/MytineraryApp" className='Footer-mediaicon'>
+                    <img className="Footer-icon-img" src='/img/twitter.png'></img></a>
+                <a href="https://www.youtube.com/watch?v=Jv4O_XeHPyA" className='Footer-mediaicon'>
+                    <img className="Footer-icon-img" src='/img/youtube.png'></img></a>
             </div>
             <ActualDate />
             <div className="Footer-nav">
                 {pages.map(viewNav)}
             </div>
             <div className="Footer-scroll">
-                <ScrollToTop><img className="Footer-scroll-img" src="https://i.ibb.co/tLQFBzk/up-arrow2.png"></img></ScrollToTop>
+                <ScrollToTop><img className="Footer-scroll-img" src="/img/up-arrow.png"></img></ScrollToTop>
             </div>
         </div>
     )
