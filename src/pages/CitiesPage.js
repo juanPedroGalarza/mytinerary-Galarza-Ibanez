@@ -34,12 +34,16 @@ function CitiesPage() {
             <select ref={orderEl} className="citiesPage-order" name="order" onChange={handleOrder} defaultValue="none">
                 <option value="none" className="citiespage-select">⇚ Select an order ⇛</option>
                 <optgroup label="Alphabetic">
-                    <option value="a-z">A ≫ Z</option>
-                    <option value="z-a">Z ≪ A</option>
+                    <option value="a-z"> a ≫ Z </option>
+                    <option value="z-a"> z ≪ A </option>
                 </optgroup>
                 <optgroup label="Population">
                     <option value="up">Lower to highest</option>
                     <option value="down">Highest to lower</option>
+                </optgroup>
+                <optgroup label="Foundation">
+                    <option value="new"> Newest to oldest</option>
+                    <option value="old"> Oldest to Newest</option>
                 </optgroup>
             </select>
             <TableList data={cities} />

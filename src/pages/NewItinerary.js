@@ -2,14 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Alert from "../components/Alert";
 import Input from "../components/Input";
-import { useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
+import { useGetAllCitiesBaseQuery} from "../features/actions/citiesAPI";
 import { usePostItineraryMutation} from "../features/actions/itinerariesAPI";
 import '../styles/NewItinerary.css'
 
 export default function NewTinerary(props) {
     const selectEl = useRef(null);
     const [showAlert,setShowAlert] = useState(false)
-    let { data: cities } = useGetAllCitiesQuery('')
+    let { data: cities } = useGetAllCitiesBaseQuery('')
     const [newItinerary, {data: resNewItinerary, error}] = usePostItineraryMutation()
     const [cityId, setCityId] = useState()
     const {id}= useParams()
