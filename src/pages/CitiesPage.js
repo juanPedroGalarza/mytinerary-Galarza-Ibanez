@@ -39,7 +39,7 @@ function CitiesPage() {
     useEffect(() => {
         console.log(citiesBase)
         if (isSuccess){
-            let dataCountry = new Set(citiesBase.response.map(city=>city.country))
+            let dataCountry = new Set(citiesBase.map(city=>city.country))
             dataCountry?
             setCountry([...dataCountry])
             : setCountry([])
