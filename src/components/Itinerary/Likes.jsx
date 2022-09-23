@@ -7,7 +7,7 @@ import Alert from '../Alert'
 function Likes(props) {
     const logged = useSelector(state => state.user.logged)
     const userMaterial = useSelector(state=> state.user.user)
-    const [liked, setLiked] = useState(false)
+    const [liked, setLiked] = useState(true)
     let id = props.itinerary._id
     const [likes, setLikes] = useState([])
     const [likeOrDislike, {data: resLike, error}] = useLikeItineraryMutation() 
@@ -16,7 +16,8 @@ function Likes(props) {
     function handleLikes(){
             setShowAlert(true)
             likeOrDislike(id)
-            liked? setLiked(false) : setLiked(true)
+            likes.includes(userMaterial.id) ?
+                setLiked(false):setLiked(true)
     }
 
     useEffect(() =>{
@@ -25,15 +26,15 @@ function Likes(props) {
             setLikes(newState)
         }
     },[resLike])
-
+    useEffect(() => {
+        if (likes && userMaterial.id) {
+            likes.includes(userMaterial.id)? setLiked(true):setLiked(false)
+        }
+    },[likes, userMaterial])
 
     useEffect(() =>{
         if (props.itinerary){
             setLikes(props.itinerary.likes)
-            likes.includes(userMaterial.id) || !logged ?
-                setLiked(true)
-            : setLiked(false)
-
         }
     },[props.itinerary])
 
@@ -52,10 +53,11 @@ function Likes(props) {
             {showAlert ?
                 <Alert res={resLike} err={error} stop={() => setShowAlert(false)}/>
             : null}
-            <button onClick={logged? handleLikes : null}>
-            {liked? 
-            '🖤' :'🤍'
-            } {likes.length}
+            <button className='itinerary-likes' onClick={logged ? handleLikes : null}>
+                <img
+                    className={`itinerary-likes-img ${liked? 'liked':''}`}
+                    src='/img/heart-button.png' />
+                {likes.length}
             </button>
         </div>
     )

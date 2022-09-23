@@ -69,7 +69,7 @@ function ProfileNavList() {
 
     return (
         <div className='profileNavList'>
-            <img className='profileNavList-img' src={user.photo || "https://i.ibb.co/jgp9dqj/user2.png"} onClick={handleList} />
+            <img className='profileNavList-img' src={user.photo || "/img/user.png"} onClick={handleList} />
             {open ?
             <ul className='profileNavList-list' onClick={()=>setOpen(false)}>
                 {profile.map(viewProfile)}
