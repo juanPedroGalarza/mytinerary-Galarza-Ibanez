@@ -17,7 +17,7 @@ import {logIn, setCredentials} from "./features/user/userSlice"
 import { useVerifyTokenMutation } from './features/actions/usersAPI';
 import Alert from './components/Alert';
 import NewAdmin from './pages/NewAdmin';
-
+import MyProfile from './pages/MyProfile';
 
 function App() {
   const logged = useSelector(state=>state.user.logged)
@@ -64,6 +64,7 @@ function App() {
           <Route path='/signup' element={logged? <NotFound /> :<SignUp />} />
           <Route path='/signin' element={logged? <NotFound /> :<SignIn />} />
           <Route path='/city/:id' element={<City />} />
+          <Route path='/profile/:id' element={logged? <MyProfile /> : <SignIn/>} />
           <Route path='/mytineraries' element={logged? <MyTineraries /> :<NotFound />} />
           <Route path='/new-itinerary/:id' element={logged? <NewItinerary /> :<NotFound />} />
           <Route path='/new-itinerary' element={logged? <NewItinerary /> :<NotFound />} />
