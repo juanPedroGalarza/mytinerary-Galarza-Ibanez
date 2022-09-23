@@ -70,9 +70,13 @@ export default function MyProfile() {
                 </div></> }
         {openEditor?
             <form className="profile-form" onSubmit={saveUserData}>
+                <label className="profile-label">Name</label>
                 <input type="text" name="Name" defaultValue={userATM.name}  className="profile-input"/>
+                <label className="profile-label">Last name</label>
                 <input type="text" name="Lastname" defaultValue={userATM.lastname} className="profile-input" />
+                <label className="profile-label">Country</label>
                 <input type="text" name="Country" defaultValue={userATM.country}  className="profile-input"/>
+                <label className="profile-label">Picture url</label>
                 <input type="url" name="Photo" defaultValue={userATM.photo} className="profile-input" />
                 <button type="submit" className="profile-btn">
                     Save
