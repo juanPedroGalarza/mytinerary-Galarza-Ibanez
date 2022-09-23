@@ -11,7 +11,7 @@
     width: 2.5rem;
     filter: brightness(85%);
     border-radius: 100%;
-
+    cursor: pointer;
 }
 .profileNavList-img:hover{
     filter: saturate(200%);

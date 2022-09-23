@@ -26,7 +26,7 @@ const MyTineraries = () => {
         <div className="myTineraries-container">
             <div className='mytineraries-background'/>
             {itineraries.length ? <LinkRouter to={`/`} className="myTineraries-btn">Back to Home</LinkRouter>
-            :<h1>Not Itineraries Yet...</h1>} 
+            :<h1>Not Itineraries Yet...</h1>} :
             {itineraries.map((itinerary) => {
                 return (
                     <div className="myTineraries-item" key={itinerary._id}>

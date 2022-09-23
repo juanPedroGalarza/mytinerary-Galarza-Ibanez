@@ -19,14 +19,12 @@ function Likes(props) {
             liked? setLiked(false) : setLiked(true)
     }
 
-
     useEffect(() =>{
         if (resLike){
             let newState = resLike.response
             setLikes(newState)
         }
     },[resLike])
-
 
     useEffect(() =>{
         if (props.itinerary){

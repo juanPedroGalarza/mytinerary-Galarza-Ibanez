@@ -23,7 +23,8 @@ function ProfileNavList() {
     ]
     const loggedProfile = [
         {linkTo:"/",name:"Sign Out",action:loggout},
-        {linkTo:"/mytineraries",name:"MyTineraries"}
+        {linkTo:"/mytineraries",name:"MyTineraries"},
+        {linkTo:`/profile/${user.id}`,name:"My Profile"}
     ]
     const [profile,setProfile] = useState(initProfile)
     useEffect(() => {

@@ -30,3 +30,11 @@
     width: 30vw;
     border: solid 0.3rem rgba(30, 33, 45, 0.548);
 }
+.citiesPage-order{
+    margin-top: 0.6rem;
+    font-size: 1.5rem;
+    font-style: tahoma;
+    border-radius: 12px 0px 12px 0px;
+    text-align: center;
+    cursor: pointer;
+}

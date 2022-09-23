@@ -19,23 +19,31 @@ function CitiesPage() {
         name: searchValue,
         order: orderValue
     })
+
+
     useEffect(() => {
         handleValue()
         handleOrder()
     },[])
+
+
     return (
         <div className="CitiesPage-main">
             <h1 className="CitiesPage-title">Cities</h1>
             <input type="search" placeholder="Search" name="city" ref={searchEl} onChange={handleValue} className="citiesPage-search" />
             <select ref={orderEl} className="citiesPage-order" name="order" onChange={handleOrder} defaultValue="none">
-                <option value="none">-- select an order --</option>
+                <option value="none" className="citiespage-select">⇚ Select an order ⇛</option>
                 <optgroup label="Alphabetic">
-                    <option value="a-z">a···z</option>
-                    <option value="z-a">z···a</option>
+                    <option value="a-z"> a ≫ Z </option>
+                    <option value="z-a"> z ≪ A </option>
                 </optgroup>
                 <optgroup label="Population">
-                    <option value="up">lower to highest</option>
-                    <option value="down">highest to lower</option>
+                    <option value="up">Lower to highest</option>
+                    <option value="down">Highest to lower</option>
+                </optgroup>
+                <optgroup label="Foundation">
+                    <option value="new"> Newest to oldest</option>
+                    <option value="old"> Oldest to Newest</option>
                 </optgroup>
             </select>
             <TableList data={cities} />

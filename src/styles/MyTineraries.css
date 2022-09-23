@@ -80,7 +80,10 @@
     border: none;
 
 }
-
+.itinerary-edit{
+    align-self: center;
+    width: 80%;
+}
 .itinerary-title{
     margin: 0.5rem;
     font-family: Tahoma;

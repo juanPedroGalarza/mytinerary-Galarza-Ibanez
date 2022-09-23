@@ -1,0 +1,114 @@
+.profile-main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.profile-background{
+    background-image: url(https://wallpaperaccess.com/full/222675.jpg);
+    background-position: 50%;
+    background-size: cover;
+    position: fixed;
+    bottom: 0vh;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+.profile-container{
+    background-color: #1e212dac;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    min-height: 200px;
+    width: 80%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 35px 15px 35px 15px;
+    box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(30, 33, 45, 0.75);
+    color: #FAF3E0;
+    text-align: center;
+    margin: 4em;
+}
+
+.profile-picture{
+    width: 20em;
+    height: 20em;
+    align-self: center;
+    object-fit: cover;
+    border-radius: 100%;
+    border: #FAF3E0 solid 0.5rem;
+}
+
+.profile-p{
+    color: #FAF3E0;
+    font-style: oblique;
+    margin: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.profile-picture:hover{
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+
+}
+
+.profile-username{
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FAF3E0;
+    font-family: Tahoma;
+}
+
+.profile-btn{
+    width: 60%;
+    text-decoration: none;
+    align-self: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.4vw;
+    color: #FAF3E0 ;
+    background-color:#1E212D ;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.profile-label{
+    color: #FAF3E0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.profile-form{
+    display: flex;
+    align-self: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    font-family: sans-serif;
+
+}
+.profile-input{
+    margin: 1rem;
+    padding: 1rem;
+    width: 60%;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #FAF3E0;
+    color: #1E212D;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
