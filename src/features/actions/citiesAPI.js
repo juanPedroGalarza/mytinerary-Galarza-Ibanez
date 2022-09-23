@@ -9,7 +9,7 @@ export const citiesAPI = createApi({
     }),
     endpoints: (builder) => ({
         getAllCities: builder.query({
-            query: ({ name, order }) => `/cities/?city=${name}&order=${order}`,
+            query: ({ name, order,country }) => `/cities/?city=${name}&order=${order}&country=${country}`,
             transformResponse: res=> res.response
             }),
         postOneCity: builder.mutation({

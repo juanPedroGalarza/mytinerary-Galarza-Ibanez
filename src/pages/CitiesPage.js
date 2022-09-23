@@ -1,13 +1,17 @@
 import TableList from "../components/TableList"
 import "../styles/CitiesPage.css"
 import { useState, useRef, useEffect } from "react";
-import { useGetAllCitiesQuery} from '../features/actions/citiesAPI'
+import { useGetAllCitiesQuery, useGetAllCitiesBaseQuery} from '../features/actions/citiesAPI'
 
 function CitiesPage() {
     const [searchValue, setSearchValue] = useState("")
     const [orderValue, setOrderValue] = useState("")
+    const [selectedCountry, setselectedCountry] = useState("")
+    const [country, setCountry] = useState([])
     const orderEl = useRef(null)
     const searchEl = useRef(null)
+    const countryEl= useRef(null)
+
     const handleValue = () => {
         setSearchValue(searchEl.current.value)
     }
@@ -15,16 +19,38 @@ function CitiesPage() {
         setOrderValue(orderEl.current.value)
     }
         
-    let { data: cities,} = useGetAllCitiesQuery({
+    const handleSearchValue = () => {
+        setselectedCountry(countryEl.current.value)
+    }
+    let { data: citiesBase, isSuccess } = useGetAllCitiesBaseQuery()
+
+    let { data: cities} = useGetAllCitiesQuery({
         name: searchValue,
-        order: orderValue
+        order: orderValue,
+        country: selectedCountry,
     })
 
-
     useEffect(() => {
+        handleSearchValue()
         handleValue()
         handleOrder()
     },[])
+
+    useEffect(() => {
+        console.log(citiesBase)
+        if (isSuccess){
+            let dataCountry = new Set(citiesBase.response.map(city=>city.country))
+            dataCountry?
+            setCountry([...dataCountry])
+            : setCountry([])
+        }
+
+    }, [citiesBase])
+        
+            const viewOptions = country => {
+                return(
+                    <option value={country} className="country-option" key={country}>{country}</option>)
+            }
 
 
     return (
@@ -45,6 +71,10 @@ function CitiesPage() {
                     <option value="new"> Newest to oldest</option>
                     <option value="old"> Oldest to Newest</option>
                 </optgroup>
+            </select>
+            <select defaultValue="none" ref={countryEl} onChange={handleSearchValue} >
+            <option value="none" className="citiespage-select"> Country ↪</option>
+            { country?.map(viewOptions)}
             </select>
             <TableList data={cities} />
         </div>

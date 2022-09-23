@@ -26,6 +26,7 @@ function Likes(props) {
         }
     },[resLike])
 
+
     useEffect(() =>{
         if (props.itinerary){
             setLikes(props.itinerary.likes)
