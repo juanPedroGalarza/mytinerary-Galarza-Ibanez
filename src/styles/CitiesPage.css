@@ -29,6 +29,7 @@
     border-radius: 12px;
     font-size: 1.4rem;
     width: 30vw;
+    min-width: 290px;
     border: solid 0.3rem rgba(30, 33, 45, 0.548);
 }
 .citiesPage-order{
@@ -39,19 +40,34 @@
     text-align: center;
     cursor: pointer;
     border: solid 0.3rem rgba(30, 33, 45, 0.548);
+    width: 30vw;
+    min-width: 260px;
+   
 }
 
 .citiespage-select2{
     border: solid 0.3rem rgba(30, 33, 45, 0.548);
     margin: 0.6rem;
+    width: 30vw;
     font-size: 1.2rem;
     font-style: tahoma;
     border-radius: 0px 12px 0px 12px;
     text-align: center;
     cursor: pointer;
+    min-width: 260px;
 }
 
 .filterdivs{
     display: flex;
     align-content: space-around;
+
+}
+
+@media (max-width: 768px){
+    
+    .filterdivs{
+        display: flex;
+        flex-direction: column;
+    }
+
 }
