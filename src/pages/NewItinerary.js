@@ -103,7 +103,7 @@ export default function NewTinerary(props) {
             <h1 className="newitinerary-title">New Itinerary</h1>
             <Input inputsData={inputArray} classPage="newitinerary" event={(arrayForm)=>putItinerary(arrayForm)}>
             <select name="city" className="newitineraries-select" ref={selectEl} onChange={handleCity} >
-                    {cities?.response.map(viewOptions)}
+                    {cities?.map(viewOptions)}
                 </select>
             </Input>
             {showAlert ?

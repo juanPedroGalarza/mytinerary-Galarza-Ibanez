@@ -5,7 +5,7 @@
         justify-content: center;
         min-height: 95vh;
         width: 100%;
-        background: url("https://free4kwallpapers.com/uploads/wallpaper/dubai-united-arab-emirates.-wallpaper_-1024x768-wallpaper.jpg");
+        background: url(https://wallpaperforu.com/wp-content/uploads/2020/09/city-wallpaper-2009191411596.jpg);
         background-size: cover;
         background-position: 50%;
         background-repeat: no-repeat;
@@ -25,8 +25,7 @@
         border: none;
         border-bottom: 2px solid #1E212D;
         border-bottom-right-radius: 20px;
-        background: rgb(182,137,115);
-        background: linear-gradient(300deg, rgba(182,137,115,.8) 0%, transparent 100%);
+        background: rgba(15, 11, 9, 1);
         font-size: 1.5em;
         color: aliceblue;
         text-shadow: -10px 10px 10px black;
@@ -40,7 +39,7 @@
     .newitinerary-form-input:focus{
         outline: none;
         border-bottom: 2px solid #50110b;
-        background: rgba(234, 191, 159,.5);
+        background: rgba(15, 11, 9, 1);
     }
     .newitinerary-form-p{
         font-size: 2em;
@@ -51,8 +50,7 @@
     .newitinerary-form-button{
         border-radius: 10px;
         border-bottom: 4px solid #1E212D;
-        background: rgb(234, 191, 159);
-        background: linear-gradient(300deg, rgba(234, 191, 159,.8) 50%, transparent 100%);
+        background:rgba(15, 11, 9, .8);
         font-size: 2rem;
         color: aliceblue;
         text-shadow: -2px 2px 2px black;
@@ -62,7 +60,7 @@
         transition: all .5s ease-out;
     }
     .newitinerary-form-button:hover{
-        background-color: #b02f00a2;
+        background-color: rgba(15, 11, 9, 1);
         border-color: solid #50110ba2;
     }
     .newitineraries-select{
@@ -71,8 +69,8 @@
     text-align: center;
     font-size: 1em;
     text-align: center;
-    background-color: #FAF3E0;
-    color: black;
+    background-color: #1E212D;
+    color: #FAF3E0;
     border-radius: 12px;
     padding: 6px;
     width: 50% ;
