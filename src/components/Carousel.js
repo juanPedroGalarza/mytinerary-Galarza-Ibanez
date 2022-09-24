@@ -49,9 +49,9 @@ function Carousel(props) {
         <div className="carousel-container">
             <h3 className="carousel-title">Popular Cities</h3>
             <div className="carousel">
-                <Arrow icon="<" click={prev} />
+                <Arrow icon="◀" click={prev} />
                 {slideView(items?.slice(start, end))}
-                <Arrow icon=">" click={next} />
+                <Arrow icon="▶" click={next} />
             </div>
         </div>
     )

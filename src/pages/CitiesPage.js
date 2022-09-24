@@ -38,7 +38,7 @@ function CitiesPage() {
 
     useEffect(() => {
         if (isSuccess){
-            let dataCountry = new Set(citiesBase.map(city=>city.country))
+            let dataCountry = new Set(citiesBase.map(city=>city.country.toLowerCase()))
             dataCountry?
             setCountry([...dataCountry])
             : setCountry([])
@@ -47,16 +47,16 @@ function CitiesPage() {
         
             const viewOptions = country => {
                 return(
-                    <option value={country} className="country-option" key={country}>{country}</option>)
+                    <option value={country} className="country-option" key={country}>▹ {country}</option>)
             }
-
 
     return (
         <div className="CitiesPage-main">
             <h1 className="CitiesPage-title">Cities</h1>
-            <input type="search" placeholder="Search" name="city" ref={searchEl} onChange={handleValue} className="citiesPage-search" />
+            <div className="filterdivs">
+            
             <select ref={orderEl} className="citiesPage-order" name="order" onChange={handleOrder} defaultValue="none">
-                <option value="none" className="citiespage-select">⇚ Select an order ⇛</option>
+                <option value="none" className="citiespage-select">↩ Select an order </option>
                 <optgroup label="Alphabetic">
                     <option value="a-z"> a ≫ Z </option>
                     <option value="z-a"> z ≪ A </option>
@@ -70,10 +70,12 @@ function CitiesPage() {
                     <option value="old"> Oldest to Newest</option>
                 </optgroup>
             </select>
-            <select defaultValue="none" ref={countryEl} onChange={handleSearchValue} >
-            <option value="none" className="citiespage-select"> Country ↪</option>
+            <input type="search" placeholder="Search" name="city" ref={searchEl} onChange={handleValue} className="citiesPage-search" />
+            <select defaultValue="none" className="citiespage-select2" ref={countryEl} onChange={handleSearchValue} >
+            <option value="none" className="citiespage-select-option"> Country ↪</option>
             { country?.map(viewOptions)}
             </select>
+            </div>
             <TableList data={cities} />
         </div>
     )

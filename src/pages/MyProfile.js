@@ -72,7 +72,7 @@ export default function MyProfile() {
             <form className="profile-form" onSubmit={saveUserData}>
                 <label className="profile-label">Name</label>
                 <input type="text" name="Name" defaultValue={userATM.name}  className="profile-input"/>
-                <label className="profile-label">Last name</label>
+                <label className="profile-label">Last Name</label>
                 <input type="text" name="Lastname" defaultValue={userATM.lastname} className="profile-input" />
                 <label className="profile-label">Country</label>
                 <input type="text" name="Country" defaultValue={userATM.country}  className="profile-input"/>
