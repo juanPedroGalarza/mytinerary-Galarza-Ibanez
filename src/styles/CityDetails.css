@@ -113,14 +113,16 @@
         text-decoration: none;
         margin: 1rem;
         padding: 1rem;
+        text-align: center;
         font-family: sans-serif;
         font-weight: 600;
         font-size: 1.2vw;
         color: #1E212D ;
         background-color:#FAF3E0 ;
         border-radius: 16px;
-    
+        min-width: 100px;
     }
+    
     .Details-btn:hover{
         background-color: #1E212D ;
         color:#FAF3E0;

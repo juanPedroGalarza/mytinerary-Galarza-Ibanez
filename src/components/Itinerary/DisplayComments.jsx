@@ -80,11 +80,11 @@ export default function DisplayComments(props) {
         <div className="comments-container">
                     {comments?.map(viewComment)}
                     {userId ? createCommentForm() :
-                    <p>Sign up for post a comment</p>}
+                    <p>Sign up to post a comment</p>}
         </div>
                 :
                 userId ? createCommentForm() :
-                    <p>Sign up for post a comment</p>
+                    <p>Sign up to post a comment</p>
             }
         </>
     )
