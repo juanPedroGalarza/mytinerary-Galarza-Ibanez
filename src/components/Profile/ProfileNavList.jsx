@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import {Link as LinkRouter} from 'react-router-dom'
 import { useUserSignOutMutation } from '../../features/actions/usersAPI'
 import "../../styles/profile/ProfileNavList.css"
 import Alert from "../Alert";
-
-function ProfileNavList(props) {
+import {logOut} from "../../features/user/userSlice"
+function ProfileNavList() {
     const [open, setOpen] = useState(false)
+    const dispatch = useDispatch()
     let [userSignOut, {data: resSignOut, error}] = useUserSignOutMutation()
-    const user = props.user
+    const user = useSelector(state => state.user.user)
     const [showAlert,setShowAlert] = useState(false)
-    let logged;
     const loggout = () => {
-        //console.log("loggout")
-        logged =  JSON.parse(localStorage.getItem('user'))
-        userSignOut(logged)
+        userSignOut(user)
         setShowAlert(true)
-        localStorage.removeItem('user');
-
+        dispatch(logOut())
+        localStorage.removeItem('token');
     }
     const initProfile = [
         {linkTo:"/signin",name:"Sign In"},
@@ -24,11 +23,12 @@ function ProfileNavList(props) {
     ]
     const loggedProfile = [
         {linkTo:"/",name:"Sign Out",action:loggout},
-        {linkTo:"/mytineraries",name:"MyTineraries"}
+        {linkTo:"/mytineraries",name:"MyTineraries"},
+        {linkTo:`/profile/${user.id}`,name:"My Profile"}
     ]
     const [profile,setProfile] = useState(initProfile)
     useEffect(() => {
-        if (user) {
+        if (user.role) {
             setProfile(loggedProfile)
             if (user.role == "admin") {
                 setProfile(loggedProfile.concat([{
@@ -39,7 +39,7 @@ function ProfileNavList(props) {
         } else {
             setProfile(initProfile)
         }
-    },[open])
+    },[user])
     const viewProfile = (item) => {
         return (
             <li className='profileNavList-item'
@@ -56,26 +56,28 @@ function ProfileNavList(props) {
     function handleList() {
         open? setOpen(false) : setOpen(true)
     }
-
+    const stopAlert = () => {
+        setShowAlert(false)
+    }
     useEffect(() => {
         if (showAlert) {
             setTimeout(() => {
-                setShowAlert(false)
+                stopAlert()
             },5000)
         }
     },[resSignOut, error])
 
     return (
         <div className='profileNavList'>
-            <img className='profileNavList-img' src={user? user.photo:"https://i.ibb.co/jgp9dqj/user2.png"} onClick={handleList} />
+            <img className='profileNavList-img' src={user.photo || "/img/user.png"} onClick={handleList} />
             {open ?
-            <ul className='profileNavList-list'>
+            <ul className='profileNavList-list' onClick={()=>setOpen(false)}>
                 {profile.map(viewProfile)}
             </ul>
                 :null
             }
             {showAlert ?
-                <Alert res={resSignOut}  />
+                <Alert res={resSignOut} err={error} stop={stopAlert} />
             : null}
         </div>
     )

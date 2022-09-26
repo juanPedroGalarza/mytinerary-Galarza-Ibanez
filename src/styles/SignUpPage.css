@@ -38,8 +38,7 @@
     border: none;
     border-bottom: 2px solid #1E212D;
     border-bottom-right-radius: 20px;
-    background: rgb(182,137,115);
-    background: linear-gradient(300deg, rgba(182,137,115,.8) 0%, transparent 100%);
+    background: linear-gradient(300deg, rgba(15, 11, 9, 1) 50%, rgba(15, 11, 9, 0.5) 100%);
     font-size: 1em;
     color: aliceblue;
     text-shadow: -2px 2px 2px black;
@@ -51,7 +50,7 @@
 .signup-form-input:focus{
     outline: none;
     border-bottom: 2px solid #50110b;
-    background: rgba(234, 191, 159,.5);
+    background: rgba(15, 11, 9, 1);
 }
 .signup-form-p{
     font-size: 1em;
@@ -60,9 +59,9 @@
     text-shadow: -2px 2px 2px black;
 }
 .signup-form-button{
-    border-radius: 5px;
-    border-bottom: 2px solid #1E212D;
-    background: rgb(234, 191, 159);
+    border-radius: 10px;
+    border-bottom: 4px solid #1E212D;
+    background:rgba(15, 11, 9, .8);
     background: linear-gradient(300deg, rgba(234, 191, 159,.8) 50%, transparent 100%);
     font-size: 1rem;
     color: aliceblue;
@@ -73,8 +72,8 @@
     transition: all .5s ease-out;
 }
 .signup-form-button:hover{
-    background-color: #b02f00a2;
-    border: 2px solid #50110ba2;
+    border-bottom: 4px solid #1E212D;
+    background:rgba(15, 11, 9, .8);
 }
 
 .signup-form-textarea{

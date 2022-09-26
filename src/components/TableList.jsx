@@ -2,8 +2,7 @@ import "../styles/TableList.css"
 import { Link as LinkRouter } from 'react-router-dom'
 
 function TableList(props) {
-    const cities = props.data.response? props.data.response : props.data
-    //console.log(cities)
+    const cities = props.data
     
     const itemView = (item) => {
         return (

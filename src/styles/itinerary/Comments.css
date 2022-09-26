@@ -32,8 +32,8 @@
 .comments-user-photo {
     height: 100px;
     width: 100px;
-    object-fit: contain;
-    border-radius: 50%;
+    object-fit: cover;
+    border-radius: 100%;
 }
 
 .comments-item {

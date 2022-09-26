@@ -3,7 +3,7 @@ import Arrow from "./Carousel/Arrow";
 import { useEffect, useState } from "react";
 import { Link as LinkRouter } from 'react-router-dom'
 function Carousel(props) {
-    let items = props.data.response? props.data.response : props.data
+    let items = props.data
     let range = props.range
     let [start, setStart] = useState(props.start)
     let [end, setEnd] = useState(start + range)
@@ -23,7 +23,7 @@ function Carousel(props) {
             )
         }
     function next() {
-        if (end <= items.length - range) {
+        if (end <= items?.length - range) {
             setStart(start + range)
             setEnd(end + range)
             return
@@ -45,14 +45,13 @@ function Carousel(props) {
         setIntervalId(id)
         return () => clearInterval(intervalId)
     }, [end])
-    //console.log(items)
     return (
         <div className="carousel-container">
             <h3 className="carousel-title">Popular Cities</h3>
             <div className="carousel">
-                <Arrow icon="<" click={prev} />
+                <Arrow icon="◀" click={prev} />
                 {slideView(items?.slice(start, end))}
-                <Arrow icon=">" click={next} />
+                <Arrow icon="▶" click={next} />
             </div>
         </div>
     )

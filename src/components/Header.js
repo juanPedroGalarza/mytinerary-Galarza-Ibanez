@@ -21,18 +21,19 @@ function Header(props) {
     return (
         <div className='header-nav-div'>
             <div className='header-items-div'>
-                <img className='header-logo' src='https://i.ibb.co/WfpYBpB/logomytinerary.png'></img>
+                <img className='header-logo'
+                    src='/img/logomytinerary.png'></img>
                 <p className='header-p'>MyTinerary</p>
             </div>
             <span onClick={toggleOpen} className="header-open-nav" ></span>
             <nav className='header-nav'>
                 {pages.map(viewNav)}
-                <ProfileNavList user={props.user} />
+                <ProfileNavList />
             </nav>
-                <nav className={`header-nav-modal ${open? "active":null}`}>
+                <nav className={`header-nav-modal ${open&& "active"}`}>
                 <span onClick={toggleOpen} className="header-close-nav"></span>
                 {pages.map(viewNav)}
-                <ProfileNavList user={props.user} />
+                <ProfileNavList />
                 </nav>
         </div>
     )

@@ -7,12 +7,12 @@ export const commentsAPI = createApi({
         baseUrl: apiurl
         }),
         endpoints: (builder)=>({
-            //Por ahora no.
             createComment: builder.mutation({
-                query: (comment) =>({
-                url: `/comments`,
-                method:'POST',
-                body: comment
+                query: ({comment,token}) =>({
+                    url: `/comments`,
+                    method:'POST',
+                    body: comment,
+                    headers: {"Authorization": "Bearer " + token}
                     })
                 }),
             getComment: builder.query({
@@ -28,17 +28,19 @@ export const commentsAPI = createApi({
                     }),
                     
             modifyComment: builder.mutation({
-                query: ({id,data}) =>({
+                query: ({id,data,token}) =>({
                 url: `/comments/${id}`,
                 method:'PUT',
-                body: data
+                body: data,
+                headers: {"Authorization": "Bearer " + token}
                 }),
                 transformResponse: res => res.response
                 }),
             deleteComment: builder.mutation({
-                query: (id) =>({
+                query: ({id,token}) =>({
                     url: `/comments/${id}`,
-                    method:'DELETE'
+                    method:'DELETE',
+                    headers: {"Authorization": "Bearer " + token}
                     })
                 })
         })

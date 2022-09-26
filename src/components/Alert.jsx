@@ -5,25 +5,27 @@ function Alert(props) {
     let [message,setMessage] = useState("")
     let [load,setLoad] = useState("")
     let [wrong,setWrong] = useState("")
-    
+    const stop = props.stop
     useEffect(() => {
         if (props.err) {
             setMessage(props.err.data.message)
             setWrong("wrong ")
-        } else {
-            setMessage(props.res?.message)
-            if (!props.res?.success) {
+            setLoad("load ")
+        } else if(props.res){
+            setMessage(props.res.message)
+            if (!props.res.success) {
                 setWrong("wrong ")
-            } else {
+                setLoad("load ")
+            } else{
                 setWrong("")
+                setLoad("load ")
             }
         }
-        setLoad("load ")
-    }, [props.res,props.err])
+    }, [props.res, props.err])
     return (
         <div className={`alert-container ${load} ${wrong}`}>
             <p className={`alert-text ${load} ${wrong}`}>{message}</p>
-            <span className={`alert-close ${load} ${wrong}`}>X</span>
+            <button type="button" className={`alert-close ${load} ${wrong}`} onClick={stop}>X</button>
         </div>
     )
 }

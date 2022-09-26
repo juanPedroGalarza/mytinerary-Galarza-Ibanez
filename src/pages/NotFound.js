@@ -7,7 +7,7 @@ export default function NotFound() {
             <div className='NotFound-div2'>
                 <p className='NotFound-p'>Not Found</p>
                 <CallToAction classCallToAction="NotFound-button" linkTo="/">Go back</CallToAction>
-                <img  className='NotFound-img' src='https://i.ibb.co/vkTbNbw/shovel-1.png' />
+                <img  className='NotFound-img' src='/img/shovel.png' />
             </div>
         </div>
     )

@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Alert from "../components/Alert";
 import Input from "../components/Input";
-import { useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
+import { useGetAllCitiesBaseQuery} from "../features/actions/citiesAPI";
 import { usePostItineraryMutation} from "../features/actions/itinerariesAPI";
 import '../styles/NewItinerary.css'
 
 export default function NewTinerary(props) {
     const selectEl = useRef(null);
-    let { data: cities } = useGetAllCitiesQuery('')
-    const [newItinerary] = usePostItineraryMutation()
+    const [showAlert,setShowAlert] = useState(false)
+    let { data: cities } = useGetAllCitiesBaseQuery('')
+    const [newItinerary, {data: resNewItinerary, error}] = usePostItineraryMutation()
     const [cityId, setCityId] = useState()
     const {id}= useParams()
     const inputArray =[
@@ -55,7 +57,7 @@ export default function NewTinerary(props) {
     //console.log(selectEl.current.value)
 
     }
-    useEffect((loggedUser) => {
+    useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"))
         if (user) {
             setLoggedUser(user.id)
@@ -75,7 +77,7 @@ export default function NewTinerary(props) {
         itineraryData.likes= []
         itineraryData.user = loggedUser
         newItinerary(itineraryData)
-        console.log(itineraryData)
+        setShowAlert(true)
     }
 
     useEffect(() => {
@@ -87,14 +89,26 @@ export default function NewTinerary(props) {
         }
     }, [cities])
 
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    }, [resNewItinerary,error])
+    
+
     return (
         <div className="newitinerary-main">
             <h1 className="newitinerary-title">New Itinerary</h1>
             <Input inputsData={inputArray} classPage="newitinerary" event={(arrayForm)=>putItinerary(arrayForm)}>
             <select name="city" className="newitineraries-select" ref={selectEl} onChange={handleCity} >
-                    {cities?.response.map(viewOptions)}
+                    {cities?.map(viewOptions)}
                 </select>
             </Input>
+            {showAlert ?
+                <Alert res={resNewItinerary} err={error} stop={() => setShowAlert(false)} />
+            : null}
         </div>  
     )
 }

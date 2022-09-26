@@ -1,15 +1,18 @@
 import Input from "../components/Input";
 import "../styles/EditCity.css"
-import { useEditOneCityMutation, useGetAllCitiesQuery, useGetACityMutation } from "../features/actions/citiesAPI";
+import { useEditOneCityMutation, useGetAllCitiesBaseQuery, useGetACityMutation } from "../features/actions/citiesAPI";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import Alert from "../components/Alert";
+
 export default function EditCity() {
     const selectEl = useRef(null)
-    let { data: cities } = useGetAllCitiesQuery('')
+    let { data: cities } = useGetAllCitiesBaseQuery()
     const [getACity, { data: city }] = useGetACityMutation()
-    const [editOneCity, {data: editedCity}] = useEditOneCityMutation()
+    const [editOneCity, {data: editedCity,error}] = useEditOneCityMutation()
     const {id}= useParams()
     const [backgroundIamge,setBackgroundIamge] = useState(null)
+    const [showAlert,setShowAlert] = useState(false)
     const inputArray = [
         {
             name: "City",
@@ -48,6 +51,7 @@ export default function EditCity() {
             value: ""
         }
     ]
+
     const viewOptions = city => {
         return (
             <option value={city._id} className="editCity-option" key={city._id}>{city.city}</option>
@@ -62,14 +66,15 @@ export default function EditCity() {
             values[input.name.toLowerCase()] = input.value
             return values
         },{})
-        editOneCity({id: city.response._id, data: dataCity})
+        editOneCity({id: city._id, data: dataCity})
+        setShowAlert(true)
     }
     useEffect(() => {
         if (cities) {
             if (id) {
                 getACity(id)
             } else {        
-                getACity(cities?.response[0]._id)
+                getACity(cities[0]._id)
             }
         }
         if (id) {
@@ -77,16 +82,27 @@ export default function EditCity() {
         }
     }, [cities])
     useEffect(() => {
-        setBackgroundIamge(city?.response.photo)
+        setBackgroundIamge(city?.photo)
     },[city])
+    useEffect(() => {
+        if (showAlert) {
+            setTimeout(() => {
+                setShowAlert(false)
+            },5000)
+        }
+    }, [editedCity,error])
+    
     return (
         <div className="editCity-main" style={{ backgroundImage: `url(${backgroundIamge})` }}>
             <h1 className="editCity-title">Edit City</h1>
             <Input inputsData={inputArray} event={(arrayForm,e)=>putCity(arrayForm,e)} classPage="editCity">
                 <select name="id" className="editCity-select" ref={selectEl} onChange={handleCity}>
-                    {cities?.response.map(viewOptions)}
+                    {cities?.map(viewOptions)}
                 </select>
             </Input>
+            {showAlert ?
+                <Alert res={editedCity} err={error} stop={() => setShowAlert(false)} />
+            : null}
         </div>
     )
 }

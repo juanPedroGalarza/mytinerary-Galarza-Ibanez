@@ -9,29 +9,40 @@ export const citiesAPI = createApi({
     }),
     endpoints: (builder) => ({
         getAllCities: builder.query({
-            query: (search)=>`/cities/?city=${search}`
+            query: ({ name, order,country }) => `/cities/?city=${name}&order=${order}&country=${country}`,
+            transformResponse: res=> res.response
             }),
         postOneCity: builder.mutation({
             query: (data) => ({
                 url: "/cities/",
                 method: "POST",
                 body: data,
-                //responseHandler: (res)=> res.body.response
-            })
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
+                })
             }),
         editOneCity: builder.mutation({
             query: ({id,data}) => ({
                 url: `/cities/${id}`,
                 method: "PUT",
                 body: data,
-                responseHandler: (res)=> res.body.response
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
                 })
         }),
         getOneCity: builder.query({
-            query: (id)=>`/cities/${id}`
+            query: (id) => `/cities/${id}`,
+            transformResponse: res => res.response
         }),
+        getAllCitiesBase: builder.query({
+            query: () => `/cities/`,
+            transformResponse: res => res.response
+            }),
         getACity: builder.mutation({
-            query: (id)=>`/cities/${id}`
+            query: (id)=>`/cities/${id}`,
+            transformResponse: res => res.response
         }),
     })
 })
@@ -41,4 +52,6 @@ export const {
     usePostOneCityMutation,
     useEditOneCityMutation,
     useGetOneCityQuery,
-    useGetACityMutation} = citiesAPI
+    useGetACityMutation,
+    useGetAllCitiesBaseQuery
+} = citiesAPI

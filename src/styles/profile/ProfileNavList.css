@@ -4,13 +4,15 @@
     align-items: flex-end;
     width: 2rem;
     margin: 1rem;
+    z-index: 1000;
 }
 .profileNavList-img{
-    object-fit: fill;
+    object-fit: cover;
+    height: 2.5rem;
     width: 2.5rem;
     filter: brightness(85%);
-    border-radius: 50%;
-
+    border-radius: 100%;
+    cursor: pointer;
 }
 .profileNavList-img:hover{
     filter: saturate(200%);
@@ -49,13 +51,6 @@
 .profileNavList-item-link:hover{
     color: #EABF9F;
 }
-@media (max-width: 904px) {
- 
-        .header-nav{
-            display: flex;
-            justify-content: center;
-        }
-}
 
 @media (max-width: 768px) {
     .profileNavList{
@@ -75,11 +70,5 @@
         border-radius: 360px;
         outline: 3px solid #0E111D;
         outline-offset: 1px;
-    }
-}
-
-@media (max-width: 770px){
-    .profileNavList-img{
-        visibility: hidden;
     }
 }

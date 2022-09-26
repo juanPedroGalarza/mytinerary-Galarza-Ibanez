@@ -1,15 +1,18 @@
 import { useState, useRef, useEffect } from "react"
 import "../../styles/itinerary/Comments.css"
-import { useCreateCommentMutation, useGetItinerariesCommentMutation } from "../../features/actions/commentsAPI"
+import { useCreateCommentMutation, useGetItinerariesCommentMutation, useDeleteCommentMutation } from "../../features/actions/commentsAPI"
 import Comment from "./Comment"
+import { useSelector } from "react-redux"
 
-export default function Comments(props) {
+export default function DisplayComments(props) {
     let id = props.itinerary
-    const userId = props.userId
+    const userId = useSelector(state=>state.user.user.id)
     const inputCommentPost = useRef()
-    const [createComment] = useCreateCommentMutation()
+    const [createComment, {data: resPost}] = useCreateCommentMutation()
+    const [deleteComment, {data: resDel}] = useDeleteCommentMutation()
     const [open, setOpen] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
+    const token = localStorage.getItem("token")
     const handleOpen = () => {
         open ?
         setOpen(false)
@@ -20,15 +23,19 @@ export default function Comments(props) {
         setOpenEdit(false)
         :setOpenEdit(true)
     }
-    let [getItinerariesComment,{data: comments}]= useGetItinerariesCommentMutation(id)
+    let [getItinerariesComment, { data: resComments, isSuccess }] = useGetItinerariesCommentMutation(id)
+    const [comments, setComments] = useState([])
     useEffect(() => {
-        if (!open) {   
-            getItinerariesComment(id)
+        getItinerariesComment(id)
+    }, [open, resPost, resDel])
+    useEffect(() => {
+        if (isSuccess) {   
+            setComments(resComments)
         }
-    },[open,openEdit])
+    },[resComments])
     const viewComment = (commentData) => {
         return (
-            <Comment key={commentData._id} comment={commentData} userId={userId} />
+            <Comment key={commentData._id} comment={commentData} userId={userId} delComment={deleteComment} token={token} />
         )
     }
     const createCommentForm = () => {
@@ -36,12 +43,11 @@ export default function Comments(props) {
             e.preventDefault()
             let commentData = {
                 comment: inputCommentPost.current.value,
-                user: userId,
                 itinerary: id,
-                date: new Date()
             }
-            createComment(commentData)
-            handleOpenEdit()
+            createComment({ comment:commentData,token })
+            setOpen(true)
+            setOpenEdit(false)
         }
         return (
             <>
@@ -65,7 +71,7 @@ export default function Comments(props) {
     }
     return (
         <>
-        {comments?.length?
+        {comments.length?
         <button className="comments-button" type="button" onClick={handleOpen}>
             {open? "Close ":""}
             Comments
@@ -74,11 +80,11 @@ export default function Comments(props) {
         <div className="comments-container">
                     {comments?.map(viewComment)}
                     {userId ? createCommentForm() :
-                    <p>Sign up for post a comment</p>}
+                    <p>Sign up to post a comment</p>}
         </div>
                 :
                 userId ? createCommentForm() :
-                    <p>Sign up for post a comment</p>
+                    <p>Sign up to post a comment</p>
             }
         </>
     )
